@@ -1,0 +1,167 @@
+.l_box {
+    display: flex;    
+}
+
+.category_box {
+    width: 10%;
+}
+.item_box {
+    width: 15%;
+}
+.content_box {
+    width: 35%;
+}
+.quantity_box {
+    width: 3%;
+}
+.unit_box {
+    width: 3%;
+}
+.unit_prise_box {
+    width: 7%;
+}
+.price_box {
+    width: 7%;
+}
+.machine_both_box {
+    width: 10%;           
+} 
+.lang_both_box {
+    width: 10%;
+}    
+
+.item_box_lock {
+	width: 300px;
+}
+.machine_box_lock {
+	width: 10px;
+}
+.lang_box_lock {
+	width: 10px;
+}
+.checkposition {
+	text-align: center; 
+	vertical-align: middle;
+	width: 10px;	
+}
+
+
+/*
+.chkbox {
+	margin:			0 0 10px 20px;
+}
+*/
+/* ラベルのスタイル　*/
+/*
+.chkbox label {
+	padding-left:		38px;	
+	font-size:		32px;
+	line-height:		32px;
+	display:		inline-block;
+	cursor:			pointer;
+	position:		relative;
+}
+*/
+/* ボックスのスタイル */
+/* 元のチェックボックスを表示しない */
+
+
+.chkbox_lang {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chkbox_lang_b {
+    width: 37%
+}
+.chkbox_lang_s {
+    display: flex;
+    justify-content: space-between;
+    width: 70%
+}
+.chkbox_ja, .chkbox_eng {
+
+}
+
+.chkbox_ja input[type=checkbox],.chkbox_web input[type=checkbox],.chkbox_app input[type=checkbox],.chkbox_eng input[type=checkbox] {
+	display:		none;
+}
+
+.chkbox_ja label:before {
+	background-color:	gray;
+	box-shadow:		inset 1px 2px 3px 0px #000;
+	border-radius:		6px 6px 6px 6px;
+	content:		'日本語';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;
+	font-size:		10px;			/* チェックのサイズ */
+	color:			silver;			/* チェックの色 */
+}
+/* チェックした時のスタイル */
+.chkbox_ja input[type=checkbox]:checked + label:before {
+	content:		'日本語';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;	
+	font-size:		10px;			/* チェックのサイズ */
+	color:			#fff;			/* チェックの色 */
+	background-color:	#06f;			/* チェックした時の色 */
+}
+.chkbox_eng label:before {
+	background-color:	gray;
+	box-shadow:		inset 1px 2px 3px 0px #000;
+	border-radius:		6px 6px 6px 6px;
+	content:		'英　語';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;
+	font-size:		10px;			/* チェックのサイズ */
+	color:			silver;			/* チェックの色 */
+}
+/* チェックした時のスタイル */
+.chkbox_eng input[type=checkbox]:checked + label:before {
+	content:		'英　語';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;	
+	font-size:		10px;			/* チェックのサイズ */
+	color:			#fff;			/* チェックの色 */
+	background-color:	#06f;			/* チェックした時の色 */
+}
+
+.chkbox_web label:before {
+	background-color:	gray;
+	box-shadow:		inset 1px 2px 3px 0px #000;
+	border-radius:		6px 6px 6px 6px;
+	content:		'ウェブ';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;
+	font-size:		10px;			/* チェックのサイズ */
+	color:			silver;			/* チェックの色 */
+}
+/* チェックした時のスタイル */
+.chkbox_web input[type=checkbox]:checked + label:before {
+	content:		'ウェブ';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;	
+	font-size:		10px;			/* チェックのサイズ */
+	color:			#fff;			/* チェックの色 */
+	background-color:	#06f;			/* チェックした時の色 */
+}
+
+.chkbox_app label:before {
+	background-color:	gray;
+	box-shadow:		inset 1px 2px 3px 0px #000;
+	border-radius:		6px 6px 6px 6px;
+	content:		'アプリ';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;
+	font-size:		10px;			/* チェックのサイズ */
+	color:			silver;			/* チェックの色 */
+}
+/* チェックした時のスタイル */
+.chkbox_app input[type=checkbox]:checked + label:before {
+	content:		'アプリ';		/* チェックの文字 */ 
+	padding: 5px 2px 5px 2px;
+	font-weight: bold;
+	font-size:		10px;			/* チェックのサイズ */
+	color:			#fff;			/* チェックの色 */
+	background-color:	#06f;			/* チェックした時の色 */
+}
