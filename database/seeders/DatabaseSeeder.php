@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
+         \App\Models\User::create([
             'name' => 'webディレクション',
             'email' => 'core.webd@gmail.com',
             'password' => Hash::make('core9321300'),
