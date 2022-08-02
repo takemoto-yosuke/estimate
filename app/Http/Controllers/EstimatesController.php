@@ -7,9 +7,15 @@ use App\Models\Estimate;
 use App\Models\Category;
 use App\Models\CheckItem;
 use Validator;
+use Auth;
 
 class EstimatesController extends Controller
 {
+    
+  public function __construct(){
+    $this->middleware('auth');
+  }    
+    
     public function index()
     {
       $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(1000);
