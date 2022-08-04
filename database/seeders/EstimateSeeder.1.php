@@ -1545,7 +1545,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 3,             
-          'checkitem_id' => 32,        
+          'checkitem_id' => 33,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1561,7 +1561,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 1,             
-          'checkitem_id' => 32,        
+          'checkitem_id' => 33,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1577,7 +1577,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 33,        
+          'checkitem_id' => 34,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1593,7 +1593,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 3,             
-          'checkitem_id' => 34,        
+          'checkitem_id' => 35,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1609,7 +1609,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 1,             
-          'checkitem_id' => 34,        
+          'checkitem_id' => 35,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1625,7 +1625,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 3,             
-          'checkitem_id' => 35,        
+          'checkitem_id' => 36,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1641,7 +1641,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 1,             
-          'checkitem_id' => 35,        
+          'checkitem_id' => 36,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1657,7 +1657,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 36,        
+          'checkitem_id' => 37,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1673,7 +1673,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 37,        
+          'checkitem_id' => 38,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1769,7 +1769,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 3,             
-          'checkitem_id' => 38,        
+          'checkitem_id' => 39,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1785,7 +1785,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 1,             
-          'checkitem_id' => 38,        
+          'checkitem_id' => 39,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1801,7 +1801,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 39,        
+          'checkitem_id' => 40,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1817,7 +1817,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 3,             
-          'checkitem_id' => 40,        
+          'checkitem_id' => 41,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1833,7 +1833,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 1,             
-          'checkitem_id' => 40,        
+          'checkitem_id' => 41,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1849,7 +1849,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 3,             
-          'checkitem_id' => 41,        
+          'checkitem_id' => 42,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1865,7 +1865,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 1,             
-          'checkitem_id' => 41,        
+          'checkitem_id' => 42,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1881,7 +1881,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 42,        
+          'checkitem_id' => 43,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1897,7 +1897,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 43,        
+          'checkitem_id' => 44,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1913,7 +1913,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 44,        
+          'checkitem_id' => 45,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1929,7 +1929,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 45,        
+          'checkitem_id' => 46,        
         ]);  
         Estimate::create([
           'category_id' => 6,         
@@ -1945,7 +1945,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 46,        
+          'checkitem_id' => 47,        
         ]);  
         Estimate::create([
           'category_id' => 7,         
@@ -1961,7 +1961,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 47,        
+          'checkitem_id' => 48,        
         ]);  
         Estimate::create([
           'category_id' => 7,         
@@ -1977,7 +1977,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 47,        
+          'checkitem_id' => 48,        
         ]);  
         Estimate::create([
           'category_id' => 8,         
@@ -1993,7 +1993,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 48,        
+          'checkitem_id' => 49,        
         ]);  
         Estimate::create([
           'category_id' => 8,         
@@ -2009,7 +2009,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 48,        
+          'checkitem_id' => 49,        
         ]);  
         Estimate::create([
           'category_id' => 8,         
@@ -2025,7 +2025,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 48,        
+          'checkitem_id' => 49,        
         ]);  
         Estimate::create([
           'category_id' => 8,         
@@ -2041,7 +2041,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 48,        
+          'checkitem_id' => 49,        
         ]);  
         Estimate::create([
           'category_id' => 9,         
@@ -2057,7 +2057,7 @@ class EstimateSeeder extends Seeder
           'ja_flag' => 0,           
           'eng_flag' => 0,           
           'lang_both' => 2,             
-          'checkitem_id' => 49,        
+          'checkitem_id' => 50,        
         ]);  
 /*        
         Estimate::create([

@@ -140,8 +140,12 @@ class CheckItemSeeder extends Seeder
           'machine' => 'common'            
         ]); 
         CheckItem::create([
-          'checkitem' => '表紙カスタマイズ',          
-          'machine' => 'both'                            
+          'checkitem' => 'アプリ版表紙カスタマイズ',          
+          'machine' => 'app'                            
+        ]); 
+        CheckItem::create([
+          'checkitem' => 'ウェブ版トップカスタマイズ（PC+モバイル）',          
+          'machine' => 'web'          
         ]); 
         CheckItem::create([
           'checkitem' => '文言変更',          

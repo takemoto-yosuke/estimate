@@ -25,8 +25,6 @@
                                 
 @foreach ($checkitems as $checkitem)     
  <tr>
-
-
   <td class="create_table">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}
   @if ($checkitem->id == 1)
@@ -70,13 +68,13 @@
   <td class="checkposition create_table"><input type="checkbox" name="common[{{ $checkitem->id }}]" value=1></td>
   <td class="create_table"></td>
   @elseif ($checkitem->machine == "web")
-  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled></td>
   <td class="create_table"></td>
+  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled></td>
   <td class="create_table"></td>
   @elseif ($checkitem->machine == "app")
   <td class="create_table"></td>
-  <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" disabled></td>
+  <td class="create_table"></td>
   @else
   <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled></td>
   <td class="create_table"></td>
