@@ -9,7 +9,7 @@ use Validator;
 class CheckItemController extends Controller
 {
   public function __construct(){
-    $this->middleware('auth');
+//    $this->middleware('auth');
   }    
     /**
      * Display a listing of the resource.
@@ -58,7 +58,7 @@ class CheckItemController extends Controller
          $checkitems->checkitem = $request->checkitem;
          $checkitems->machine = $request->machine;
          $checkitems->save(); 
-         return redirect('/');
+         return redirect('/checkitem');
     }
 
     /**
@@ -78,9 +78,9 @@ class CheckItemController extends Controller
      * @param  \App\Models\CheckItem  $checkItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(CheckItem $checkItem)
+    public function edit(CheckItem $checkitem)
     {
-        //
+        return view('checkitemsedit',compact('checkitem'));
     }
 
     /**
@@ -90,9 +90,11 @@ class CheckItemController extends Controller
      * @param  \App\Models\CheckItem  $checkItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CheckItem $checkItem)
+    public function update(Request $request, $id)
     {
-        //
+
+        $checkitem = CheckItem::find($id)->update($request->all());
+        return redirect('/checkitem');      
     }
 
     /**
@@ -101,8 +103,9 @@ class CheckItemController extends Controller
      * @param  \App\Models\CheckItem  $checkItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CheckItem $checkItem)
+    public function destroy($id)
     {
-        //
+        $checkItem = CheckItem::find($id)->delete();
+        return redirect('/checkitem');
     }
 }

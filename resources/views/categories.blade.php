@@ -3,13 +3,13 @@
      <!-- Bootstrapの定形コード… -->
      <div class="card-body">
          <div class="card-title">
-             カテゴリーの追加
+             カテゴリー
          </div>
          <!-- バリデーションエラーの表示に使用-->
      	@include('common.errors')
          <!-- バリデーションエラーの表示に使用-->
          <!-- 本登録フォーム -->
-         <form action="{{ url('categories') }}" method="POST" class="form-horizontal">
+         <form action="{{ url('category') }}" method="POST" class="form-horizontal">
              {{ csrf_field() }}
              <!-- 本のタイトル -->
              <div class="form-group">
@@ -54,7 +54,7 @@
                                      </form> 			        
                                  </td>
                                 <td>
-                                	<form action="{{ url('categoriesedit/'.$category->id) }}" method="GET"> {{ csrf_field() }}
+                                	<form action="{{ url('category/'.$category->id.'/edit')  }}" method="GET"> {{ csrf_field() }}
                                 	    <button type="submit" class="btn btn-primary">更新 </button>
                                 	</form>
                                 </td>                                 

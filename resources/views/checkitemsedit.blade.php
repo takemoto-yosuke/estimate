@@ -17,22 +17,27 @@
              </div>
          </div>
      @endif
-        <form action="{{ url('category/'.$category->id) }}" method="POST">
+        <form action="{{ url('checkitem/'.$checkitem->id) }}" method="POST">
             @method('PATCH')
             <!-- item_name -->
             <div class="form-group">
-                <label for="title">カテゴリー</label>
-                <input type="text" name="category" class="form-control" value="{{$category->category}}">
+                <label for="title">項目</label>
+                <input type="text" name="checkitem" class="form-control" value="{{$checkitem->checkitem}}">
+            </div>
+            <!-- item_name -->
+            <div class="form-group">
+                <label for="body">端末</label>
+                <input type="text" name="machine" class="form-control" value="{{$checkitem->machine}}">
             </div>
             <!--/ item_name -->
             <!-- Save ボタン/Back ボタン -->
             <div class="well well-sm">
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a class="btn btn-link pull-right" href="{{ url('/category') }}"> Back</a>
+                <a class="btn btn-link pull-right" href="{{ url('/checkitem') }}"> Back</a>
             </div>
             <!--/ Save ボタン/Back ボタン -->
             <!-- id 値を送信 -->
-            <input type="hidden" name="id" value="{{$category->id}}" /> <!--/ id 値を送信 -->
+            <input type="hidden" name="id" value="{{$checkitem->id}}" /> <!--/ id 値を送信 -->
             <!-- CSRF -->
             {{ csrf_field() }}
             <!--/ CSRF -->

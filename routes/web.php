@@ -18,24 +18,29 @@ Route::get('/', function () {
      return view('top');
  });
 
-Route::get('/category', [CategoriesController::class, 'index']);
-Route::get('/estimate', [EstimatesController::class, 'index']);
-Route::get('/checkitem', [CheckItemController::class, 'index']);
+//Route::get('/category', [CategoriesController::class, 'index']);
+//Route::get('/checkitem', [CheckItemController::class, 'index']);
+//Route::get('/estimate', [EstimatesController::class, 'index']);
 
 Route::get('/estimates_make',[EstimatesController::class, 'show']);
 
 
 //登録処理
-Route::post('/categories',[CategoriesController::class, 'store']);
-Route::post('/estimates',[EstimatesController::class, 'store']);
-Route::post('/checkitems',[CheckItemController::class, 'store']);
+//Route::post('/categories',[CategoriesController::class, 'store']);
+//Route::post('/checkitems',[CheckItemController::class, 'store']);
+//Route::post('/estimates',[EstimatesController::class, 'store']);
 Route::post('/estimates_create',[EstimatesController::class, 'create']);
 //作成ページ
 
 
 //更新画面
-Route::get('/categoriesedit/{categories}',[CategoriesController::class, 'edit']);
+//Route::get('/categoriesedit/{categories}',[CategoriesController::class, 'edit']);
 //更新処理
-Route::post('/categories/update',[CategoriesController::class, 'update']);
+//Route::post('/categories/update',[CategoriesController::class, 'update']);
 //本を削除
-Route::delete('/category/{category}',[CategoriesController::class, 'destroy']);
+//Route::delete('/category/{category}',[CategoriesController::class, 'destroy']);
+//Route::delete('/checkitem/{checkitem}',[CheckItemController::class, 'destroy']);
+
+Route::resource('checkitem', CheckItemController::class);
+Route::resource('category', CategoriesController::class);
+Route::resource('estimate', EstimatesController::class);

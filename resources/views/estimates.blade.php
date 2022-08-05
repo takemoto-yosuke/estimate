@@ -3,7 +3,7 @@
  @section('content')
      <!-- Bootstrapの定形コード… -->
      
-         <form action="{{ url('estimates') }}" method="POST" class="form-horizontal">
+         <form action="{{ url('estimate') }}" method="POST" class="form-horizontal">
          {{ csrf_field() }}
    
      
@@ -163,7 +163,7 @@
   <td class="table-text">
            @if ($estimate->category_id == 1 && $system_reset_flag == 1)
             <?php $system_reset_flag = 0?>
-            システム基本設定   
+            システム基本設定   <!-- DB読み込みに修正予定 -->
            @elseif ($estimate->category_id == 2 && $web_reset_flag == 1)
             <?php $web_reset_flag = 0?>
             ウェブ   
@@ -213,6 +213,23 @@
    @elseif ($estimate->lang_both == 1) {{"日本語 and 英語"}}  
    @endif           
   </td>
+  
+                                 <td> 			        
+                                     <form action="{{ url('estimate/'.$estimate->id) }}" method="POST">
+                                             {{ csrf_field() }}
+                                             {{ method_field('DELETE') }}
+                                             <button type="submit" class="btn btn-danger">
+                                                 削除
+                                             </button>
+                                     </form> 			        
+                                 </td>
+                                 <td>
+                                	    <form action="{{ url('estimate/'.$estimate->id.'/edit') }}" method="GET"> 
+                                	            {{ csrf_field() }}
+                                	            <button type="submit" class="btn btn-primary">更新 </button>
+                                	    </form>
+                                 </td>    
+  
  </tr>     
 @endforeach
  </tbody>

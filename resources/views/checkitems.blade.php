@@ -7,12 +7,12 @@
      	@include('common.errors')
          <!-- バリデーションエラーの表示に使用-->
          <!-- 本登録フォーム -->
-         <form action="{{ url('checkitems') }}" method="POST" class="form-horizontal">
+         <form action="{{ url('checkitem') }}" method="POST" class="form-horizontal">
              {{ csrf_field() }}
             <div class="l_box"> 
              <!-- 本のタイトル -->
              <div class="form-group">
-              カテゴリーの追加
+              項目
                  <div class="col-sm-11">
                      <input type="checkitem" name="checkitem" class="form-control">
                  </div>
@@ -59,7 +59,7 @@
                                  </td>
  			        <!-- 本: 削除ボタン -->
                                  <td> 			        
-                                     <form action="{{ url('category/'.$checkitem->id) }}" method="POST">
+                                     <form action="{{ url('checkitem/'.$checkitem->id) }}" method="POST">
                                              {{ csrf_field() }}
                                              {{ method_field('DELETE') }}
                                              <button type="submit" class="btn btn-danger">
@@ -67,11 +67,12 @@
                                              </button>
                                      </form> 			        
                                  </td>
-                                <td>
-                                	<form action="{{ url('categoriesedit/'.$checkitem->id) }}" method="GET"> {{ csrf_field() }}
-                                	    <button type="submit" class="btn btn-primary">更新 </button>
-                                	</form>
-                                </td>                                 
+                                 <td>
+                                	    <form action="{{ url('checkitem/'.$checkitem->id.'/edit') }}" method="GET"> 
+                                	            {{ csrf_field() }}
+                                	            <button type="submit" class="btn btn-primary">更新 </button>
+                                	    </form>
+                                 </td>                                 
                              </tr>
                          @endforeach
                      </tbody>

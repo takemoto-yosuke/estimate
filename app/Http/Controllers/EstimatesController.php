@@ -13,7 +13,7 @@ class EstimatesController extends Controller
 {
     
   public function __construct(){
-    $this->middleware('auth');
+//    $this->middleware('auth');
   }    
     
     public function index()
@@ -164,18 +164,20 @@ class EstimatesController extends Controller
     }
     
 
-    public function edit($id)
+    public function edit(Estimate $estimate)
     {
-        //
+         return view('estimatesedit',compact('estimate'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $estimate = Estimate::find($id)->update($request->all());
+        return redirect('/estimate'); 
     }
 
     public function destroy($id)
     {
-        //
+        $estimate = Estimate::find($id)->delete();
+        return redirect('/estimate');   
     }
 }

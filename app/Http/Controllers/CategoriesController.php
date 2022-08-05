@@ -9,7 +9,7 @@ use Validator;
 class CategoriesController extends Controller
 {
   public function __construct(){
-    $this->middleware('auth');
+//    $this->middleware('auth');
   }    
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-      $categories = Category::orderBy('created_at', 'asc')->paginate(10);
+      $categories = Category::orderBy('created_at', 'asc')->paginate(50);
       return view('categories', [
           'categories' => $categories
       ]);
@@ -57,7 +57,7 @@ class CategoriesController extends Controller
          $categories = new Category;
          $categories->category = $request->category;
          $categories->save(); 
-         return redirect('/');
+         return redirect('/category');
     }
 
     /**
@@ -77,9 +77,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+         return view('categoriesedit',compact('category'));
     }
 
     /**
@@ -91,7 +91,8 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id)->update($request->all());
+        return redirect('/category'); 
     }
 
     /**
@@ -102,6 +103,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id)->delete();
+        return redirect('/category');        
     }
 }
