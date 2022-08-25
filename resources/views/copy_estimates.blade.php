@@ -194,23 +194,23 @@
   <td>{{ $estimate->unit_prise }}</td>
   <td>{{ $estimate->prise }}</td>
   <td>
-   @if ($estimate->machine == "web_only") {{"ウェブのみ"}}
-   @elseif ($estimate->machine == "app_only") {{"アプリのみ"}}
-   @elseif ($estimate->machine == "web_include") {{"ウェブ含む"}}
-   @elseif ($estimate->machine == "app_include") {{"アプリ含む"}}
-   @elseif ($estimate->machine == "web|app") {{"ウェブ or アプリ"}}
-   @elseif ($estimate->machine == "web&app") {{"ウェブ and アプリ"}}
-   @elseif ($estimate->machine == "web|&app") {{"or（両端末版有）"}}           
+   @if ($estimate->web_flag == 1 && $estimate->app_flag == 0) {{"ウェブのみ"}}
+   @elseif ($estimate->web_flag == 0 && $estimate->app_flag == 1) {{"アプリのみ"}}
+   @elseif ($estimate->web_flag == 1) {{"ウェブ含む"}}
+   @elseif ($estimate->app_flag == 1) {{"アプリ含む"}}
+   @elseif ($estimate->machine_both == 2) {{"ウェブ or アプリ"}}
+   @elseif ($estimate->machine_both == 3) {{"or（両端末版有）"}}
+   @elseif ($estimate->machine_both == 1) {{"ウェブ and アプリ"}}           
    @endif
   </td>
   <td>
-   @if ($estimate->lang == "ja_only") {{"日本語のみ"}}
-   @elseif ($estimate->lang == "eng_only") {{"英語のみ"}}
-   @elseif ($estimate->lang == "ja_include") {{"日本語含む"}}
-   @elseif ($estimate->lang == "eng_include") {{"英語含む"}}
-   @elseif ($estimate->lang == "ja|eng") {{"日本語 or 英語"}}
-   @elseif ($estimate->lang == "ja&eng") {{"日本語 and 英語"}}
-   @elseif ($estimate->lang == "ja|&eng") {{"or（日英版有）"}}  
+   @if ($estimate->ja_flag == 1 && $estimate->eng_flag == 0) {{"日本語のみ"}}
+   @elseif ($estimate->ja_flag == 0 && $estimate->eng_flag == 1) {{"英語のみ"}}
+   @elseif ($estimate->ja_flag == 1) {{"日本語含む"}}
+   @elseif ($estimate->eng_flag == 1) {{"英語含む"}}
+   @elseif ($estimate->lang_both == 2) {{"日本語 or 英語"}}
+   @elseif ($estimate->lang_both == 3) {{"or（日英版有）"}}
+   @elseif ($estimate->lang_both == 1) {{"日本語 and 英語"}}  
    @endif           
   </td>
   

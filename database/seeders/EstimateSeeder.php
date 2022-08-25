@@ -24,13 +24,9 @@ class EstimateSeeder extends Seeder
           'quantity' => 1,          
           'unit' => '式',          
           'unit_prise' => 100000,        
-          'prise' => 100000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,          
+          'prise' => 100000,      
+          'machine' => "web|app",        
+          'lang' => "ja|&eng",              
           'checkitem_id' => 1,           
         ]); 
         Estimate::create([
@@ -41,12 +37,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 100000,        
           'prise' => 150000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,            
+          'machine' => "web|app",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 1,         
         ]);    
         Estimate::create([
@@ -57,12 +49,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 30000,        
           'prise' => 30000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,           
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,          
         ]);    
         Estimate::create([
@@ -73,12 +61,8 @@ class EstimateSeeder extends Seeder
           'unit' => 'ヶ月',          
           'unit_prise' => 44000,        
           'prise' => 88000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);        
         Estimate::create([
@@ -89,12 +73,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 20000,        
           'prise' => 20000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,            
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,         
         ]);        
         Estimate::create([
@@ -105,12 +85,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 30000,        
           'prise' => 30000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,            
+          'machine' => "web_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 1,         
         ]);        
         Estimate::create([
@@ -121,12 +97,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 50000,        
           'prise' => 50000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -137,12 +109,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_include",        
+          'lang' => "ja|&eng",        
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -153,12 +121,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -169,12 +133,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);      
         
@@ -188,12 +148,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 77000,        
           'prise' => 77000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_only",        
+          'lang' => "ja|eng",                    
           'checkitem_id' => 1,        
         ]); 
         Estimate::create([
@@ -204,12 +160,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_only",        
+          'lang' => "ja|eng",             
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -220,12 +172,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_only",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -236,12 +184,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 262500,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -252,12 +196,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 175000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",      
+          'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -268,12 +208,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 210000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 1,        
         ]);   
         
@@ -287,12 +223,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 50000,        
           'prise' => 50000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -303,12 +235,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 20000,        
           'prise' => 20000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 2,        
         ]);       
         Estimate::create([
@@ -319,12 +247,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 120000,        
           'prise' => 120000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 2,        
         ]);       
         Estimate::create([
@@ -335,12 +259,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 2,        
         ]);      
         Estimate::create([
@@ -351,12 +271,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 2,        
         ]);    
         Estimate::create([
@@ -367,12 +283,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -383,12 +295,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 80000,        
           'prise' => 80000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -399,12 +307,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 2,        
         ]);       
         Estimate::create([
@@ -415,12 +319,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",        
+          'lang' => "ja&eng",        
           'checkitem_id' => 2,        
         ]);       
         Estimate::create([
@@ -431,12 +331,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 2,        
         ]);      
         Estimate::create([
@@ -447,12 +343,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 2,        
         ]);    
         Estimate::create([
@@ -463,12 +355,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -479,12 +367,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 17500,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 1,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web&app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -495,12 +379,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 50000,        
           'prise' => 50000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_only",                   
+          'lang' => "ja|eng",             
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -511,12 +391,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 100000,        
           'prise' => 100000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -527,12 +403,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 80000,        
           'prise' => 80000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 2,        
         ]);  
         Estimate::create([
@@ -543,12 +415,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 43500,        
           'prise' => 43500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 1,        
         ]);           
         Estimate::create([
@@ -559,12 +427,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 43500,        
           'prise' => 65250,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 1,        
         ]);            
         Estimate::create([
@@ -575,12 +439,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 1,        
         ]);   
         Estimate::create([
@@ -591,12 +451,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 87500,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_only",                   
+          'lang' => "ja|eng",             
           'checkitem_id' => 7,        
         ]);   
         Estimate::create([
@@ -607,12 +463,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_only",                   
+          'lang' => "ja|eng",             
           'checkitem_id' => 7,        
         ]);   
         Estimate::create([
@@ -623,12 +475,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_only",                   
+          'lang' => "ja|eng",             
           'checkitem_id' => 8,        
         ]);   
         Estimate::create([
@@ -639,12 +487,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 9,        
         ]);  
         Estimate::create([
@@ -655,12 +499,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 87500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 10,        
         ]);  
         Estimate::create([
@@ -671,12 +511,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 140000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 10,        
         ]);  
         Estimate::create([
@@ -687,12 +523,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 10,        
         ]);  
         Estimate::create([
@@ -703,12 +535,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 11,        
         ]);  
         Estimate::create([
@@ -719,12 +547,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 11,        
         ]); 
         Estimate::create([
@@ -735,12 +559,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 12,        
         ]); 
         Estimate::create([
@@ -751,12 +571,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 12,        
         ]); 
         Estimate::create([
@@ -767,12 +583,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 13,        
         ]); 
         Estimate::create([
@@ -783,12 +595,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 13,        
         ]); 
         Estimate::create([
@@ -799,12 +607,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 7000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 14,        
         ]); 
         Estimate::create([
@@ -815,12 +619,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 14000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 14,        
         ]); 
         Estimate::create([
@@ -831,12 +631,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 15,        
         ]); 
         Estimate::create([
@@ -847,12 +643,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 15,        
         ]); 
         Estimate::create([
@@ -863,12 +655,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 15,        
         ]); 
         Estimate::create([
@@ -879,12 +667,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 15,        
         ]); 
         Estimate::create([
@@ -895,12 +679,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 87500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 1,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web&app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 16,        
         ]);           
         Estimate::create([
@@ -911,12 +691,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 175000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 1,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web&app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 16,        
         ]);           
         Estimate::create([
@@ -927,12 +703,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 16,        
         ]);         
         Estimate::create([
@@ -943,12 +715,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 16,        
         ]);   
         Estimate::create([
@@ -959,12 +727,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 16,        
         ]);       
         Estimate::create([
@@ -975,12 +739,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 16,        
         ]);    
         Estimate::create([
@@ -991,12 +751,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 17,        
         ]); 
         Estimate::create([
@@ -1007,12 +763,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 17,        
         ]); 
         Estimate::create([
@@ -1023,12 +775,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 17,        
         ]); 
         Estimate::create([
@@ -1039,12 +787,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 17,        
         ]); 
         
@@ -1056,12 +800,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 18,        
         ]); 
         Estimate::create([
@@ -1072,12 +812,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 18,        
         ]); 
         Estimate::create([
@@ -1088,12 +824,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_only",                   
+          'lang' => "ja|&eng",             
           'checkitem_id' => 18,        
         ]); 
         Estimate::create([
@@ -1104,12 +836,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 0,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 18,        
         ]); 
         Estimate::create([
@@ -1120,12 +848,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 19,        
         ]); 
         Estimate::create([
@@ -1136,12 +860,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 87500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 19,        
         ]); 
         Estimate::create([
@@ -1152,12 +872,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 19,        
         ]); 
         Estimate::create([
@@ -1168,12 +884,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 87500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 20,        
         ]); 
         Estimate::create([
@@ -1184,12 +896,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 20,        
         ]); 
         Estimate::create([
@@ -1200,12 +908,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 5000,        
           'prise' => 5000,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_only",                   
+          'lang' => "ja|eng",             
           'checkitem_id' => 21,        
         ]); 
         Estimate::create([
@@ -1216,12 +920,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 17500,        
           'prise' => 17500,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 22,        
         ]); 
         Estimate::create([
@@ -1232,12 +932,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 23,        
         ]); 
         Estimate::create([
@@ -1248,12 +944,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 26250,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 23,        
         ]); 
         Estimate::create([
@@ -1264,12 +956,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 24,        
         ]); 
         Estimate::create([
@@ -1280,12 +968,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 5000,        
           'prise' => 5000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 25,        
         ]); 
         Estimate::create([
@@ -1296,12 +980,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 5000,        
           'prise' => 10000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 25,        
         ]); 
         Estimate::create([
@@ -1312,12 +992,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 26,        
         ]); 
         Estimate::create([
@@ -1328,12 +1004,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 26,        
         ]); 
         Estimate::create([
@@ -1344,12 +1016,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 20000,        
           'prise' => 20000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 27,        
         ]); 
         Estimate::create([
@@ -1360,12 +1028,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 20000,        
           'prise' => 30000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 27,        
         ]); 
         Estimate::create([
@@ -1376,12 +1040,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 28,        
         ]); 
         Estimate::create([
@@ -1392,12 +1052,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 28,        
         ]); 
         Estimate::create([
@@ -1408,12 +1064,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 17500,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 29,        
         ]); 
         Estimate::create([
@@ -1424,12 +1076,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 17500,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 29,        
         ]); 
         Estimate::create([
@@ -1440,12 +1088,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 30,        
         ]); 
         Estimate::create([
@@ -1456,12 +1100,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 30,        
         ]); 
         
@@ -1475,12 +1115,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 15000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 31,        
         ]);  
         Estimate::create([
@@ -1491,12 +1127,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 30000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 31,        
         ]);  
         Estimate::create([
@@ -1507,12 +1139,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 87500,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 32,        
         ]);  
         Estimate::create([
@@ -1523,12 +1151,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 175000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 32,        
         ]);  
         Estimate::create([
@@ -1539,12 +1163,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 32,        
         ]);  
         Estimate::create([
@@ -1555,12 +1175,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 175000,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 32,        
         ]);  
         Estimate::create([
@@ -1571,12 +1187,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 15000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 33,        
         ]);  
         Estimate::create([
@@ -1587,12 +1199,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 15000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 34,        
         ]);  
         Estimate::create([
@@ -1603,12 +1211,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 30000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 34,        
         ]);  
         Estimate::create([
@@ -1619,12 +1223,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 15000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "app_include",                
+          'lang' => "ja|&eng",             
           'checkitem_id' => 35,        
         ]);  
         Estimate::create([
@@ -1635,12 +1235,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 15000,        
           'prise' => 30000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "app_include",                
+          'lang' => "ja&eng",             
           'checkitem_id' => 35,        
         ]);  
         Estimate::create([
@@ -1651,12 +1247,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 36,        
         ]);  
         Estimate::create([
@@ -1667,12 +1259,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 10500,           
-          'web_flag' => 1,        
-          'app_flag' => 2,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 37,        
         ]);  
         Estimate::create([
@@ -1683,12 +1271,8 @@ class EstimateSeeder extends Seeder
           'unit' => '文字',          
           'unit_prise' => 3000,        
           'prise' => 3000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 3,        
         ]);  
         Estimate::create([
@@ -1699,12 +1283,8 @@ class EstimateSeeder extends Seeder
           'unit' => '文字',          
           'unit_prise' => 5000,        
           'prise' => 5000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 4,        
         ]);  
         Estimate::create([
@@ -1715,12 +1295,8 @@ class EstimateSeeder extends Seeder
           'unit' => '文字',          
           'unit_prise' => 3500,        
           'prise' => 3500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 5,        
         ]);  
         Estimate::create([
@@ -1731,12 +1307,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 10500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 6,        
         ]);  
         Estimate::create([
@@ -1747,12 +1319,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 6,        
         ]);  
         Estimate::create([
@@ -1763,12 +1331,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 17500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 38,        
         ]);  
         Estimate::create([
@@ -1779,12 +1343,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 38,        
         ]);  
         Estimate::create([
@@ -1795,12 +1355,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 280000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 39,        
         ]);  
         Estimate::create([
@@ -1811,12 +1367,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 52500,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 40,        
         ]);  
         Estimate::create([
@@ -1827,12 +1379,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 40,        
         ]);  
         Estimate::create([
@@ -1843,12 +1391,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 105000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 3,             
+          'machine' => "web|app",           
+          'lang' => "ja|&eng",             
           'checkitem_id' => 41,        
         ]);  
         Estimate::create([
@@ -1859,12 +1403,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 210000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 1,             
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 41,        
         ]);  
         Estimate::create([
@@ -1875,12 +1415,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 245000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 42,        
         ]);  
         Estimate::create([
@@ -1891,12 +1427,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 28000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 43,        
         ]);  
         Estimate::create([
@@ -1907,12 +1439,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => -20000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 44,        
         ]);  
         Estimate::create([
@@ -1923,12 +1451,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => -35000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 45,        
         ]);  
         Estimate::create([
@@ -1939,12 +1463,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 18000,        
           'prise' => 18000,           
-          'web_flag' => 0,        
-          'app_flag' => 0,          
-          'machine_both' => 2,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web|app",           
+          'lang' => "ja|eng",             
           'checkitem_id' => 46,        
         ]);  
         Estimate::create([
@@ -1955,12 +1475,8 @@ class EstimateSeeder extends Seeder
           'unit' => '回',          
           'unit_prise' => 15000,        
           'prise' => 15000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 47,        
         ]);  
         Estimate::create([
@@ -1971,12 +1487,8 @@ class EstimateSeeder extends Seeder
           'unit' => '回',          
           'unit_prise' => 3000,        
           'prise' => 3000,           
-          'web_flag' => 1,        
-          'app_flag' => 0,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "web_only",                   
+          'lang' => "ja|eng",             
           'checkitem_id' => 47,        
         ]);  
         Estimate::create([
@@ -1987,12 +1499,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 140000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 48,        
         ]);  
         Estimate::create([
@@ -2003,12 +1511,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 48,        
         ]);  
         Estimate::create([
@@ -2019,12 +1523,8 @@ class EstimateSeeder extends Seeder
           'unit' => '人日',          
           'unit_prise' => 35000,        
           'prise' => 70000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 48,        
         ]);  
         Estimate::create([
@@ -2035,12 +1535,8 @@ class EstimateSeeder extends Seeder
           'unit' => '式',          
           'unit_prise' => 25000,        
           'prise' => 25000,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 48,        
         ]);  
         Estimate::create([
@@ -2051,12 +1547,8 @@ class EstimateSeeder extends Seeder
           'unit' => null,          
           'unit_prise' => null,        
           'prise' => null,           
-          'web_flag' => 2,        
-          'app_flag' => 1,          
-          'machine_both' => 0,           
-          'ja_flag' => 0,           
-          'eng_flag' => 0,           
-          'lang_both' => 2,             
+          'machine' => "app_include",                
+          'lang' => "ja|eng",             
           'checkitem_id' => 49,        
         ]);  
 /*        

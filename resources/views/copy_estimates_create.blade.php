@@ -65,7 +65,13 @@
 						<?php $machine_flag = 1; ?>
 					@endif	
 					@break	
-				@default		
+				@case(isset($display->common[$checkitem->id]))	
+					@if($estimate->machine_both == 2)	
+						<?php $machine_flag = 1; ?>
+					@endif	
+					@break	
+				@default
+				
 			@endswitch			
 			@switch($display)			
 				@case(isset($display->ja[$checkitem->id]) && !isset($display->eng[$checkitem->id]))		

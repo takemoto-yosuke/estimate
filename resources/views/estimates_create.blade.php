@@ -38,7 +38,7 @@
 
 @foreach ($checkitems as $checkitem)						
 	@foreach ($estimates as $estimate)					
-		@if ($checkitem->id == $estimate->checkitem_id)	
+		@if ($checkitem->id == $estimate->checkitem_id)	 {{--チェック項目と一致する見積項目を照合--}}
 		    <?php
 			    $machine_flag = 0;			
 			    $lang_flag = 0;			
@@ -50,23 +50,23 @@
 -->
 		
 			@switch($display)
-				@case(isset($display->web[$checkitem->id]) && !isset($display->app[$checkitem->id]))	
-					@if($estimate->web_flag == 1 || $estimate->machine_both == 2 || $estimate->machine_both == 3)	
+				@case(isset($display->web[$checkitem->id]) && !isset($display->app[$checkitem->id]))	 {{--チェックボックス web有・app無--}}
+					@if($estimate->machine == "web_include" || $estimate->machine == "web|app" || $estimate->machine == "web|&app")	
 						<?php $machine_flag = 1; ?>
 					@endif	
 					@break	
-				@case(!isset($display->web[$checkitem->id]) && isset($display->app[$checkitem->id]))	
-					@if($estimate->app_flag == 1 || $estimate->machine_both == 2 || $estimate->machine_both == 3)	
+				@case(!isset($display->web[$checkitem->id]) && isset($display->app[$checkitem->id]))	 {{--チェックボックス web無・app有--}}	
+					@if($estimate->machine == "app_include" || $estimate->machine == "web|app" || $estimate->machine == "web|&app")	
 						<?php $machine_flag = 1; ?>
 					@endif	
 					@break					
-				@case(isset($display->web[$checkitem->id]) && isset($display->app[$checkitem->id]))	
-					@if($estimate->machine_both == 1 || $estimate->machine_both == 2 || ($estimate->web_flag == 1 && $estimate->app_flag == 2) || ($estimate->web_flag == 2 && $estimate->app_flag == 1))	
+				@case(isset($display->web[$checkitem->id]) && isset($display->app[$checkitem->id]))	 {{--チェックボックス web有・app有--}}		
+					@if($estimate->machine == "web&app" || $estimate->machine == "web|app" || $estimate->machine == "web|&app" || $estimate->machine == "web_include" || $estimate->machine == "app_include")	
 						<?php $machine_flag = 1; ?>
 					@endif	
 					@break	
-				@case(isset($display->common[$checkitem->id]))	
-					@if($estimate->machine_both == 2)	
+				@case(isset($display->common[$checkitem->id]))	 {{--チェックボックス 共通有--}}		
+					@if($estimate->machine == "web|app")	
 						<?php $machine_flag = 1; ?>
 					@endif	
 					@break	
@@ -74,18 +74,18 @@
 				
 			@endswitch			
 			@switch($display)			
-				@case(isset($display->ja[$checkitem->id]) && !isset($display->eng[$checkitem->id]))		
-					@if($estimate->ja_flag == 1 || $estimate->lang_both == 2 || $estimate->lang_both == 3)		
+				@case(isset($display->ja[$checkitem->id]) && !isset($display->eng[$checkitem->id]))	 {{--チェックボックス 日有・英無--}}			
+					@if($estimate->lang == "ja_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng")		
 						<?php $lang_flag = 1; ?>
 					@endif	
 					@break	
-				@case(!isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id]))		
-					@if($estimate->eng_flag == 1 || $estimate->lang_both == 2 || $estimate->lang_both == 3)	
+				@case(!isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id]))	 {{--チェックボックス 日無・英有--}}	
+					@if($estimate->lang == "eng_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng")			
 						<?php $lang_flag = 1; ?>
 					@endif	
 					@break	
-				@case(isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id]))	
-					@if($estimate->lang_both == 1 || $estimate->lang_both == 2 || $estimate->ja_flag == 1 || $estimate->eng_flag == 1)	
+				@case(isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id]))	 {{--チェックボックス 日有・英有--}}
+					@if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include")		
 						<?php $lang_flag = 1; ?>
 					@endif	
 					@break					

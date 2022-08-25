@@ -66,48 +66,56 @@ class EstimatesController extends Controller
          $estimates->prise = $request->prise;
          
          if ($request->machine == "ウェブのみ"){
-             $estimates->machine = "web_only";            
+             $estimates->web_flag = 1;
+             $estimates->app_flag = 0;             
          }
          else if ($request->machine == "アプリのみ"){
-             $estimates->machine = "app_only"; 
+             $estimates->web_flag = 0;
+             $estimates->app_flag = 1;
          }
          else if ($request->machine == "ウェブ含む"){
-             $estimates->machine = "web_include"; 
+             $estimates->web_flag = 1;
+             $estimates->app_flag = 2;
          }         
          else if ($request->machine == "アプリ含む"){
-             $estimates->machine = "app_include"; 
+             $estimates->web_flag = 2;
+             $estimates->app_flag = 1;
          }         
          else if ($request->machine == "ウェブ or アプリ"){
-             $estimates->machine = "web|app"; 
-         }            
-         else if ($request->machine == "ウェブ and アプリ"){
-             $estimates->machine = "web&app"; 
-         }
+             $estimates->machine_both = 2;
+         }         
          else if ($request->machine == "or（両端末有）"){
-             $estimates->machine = "web|&app"; 
-         }      
+             $estimates->machine_both = 3;
+         }         
+         else if ($request->machine == "ウェブ and アプリ"){
+             $estimates->machine_both = 1;
+         }
          
          if ($request->lang == "日本語のみ"){
-             $estimates->lang = "ja_only";
+             $estimates->ja_flag = 1;
+             $estimates->eng_flag = 0;
          }
          else if ($request->lang == "英語のみ"){
-             $estimates->lang = "eng_only";           
+             $estimates->ja_flag = 0;
+             $estimates->eng_flag = 1;             
          } 
          elseif ($request->lang == "日本語含む"){
-             $estimates->lang = "ja_include";           
+             $estimates->ja_flag = 1;
+             $estimates->eng_flag = 2;             
          }
          else if ($request->lang == "英語含む"){
-             $estimates->lang = "eng_include";
+             $estimates->ja_flag = 2;
+             $estimates->eng_flag = 1;
          }          
          else if ($request->lang == "日本語 or 英語"){
-             $estimates->lang = "ja|eng";
-         }    
-         else if ($request->lang == "日本語 and 英語"){
-             $estimates->lang = "ja&eng";
-         } 
+             $estimates->lang_both = 2;
+         }
          else if ($request->lang == "or（日英版有）"){
-             $estimates->lang = "ja|&eng";
-         }             
+             $estimates->lang_both = 3;
+         }         
+         else if ($request->lang == "日本語 and 英語"){
+             $estimates->lang_both = 1;
+         }         
          $estimates->checkitem_id = $request->checkitem_id;
          $estimates->save(); 
          return redirect('estimate');

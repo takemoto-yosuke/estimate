@@ -67,5 +67,7 @@
     @endif         
      </div>
      <!-- Book: 既に登録されてる本のリスト -->
-    
+
+<!-- jquery利用による並べ替え　～途中～ -->    
+{{--<script src=”{{ mix(‘js/sort.js’) }}”></script>--}}
  @endsection
