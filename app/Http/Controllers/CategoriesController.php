@@ -18,7 +18,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-      $categories = Category::orderBy('created_at', 'asc')->paginate(50);
+      $categories = Category::orderBy('sort', 'asc')->paginate(50);
       return view('categories', [
           'categories' => $categories
       ]);
@@ -52,10 +52,12 @@ class CategoriesController extends Controller
         ->withInput()
         ->withErrors($validator);
         }
+        $max_sort = Category::max('sort');  //sortカラムの最大値を検出
         //以下に登録処理を記述（Eloquentモデル）
         // Eloquent モデル
          $categories = new Category;
          $categories->category = $request->category;
+         $categories->sort = $max_sort + 1; //最大値sort + 1
          $categories->save(); 
          return redirect('/category');
     }

@@ -16,31 +16,40 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-          'category' => 'システム基本設定'          
+          'category' => 'システム基本設定',     
+          'sort' => 1
         ]);      
         Category::create([
-          'category' => 'ウェブ'          
+          'category' => 'ウェブ',     
+          'sort' => 2          
         ]);
         Category::create([
-          'category' => 'アプリ'          
+          'category' => 'アプリ',     
+          'sort' => 3          
         ]);
         Category::create([
-          'category' => 'オプション'          
+          'category' => 'オプション',     
+          'sort' => 4          
         ]);
         Category::create([
-          'category' => 'カスタマイズ'          
+          'category' => 'カスタマイズ',     
+          'sort' => 5          
         ]);
         Category::create([
-          'category' => 'その他'          
+          'category' => 'その他',     
+          'sort' => 6          
         ]);
         Category::create([
-          'category' => 'データ更新'          
+          'category' => 'データ更新',     
+          'sort' => 7          
         ]);
         Category::create([
-          'category' => 'コンテナOSメンテ'          
+          'category' => 'コンテナOSメンテ',     
+          'sort' => 8          
         ]);
         Category::create([
-          'category' => null          
+          'category' => null,     
+          'sort' => 9          
         ]);
     }
 }

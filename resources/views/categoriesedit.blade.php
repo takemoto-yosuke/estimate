@@ -24,7 +24,10 @@
                 <label for="title">カテゴリー</label>
                 <input type="text" name="category" class="form-control" value="{{$category->category}}">
             </div>
-            <!--/ item_name -->
+            <div class="form-group">
+                <label for="title">ソートID</label>
+                <input type="text" name="sort" class="form-control" value="{{$category->sort}}">
+            </div>
             <!-- Save ボタン/Back ボタン -->
             <div class="well well-sm">
                 <button type="submit" class="btn btn-primary">Save</button>
