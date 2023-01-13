@@ -11,7 +11,6 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EstimatesController;
 use App\Http\Controllers\CheckItemController;
 
-
 Auth::routes();
 
 Route::get('/', function () {
