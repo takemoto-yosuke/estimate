@@ -392,7 +392,7 @@ class EstimateSeeder extends Seeder
           'unit_prise' => 100000,        
           'prise' => 100000,           
           'machine' => "app_only",                   
-          'lang' => "ja|&eng",             
+          'lang' => "ja|eng",             
           'checkitem_id' => 2,        
         ]);   
         Estimate::create([
@@ -423,7 +423,7 @@ class EstimateSeeder extends Seeder
           'category_id' => 4,         
           'item' => '管理画面設置・設定',
           'content' => '管理画面設置・設定、プッシュ通知機能、ベーシック認証設置　※日英版',       
-          'quantity' => 1,          
+          'quantity' => 1.5,          
           'unit' => '式',          
           'unit_prise' => 43500,        
           'prise' => 65250,           
@@ -452,9 +452,21 @@ class EstimateSeeder extends Seeder
           'unit_prise' => 35000,        
           'prise' => 87500,           
           'machine' => "web_include",                   
-          'lang' => "ja|eng",             
+          'lang' => "ja|&eng",             
           'checkitem_id' => 7,        
         ]);   
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => '展示（ウェブ版）',
+          'content' => '出展者リストのDB作成、画像表示・ブックマーク連携チェック ※日英版',  
+          'quantity' => 5,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 175000,           
+          'machine' => "web_include",                   
+          'lang' => "ja&eng",             
+          'checkitem_id' => 7,        
+        ]); 
         Estimate::create([
           'category_id' => 4,         
           'item' => '展示（アプリ版）',
@@ -464,7 +476,19 @@ class EstimateSeeder extends Seeder
           'unit_prise' => 35000,        
           'prise' => 52500,           
           'machine' => "app_include",                   
-          'lang' => "ja|eng",             
+          'lang' => "ja|&eng",             
+          'checkitem_id' => 7,        
+        ]);   
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => '展示（アプリ版）',
+          'content' => '企業展示情報の個別編集システム設置 ※日英版',       
+          'quantity' => 3,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 105000,           
+          'machine' => "app_include",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 7,        
         ]);   
         Estimate::create([
@@ -476,7 +500,19 @@ class EstimateSeeder extends Seeder
           'unit_prise' => 35000,        
           'prise' => 70000,           
           'machine' => "app_only",                   
-          'lang' => "ja|eng",             
+          'lang' => "ja|&eng",             
+          'checkitem_id' => 8,        
+        ]);   
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => null,
+          'content' => 'ピンドロップ用マップ作成作業、マッピング作業（100社以内程度） ※日英版',       
+          'quantity' => 3,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 105000,           
+          'machine' => "app_only",                   
+          'lang' => "ja&eng",             
           'checkitem_id' => 8,        
         ]);   
         Estimate::create([
@@ -488,7 +524,19 @@ class EstimateSeeder extends Seeder
           'unit_prise' => 35000,        
           'prise' => 17500,           
           'machine' => "web|app",           
-          'lang' => "ja|eng",             
+          'lang' => "ja|&eng",             
+          'checkitem_id' => 9,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => null,
+          'content' => '「はい/いいえ」画面設置 ※日英版',       
+          'quantity' => 1,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 35000,           
+          'machine' => "web|app",           
+          'lang' => "ja&eng",             
           'checkitem_id' => 9,        
         ]);  
         Estimate::create([
@@ -984,7 +1032,7 @@ class EstimateSeeder extends Seeder
           'lang' => "ja|eng",             
           'checkitem_id' => 21,        
         ]); 
-        Estimate::create([
+/*        Estimate::create([
           'category_id' => 4,         
           'item' => '広告',
           'content' => 'アプリ版トップ画面フッターへのバナー設置　複数画像切替表示',       
@@ -1019,7 +1067,7 @@ class EstimateSeeder extends Seeder
           'machine' => "app_include",                
           'lang' => "ja&eng",             
           'checkitem_id' => 23,        
-        ]); 
+        ]); */
         Estimate::create([
           'category_id' => 4,         
           'item' => '広告',

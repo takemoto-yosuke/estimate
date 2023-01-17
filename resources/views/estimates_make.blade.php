@@ -6,7 +6,7 @@
 <div class="card-body"> 
 <form action="{{ url('estimates_create') }}" method="POST" target="_blank" class="form-horizontal">
          {{ csrf_field() }}
-<table class="table table-striped task-table" style="width: 600px;">
+<table class="table table-striped task-table" style="width: 800px;">
  <thead>
   <tr>
    <td class="item_box_lock">項目</td>
@@ -27,20 +27,6 @@
  <tr>
   <td class="create_table">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}
-  @if ($checkitem->id == 1)
-  <div class="chkbox_lang_b">
-   <div class="chkbox_lang_s">
-    <div class="chkbox_ja">
-    	<input type="checkbox" name="ja[{{ $checkitem->id }}]" value="1" id="ja-on-select" onchange="change_ja()"/>
-    	<label for="ja-on-select"></label>   	
-    </div>
-    <div class="chkbox_eng">
-    	<input type="checkbox" name="eng[{{ $checkitem->id }}]" value="1" id="eng-on-select" onchange="change_eng()"/>
-    	<label for="eng-on-select"></label>   	
-    </div>
-   </div> 
-  </div> 
-  @endif
   </div>
   </td>
  @if ($checkitem->id == 1)
@@ -58,10 +44,19 @@
    	<label for="app-on-select"></label>
    </div>
   </td>
-<!--  
-  <td><input type="checkbox" name="ja[{{ $checkitem->id }}]" value=1 id="ja-on-select" onchange="change_ja()"></td>
-  <td><input type="checkbox" name="eng[{{ $checkitem->id }}]" value=1 id="eng-on-select" onchange="change_eng()"></td>
--->
+ <td class="checkposition create_table">
+    <div class="chkbox_ja">
+    	<input type="checkbox" name="ja[{{ $checkitem->id }}]" value="1" id="ja-on-select" onchange="change_ja()"/>
+    	<label for="ja-on-select"></label>   	
+    </div>
+ </td>
+ <td class="checkposition create_table">
+    <div class="chkbox_eng">
+    	<input type="checkbox" name="eng[{{ $checkitem->id }}]" value="1" id="eng-on-select" onchange="change_eng()"/>
+    	<label for="eng-on-select"></label>   	
+    </div>
+ </td>   
+
  @else
   @if ($checkitem->machine == "common")
   <td class="create_table"></td>
@@ -80,8 +75,8 @@
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" disabled></td>
   @endif
-  <td style="display:none"><input type="checkbox" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
-  <td style="display:none"><input type="checkbox" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
+  <td class="checkposition create_table"><input type="checkbox" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
+  <td class="checkposition create_table"><input type="checkbox" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
  @endif  
  
  </tr>     
