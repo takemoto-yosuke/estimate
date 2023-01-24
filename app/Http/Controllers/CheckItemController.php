@@ -18,7 +18,8 @@ class CheckItemController extends Controller
      */
     public function index()
     {
-      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
+//      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
+      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);
       return view('checkitems', [
           'checkitems' => $checkitems
       ]);
