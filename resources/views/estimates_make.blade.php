@@ -26,7 +26,7 @@
 @foreach ($checkitems as $checkitem)     
  <tr>
   <td class="create_table">
-  <div class="chkbox_lang">{{ $checkitem->checkitem }}{{ $checkitem->id }}
+  <div class="chkbox_lang">{{ $checkitem->checkitem }}
   </div>
   </td>
  @if ($checkitem->id == 1)
