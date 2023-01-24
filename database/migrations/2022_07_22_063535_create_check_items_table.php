@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('checkitem'); 
             $table->string('machine'); 
+            $table->boolean('first_estimate')->nullable(); 
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class EstimatesController extends Controller
 {
     
   public function __construct(){
-    $this->middleware('auth');
+//    $this->middleware('auth');
   }    
     
     public function index()
@@ -43,6 +43,21 @@ class EstimatesController extends Controller
           
       ]); 
     }
+    
+    public function create_first(Request $request)
+    {
+      $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(1000);
+//      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);  
+      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);  
+      $display = $request;
+      
+      return view('first_estimates_create', [
+          'estimates' => $estimates,
+          'checkitems' => $checkitems,
+          'display' => $display
+          
+      ]); 
+    }    
     
     public function store(Request $request)
     {
@@ -158,6 +173,18 @@ class EstimatesController extends Controller
       ]);        
     }
     
+    public function show_first()
+    {
+      $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(100);
+      $categories = Category::orderBy('created_at', 'asc')->paginate(100);
+//      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
+      $checkitems = CheckItem::where('first_estimate', 1)->paginate(100);
+      return view('first_estimates_make', [
+          'estimates' => $estimates,
+          'categories' => $categories,
+          'checkitems' => $checkitems
+      ]);        
+    }    
 
     public function edit(Estimate $estimate)
     {

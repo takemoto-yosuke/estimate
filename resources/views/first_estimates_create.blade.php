@@ -6,16 +6,30 @@
 <div class="card-body">         
 <table>
  <tbody>   
-
+     <tr style="border-bottom: 1px dotted black;">
+     <td></td>
+     <td style="padding-left: 20px;">項目</td>
+     <td></td>
+     <td style="padding-left: 20px;">内容</td>
+     <td></td>
+     <td style="padding-left: 20px;">数量</td>
+     <td></td>
+     <td style="padding-left: 20px;">単価</td>
+     <td style="padding-left: 20px;">金額</td>
+     </tr>
 @php
-estimate_item($checkitems, $estimates, $display, 1, "システム基本設定");
-estimate_item($checkitems, $estimates, $display, 2, "ウェブ");
-estimate_item($checkitems, $estimates, $display, 3, "アプリ");
-estimate_item($checkitems, $estimates, $display, 4, "オプション");
-estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ");
-estimate_item($checkitems, $estimates, $display, 6, "その他");
-estimate_item($checkitems, $estimates, $display, 7, "データ更新");
-estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ");
+$price = 0;
+$price += estimate_item($checkitems, $estimates, $display, 1, "システム基本設定");
+$price += estimate_item($checkitems, $estimates, $display, 2, "ウェブ");
+$price += estimate_item($checkitems, $estimates, $display, 3, "アプリ");
+$price += estimate_item($checkitems, $estimates, $display, 4, "オプション");
+$price += estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ");
+$price += estimate_item($checkitems, $estimates, $display, 6, "その他");
+$price += estimate_item($checkitems, $estimates, $display, 7, "データ更新");
+$price += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ");
+$sum_price = $price + ($price * 0.1);
+
+echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_price."（税込）</p>";
 @endphp
 
 <?php
@@ -25,6 +39,7 @@ function estimate_item($checkitems, $estimates, $display, $category_id, $categor
  $app_flag = 0;
  $option_flag = 0;
  $customize_flag = 0;
+ $sum_price = 0;
 foreach ($checkitems as $checkitem){
 	foreach ($estimates as $estimate){
 	if ($estimate->category_id != $category_id){
@@ -106,6 +121,7 @@ foreach ($checkitems as $checkitem){
      echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
      echo "<td style='padding-left: 20px;'> $estimate->prise </td>";
      echo "</tr>";
+     $sum_price += $estimate->prise;
     } 
     echo '</div>';			
 			}
@@ -113,7 +129,7 @@ foreach ($checkitems as $checkitem){
 	}					
 }		
 $reset_flag = 1;
+return $sum_price;
 }
 ?>
-
 @endsection

@@ -17,11 +17,13 @@ class CheckItemSeeder extends Seeder
     {
         CheckItem::create([
           'checkitem' => '運用',          
-          'machine' => 'common'          
+          'machine' => 'common',
+          'first_estimate' => 1
         ]); 
         CheckItem::create([
           'checkitem' => 'MyAbstracts',          
-          'machine' => 'both'            
+          'machine' => 'both',    
+          'first_estimate' => 1        
         ]); 
         CheckItem::create([
           'checkitem' => 'MyAbstracts 外字マップメンテナンス',          
@@ -41,7 +43,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '展示',          
-          'machine' => 'both'                   
+          'machine' => 'both',    
+          'first_estimate' => 1                   
         ]); 
         CheckItem::create([
           'checkitem' => '展示マップ　※100社程度想定' ,          
@@ -53,47 +56,58 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => 'セッションアンケート・資料ダウンロード',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '大会アンケート',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '大会資料アップロード（インフォメーションボード）',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'テキストダウンロード（セッションPDF/演題PDF）認証画面あり',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'テキストダウンロード（セッションPDF/演題PDF）認証画面なし、PDFの設置、ボタン文言変更対応のみ',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'デジタルポスター',          
-          'machine' => 'both'                   
+          'machine' => 'both',    
+          'first_estimate' => 1                   
         ]); 
         CheckItem::create([
           'checkitem' => 'LIVE/オンデマンド',          
-          'machine' => 'both'                   
+          'machine' => 'both',    
+          'first_estimate' => 1                   
         ]); 
         CheckItem::create([
           'checkitem' => '有料セミナー（中間DB連携対応）',          
-          'machine' => 'both'                   
+          'machine' => 'both',    
+          'first_estimate' => 1                   
         ]); 
         CheckItem::create([
           'checkitem' => '認証付き外部リンク',          
-          'machine' => 'both'                   
+          'machine' => 'both',    
+          'first_estimate' => 1                   
         ]); 
         CheckItem::create([
           'checkitem' => '参加証明書',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '質問投稿と管理機能',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '各種ご案内',          
@@ -113,7 +127,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '広告　ウェブ版左メニュー/モバイル版フッター',          
-          'machine' => 'web'          
+          'machine' => 'web',    
+          'first_estimate' => 1          
         ]); 
         CheckItem::create([
           'checkitem' => '広告　MyAb前付・後付への広告ページ差込',          
@@ -121,7 +136,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '大会フィルタ',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '大会別抄録前PW制限',          
@@ -129,11 +145,13 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '分野フィルタ',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '関連情報フィルタ',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '日程表アイコンカスタマイズ',          
@@ -141,7 +159,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '表紙カスタマイズ',          
-          'machine' => 'both'                            
+          'machine' => 'both',    
+          'first_estimate' => 1                            
         ]); 
         CheckItem::create([
           'checkitem' => '文言変更',          
@@ -165,15 +184,18 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '視聴履歴メニュー設置',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '共催セミナー一覧',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'スポンサー',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'スポンサー一覧（HTML）　※100社程度想定' ,          
@@ -181,7 +203,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => 'プログラム一覧（タブ分けコマ表示）',          
-          'machine' => 'common'            
+          'machine' => 'common',    
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '紙面開催（日時会場無し）',          
@@ -189,11 +212,13 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '各種ご案内、開催概要作成なし',          
-          'machine' => 'app'                            
+          'machine' => 'app',    
+          'first_estimate' => 1                            
         ]); 
         CheckItem::create([
           'checkitem' => 'フロアマップ作成なし',          
-          'machine' => 'app'                            
+          'machine' => 'app',    
+          'first_estimate' => 1                            
         ]); 
         CheckItem::create([
           'checkitem' => '時間外のWeb開催ID有効化作業',          
@@ -205,11 +230,13 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => 'コンテナOSメンテ',          
-          'machine' => 'app'                            
+          'machine' => 'app',    
+          'first_estimate' => 1                            
         ]); 
         CheckItem::create([
           'checkitem' => 'ランチョン',          
-          'machine' => 'app'                            
+          'machine' => 'app',    
+          'first_estimate' => 1                            
         ]); 
     }
 }
