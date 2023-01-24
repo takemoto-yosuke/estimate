@@ -15,7 +15,10 @@ class CheckItemSeeder extends Seeder
      */
     public function run()
     {
-
+        CheckItem::create([
+          'checkitem' => '運用',          
+          'machine' => 'common'          
+        ]); 
         CheckItem::create([
           'checkitem' => 'MyAbstracts',          
           'machine' => 'both'            
@@ -164,10 +167,6 @@ class CheckItemSeeder extends Seeder
           'checkitem' => '視聴履歴メニュー設置',          
           'machine' => 'common'            
         ]); 
-        CheckItem::create([
-          'checkitem' => '運用',          
-          'machine' => 'common'          
-        ]);         
         CheckItem::create([
           'checkitem' => '共催セミナー一覧',          
           'machine' => 'common'            
