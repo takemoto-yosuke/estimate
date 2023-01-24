@@ -32,7 +32,8 @@ class EstimatesController extends Controller
     public function create(Request $request)
     {
       $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(1000);
-      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);  
+//      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);  
+      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);  
       $display = $request;
       
       return view('estimates_create', [
