@@ -182,6 +182,7 @@ foreach ($checkitems as $checkitem){
     	echo "<td style='padding-left: 20px;'> $estimate->prise </td>";  
      }	
     echo "</tr>";
+    $sum_price += $estimate->prise;
     }
     echo '</div>';			
 			}
