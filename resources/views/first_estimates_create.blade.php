@@ -68,17 +68,17 @@ switch($dollar){
 		$dollaryen = "1";
 }
 
-$price = 0;
-$price += estimate_item($checkitems, $estimates, $display, 1, "システム基本設定", null, null);
-$price += estimate_item($checkitems, $estimates, $display, 2, "ウェブ", $raito, $dollaryen);
-$price += estimate_item($checkitems, $estimates, $display, 3, "アプリ", null, null);
-$price += estimate_item($checkitems, $estimates, $display, 4, "オプション", null, null);
-$price += estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ", null, null);
-$price += estimate_item($checkitems, $estimates, $display, 6, "その他", null, null);
-$price += estimate_item($checkitems, $estimates, $display, 7, "データ更新", null, null);
-$price += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ", null, null);
-$sum_price = $price + ($price * 0.1);
-echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_price."（税込）</p>";
+$prise = 0;
+$prise += estimate_item($checkitems, $estimates, $display, 1, "システム基本設定", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 2, "ウェブ", $raito, $dollaryen);
+$prise += estimate_item($checkitems, $estimates, $display, 3, "アプリ", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 4, "オプション", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 6, "その他", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 7, "データ更新", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ", null, null);
+$sum_prise = $prise + ($prise * 0.1);
+echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_prise."（税込）</p>";
 
 function estimate_item($checkitems, $estimates, $display, $category_id, $category_name, $raito, $dollaryen) {
  $reset_flag = 1;
@@ -87,7 +87,8 @@ function estimate_item($checkitems, $estimates, $display, $category_id, $categor
  $option_flag = 0;
  $customize_flag = 0;
  $date = date("n月d日");
- $sum_price = 0;
+ $prise_raito = 0;
+ $sum_prise = 0;
  
 foreach ($checkitems as $checkitem){
 	foreach ($estimates as $estimate){
@@ -163,12 +164,15 @@ foreach ($checkitems as $checkitem){
      echo '</td>';
      echo "<td style='padding-left: 20px;'> $estimate->item </td>";
      echo '<td style="width: 0%;"></td>';
+     if ($estimate->id == 4){
+        $id4_unit_prise = $estimate->unit_prise;
+     }
      if ($estimate->id == 5){
     	echo "<td style='padding-left: 20px;'> $date 時点：基本価格の $raito ％（平均1ドル $dollaryen 円） </td>";     
     	echo '<td style="width: 0%;"></td>';
     	echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
     	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
-    	$unit_prise_raito = $estimate->unit_prise * $raito / 100;
+    	$unit_prise_raito = $id4_unit_prise * $raito / 100;
     	echo "<td style='padding-left: 20px;'> $unit_prise_raito </td>";
     	$prise_raito = $unit_prise_raito * $estimate->quantity;
     	echo "<td style='padding-left: 20px;'> $prise_raito </td>";
@@ -182,7 +186,7 @@ foreach ($checkitems as $checkitem){
     	echo "<td style='padding-left: 20px;'> $estimate->prise </td>";  
      }	
     echo "</tr>";
-    $sum_price += $estimate->prise;
+    $sum_prise += $estimate->prise;
     }
     echo '</div>';			
 			}
@@ -190,7 +194,7 @@ foreach ($checkitems as $checkitem){
 	}					
 }		
 $reset_flag = 1;
-return $sum_price;
+return $sum_prise+$prise_raito;
 }
 ?>
 

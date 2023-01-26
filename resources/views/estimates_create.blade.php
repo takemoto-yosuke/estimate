@@ -57,7 +57,6 @@ switch($dollar){
 		$dollaryen = "1";
 }
 
-
 estimate_item($checkitems, $estimates, $display, 1, "システム基本設定", null, null);
 estimate_item($checkitems, $estimates, $display, 2, "ウェブ", $raito, $dollaryen);
 estimate_item($checkitems, $estimates, $display, 3, "アプリ", null, null);
@@ -74,6 +73,7 @@ function estimate_item($checkitems, $estimates, $display, $category_id, $categor
  $option_flag = 0;
  $customize_flag = 0;
  $date = date("n月d日");
+ $prise_raito = 0;
  
 foreach ($checkitems as $checkitem){
 	foreach ($estimates as $estimate){
@@ -149,12 +149,15 @@ foreach ($checkitems as $checkitem){
      echo '</td>';
      echo "<td style='padding-left: 20px;'> $estimate->item </td>";
      echo '<td style="width: 0%;"></td>';
+     if ($estimate->id == 4){
+        $id4_unit_prise = $estimate->unit_prise;
+     }
      if ($estimate->id == 5){
     	echo "<td style='padding-left: 20px;'> $date 時点：基本価格の $raito ％（平均1ドル $dollaryen 円） </td>";     
     	echo '<td style="width: 0%;"></td>';
     	echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
     	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
-    	$unit_prise_raito = $estimate->unit_prise * $raito / 100;
+    	$unit_prise_raito = $id4_unit_prise * $raito / 100;
     	echo "<td style='padding-left: 20px;'> $unit_prise_raito </td>";
     	$prise_raito = $unit_prise_raito * $estimate->quantity;
     	echo "<td style='padding-left: 20px;'> $prise_raito </td>";
