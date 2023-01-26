@@ -17,29 +17,78 @@
      <td style="padding-left: 20px;">単価</td>
      <td style="padding-left: 20px;">金額</td>
      </tr>
-@php
-$price = 0;
-$price += estimate_item($checkitems, $estimates, $display, 1, "システム基本設定");
-$price += estimate_item($checkitems, $estimates, $display, 2, "ウェブ");
-$price += estimate_item($checkitems, $estimates, $display, 3, "アプリ");
-$price += estimate_item($checkitems, $estimates, $display, 4, "オプション");
-$price += estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ");
-$price += estimate_item($checkitems, $estimates, $display, 6, "その他");
-$price += estimate_item($checkitems, $estimates, $display, 7, "データ更新");
-$price += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ");
-$sum_price = $price + ($price * 0.1);
-
-echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_price."（税込）</p>";
-@endphp
 
 <?php
-function estimate_item($checkitems, $estimates, $display, $category_id, $category_name) {
+/* 為替取得  */
+$url = "https://www.gaitameonline.com/rateaj/getrate";
+$content = file_get_contents($url);
+$data = json_decode($content, true);
+if (empty($data)) {return;} 
+else {
+ foreach($data as $row) {
+  foreach($row as $r) {
+   if ($r["currencyPairCode"] == "USDJPY"){
+    $dollar = $r["open"]; //始値
+	}	
+  }
+ }
+}
+/* 為替取得  */
+switch($dollar){
+	case($dollar < 115):
+		$raito = 0;
+		$dollaryen = "～115";
+		break;
+	case(($dollar >= 115) && ($dollar < 127)):
+		$raito = 10;
+		$dollaryen = "115～126";
+		break;
+	case(($dollar >= 127) && ($dollar < 133)):
+		$raito = 15;
+		$dollaryen = "127～132";
+		break;
+	case(($dollar >= 133) && ($dollar < 139)):
+		$raito = 20;
+		$dollaryen = "133～138";
+		break;
+	case(($dollar >= 139) && ($dollar < 145)):
+		$raito = 25;
+		$dollaryen = "139～144";
+		break;
+	case(($dollar >= 145) && ($dollar < 151)):
+		$raito = 30;
+		$dollaryen = "145～150";
+		break;
+	case($dollar >= 151):
+		$raito = "（要問合せ）";
+		$dollaryen = "151～";
+		break;		
+	default:
+		$raito = 1;
+		$dollaryen = "1";
+}
+
+$price = 0;
+$price += estimate_item($checkitems, $estimates, $display, 1, "システム基本設定", null, null);
+$price += estimate_item($checkitems, $estimates, $display, 2, "ウェブ", $raito, $dollaryen);
+$price += estimate_item($checkitems, $estimates, $display, 3, "アプリ", null, null);
+$price += estimate_item($checkitems, $estimates, $display, 4, "オプション", null, null);
+$price += estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ", null, null);
+$price += estimate_item($checkitems, $estimates, $display, 6, "その他", null, null);
+$price += estimate_item($checkitems, $estimates, $display, 7, "データ更新", null, null);
+$price += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ", null, null);
+$sum_price = $price + ($price * 0.1);
+echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_price."（税込）</p>";
+
+function estimate_item($checkitems, $estimates, $display, $category_id, $category_name, $raito, $dollaryen) {
  $reset_flag = 1;
  $web_flag = 0; 
  $app_flag = 0;
  $option_flag = 0;
  $customize_flag = 0;
+ $date = date("n月d日");
  $sum_price = 0;
+ 
 foreach ($checkitems as $checkitem){
 	foreach ($estimates as $estimate){
 	if ($estimate->category_id != $category_id){
@@ -114,15 +163,26 @@ foreach ($checkitems as $checkitem){
      echo '</td>';
      echo "<td style='padding-left: 20px;'> $estimate->item </td>";
      echo '<td style="width: 0%;"></td>';
-     echo "<td style='padding-left: 20px;'> $estimate->content </td>";
-     echo '<td style="width: 0%;"></td>';
-     echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
-     echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
-     echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
-     echo "<td style='padding-left: 20px;'> $estimate->prise </td>";
-     echo "</tr>";
-     $sum_price += $estimate->prise;
-    } 
+     if ($estimate->id == 5){
+    	echo "<td style='padding-left: 20px;'> $date 時点：基本価格の $raito ％（平均1ドル $dollaryen 円） </td>";     
+    	echo '<td style="width: 0%;"></td>';
+    	echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
+    	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
+    	$unit_prise_raito = $estimate->unit_prise * $raito / 100;
+    	echo "<td style='padding-left: 20px;'> $unit_prise_raito </td>";
+    	$prise_raito = $unit_prise_raito * $estimate->quantity;
+    	echo "<td style='padding-left: 20px;'> $prise_raito </td>";
+     }
+     else{
+    	echo "<td style='padding-left: 20px;'> $estimate->content </td>";
+    	echo '<td style="width: 0%;"></td>';
+    	echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
+    	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
+    	echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
+    	echo "<td style='padding-left: 20px;'> $estimate->prise </td>";  
+     }	
+    echo "</tr>";
+    }
     echo '</div>';			
 			}
 		}				
@@ -132,4 +192,5 @@ $reset_flag = 1;
 return $sum_price;
 }
 ?>
+
 @endsection

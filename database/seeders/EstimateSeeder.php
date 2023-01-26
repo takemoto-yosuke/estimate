@@ -59,12 +59,39 @@ class EstimateSeeder extends Seeder
           'content' => '2ヶ月間',       
           'quantity' => 2,          
           'unit' => 'ヶ月',          
-          'unit_prise' => 44000,        
-          'prise' => 88000,           
+          'unit_prise' => 40000,        
+          'prise' => 80000,           
           'machine' => "web_include",        
           'lang' => "ja|eng",        
           'checkitem_id' => 1,        
-        ]);        
+        ]);     
+        Estimate::create([
+          'category_id' => 2,         
+          'item' => null,
+          'content' => '●月●日時点：基本価格の●％（平均1ドル●～●円）',       
+          'quantity' => 2,          
+          'unit' => 'ヶ月',          
+          'unit_prise' => 40000,        
+          'prise' => 80000,           
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
+          'checkitem_id' => 1,        
+        ]);     
+        Estimate::create([
+          'category_id' => 2,         
+          'item' => null,
+          'content' => '※為替相場に応じて変動する場合があります。',       
+          'quantity' => null,          
+          'unit' => null,          
+          'unit_prise' => null,        
+          'prise' => null,           
+          'machine' => "web_include",        
+          'lang' => "ja|eng",        
+          'checkitem_id' => 1,        
+        ]);     
+        
+        
+        
         Estimate::create([
           'category_id' => 2,         
           'item' => '学会ごとCSS等変更・調整設定',
