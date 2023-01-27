@@ -25,11 +25,20 @@
                                 
 @foreach ($checkitems as $checkitem)     
  <tr>
+ @if ($checkitem->id == 1) <!-- 運用期間入力フォーム -->
+  <td>
+  <div>{{ $checkitem->checkitem }}
+   　期間：<input type="number" id="period" name="period" value="2" min="2" style="width: 50px";>ヶ月 
+  </div>
+  </td>
+ @else
   <td class="create_table">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}
   </div>
-  </td>
- @if ($checkitem->id == 1)
+  </td>  
+ @endif 
+  
+ @if ($checkitem->id == 1) <!-- チェックボタン -->
 <!--  <td><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 id="web-on-select" onchange="change_web()"></td> -->
   <td class="checkposition create_table">
    <div class="chkbox_web">
