@@ -77,6 +77,7 @@ $prise += estimate_item($checkitems, $estimates, $display, 5, "カスタマイ�
 $prise += estimate_item($checkitems, $estimates, $display, 6, "その他", null, null);
 $prise += estimate_item($checkitems, $estimates, $display, 7, "データ更新", null, null);
 $prise += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ", null, null);
+$prise += estimate_item($checkitems, $estimates, $display, 9, null, null, null);
 $sum_prise = $prise + ($prise * 0.1);
 echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_prise."（税込）　　　　　　　　　　　　　　$date 為替レート：$dollar 米ドル／円（始値）</p>";
 function estimate_item($checkitems, $estimates, $display, $category_id, $category_name, $raito, $dollaryen) {
@@ -165,39 +166,28 @@ foreach ($checkitems as $checkitem){
      echo '<td style="width: 0%;"></td>';
 	/* 運用期間 */
      if ($estimate->id == 4){
-      if ($_POST["period"] == null){$_POST["period"] = 2;}
-    	echo "<td style='padding-left: 20px;'> {$_POST["period"]}ヶ月間 </td>";     
-    	echo '<td style="width: 0%;"></td>';
-    	echo "<td style='padding-left: 20px;'> {$_POST["period"]} </td>";
-    	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
-    	echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
-    	$prise_operation = $estimate->unit_prise * $_POST["period"];
-    	echo "<td style='padding-left: 20px;'> $prise_operation </td>";
+      if ($_POST["period"] == null){$_POST["period"] = 2;} //空白の場合は2とする
+        $estimate->content = $_POST["period"]."ヶ月間";
+        $estimate->quantity = $_POST["period"];
+    	$estimate->prise = $estimate->unit_prise * $_POST["period"];
     	$id4_unit_prise = $estimate->unit_prise;
     	$id4_quantity = $_POST["period"];
      }     
 	/* 運用期間 */
-	
 	/* 為替調整費 */
-     else if ($estimate->id == 5){
-    	echo "<td style='padding-left: 20px;'> $date 時点：基本価格の $raito ％（平均1ドル $dollaryen 円） </td>";     
-    	echo '<td style="width: 0%;"></td>';
-    	echo "<td style='padding-left: 20px;'> $id4_quantity </td>";
-    	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
-    	$unit_prise_raito = $id4_unit_prise * $raito / 100;
-    	echo "<td style='padding-left: 20px;'> $unit_prise_raito </td>";
-    	$prise_raito = $unit_prise_raito * $id4_quantity;
-    	echo "<td style='padding-left: 20px;'> $prise_raito </td>";
+     if ($estimate->id == 5){
+        $estimate->content = $date."時点：基本価格の".$raito."％（平均1ドル".$dollaryen."円）";
+        $estimate->quantity = $id4_quantity;
+    	$estimate->unit_prise = $id4_unit_prise * $raito / 100;
+    	$estimate->prise = $estimate->unit_prise * $id4_quantity;
      }
-	/* 為替調整費 */
-     else{
-    	echo "<td style='padding-left: 20px;'> $estimate->content </td>";
-    	echo '<td style="width: 0%;"></td>';
-    	echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
-    	echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
-    	echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
-    	echo "<td style='padding-left: 20px;'> $estimate->prise </td>";  
-     }	
+	/* 為替調整費 */    
+	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
+     echo '<td style="width: 0%;"></td>';
+     echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
+     echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
+     echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
+     echo "<td style='padding-left: 20px;'> $estimate->prise </td>";  
     echo "</tr>";
     $sum_prise += $estimate->prise;
     }
