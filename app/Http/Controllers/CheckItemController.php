@@ -58,6 +58,7 @@ class CheckItemController extends Controller
          $checkitems = new CheckItem;
          $checkitems->checkitem = $request->checkitem;
          $checkitems->machine = $request->machine;
+         $checkitems->first_estimate = $request->first_estimate;
          $checkitems->save(); 
          return redirect('/checkitem');
     }

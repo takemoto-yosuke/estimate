@@ -61,17 +61,10 @@
                  </div>
              </div>              
           </div>
-          <div class="price_box">
-           金額
-             <div class="form-group">
-                 <div class="col-sm-11">
-                     <input type="prise" name="prise" class="form-control">
-                 </div>
-             </div>              
-          </div>
 
-          <div class="machine_both_box">
-           端末
+
+          <div class="machine_both_box tooltip1">
+           <p>端末</p>
              <div class="form-group">
                  <div class="col-sm-11">
                   <select type="machine" name="machine" class="form-control">
@@ -84,10 +77,23 @@
                   <option name="machine_and">ウェブ and アプリ</option>
                   </select>                      
                  </div>
-             </div>           
+             </div> 
+             <p class="description">
+              〇：必ず有り<br>
+              ✕：必ず無し<br>
+              △：どちらでもOK<br><br>
+              ウェブのみ... ウェブ〇、アプリ✕ （アプリ有りになると金額が変わる）<br>
+              アプリのみ... ウェブ✕、アプリ〇 （ウェブ有りになると金額が変わる）<br>
+              ウェブ含む... ウェブ〇、アプリ△ （アプリ有りでも金額が変わらない）<br>
+              アプリ含む... ウェブ△、アプリ〇 （ウェブ有りでも金額が変わらない）<br>
+              ウェブ or アプリ... ウェブ△、アプリ△<br>
+              or （両端末版有）... or と and の両パターンがあり、金額が変わる<br>
+              ウェブ and アプリ... ウェブ〇、アプリ〇<br>
+             </p>
+             
           </div>            
-          <div class="lang_both_box">
-           言語
+          <div class="lang_both_box tooltip1">
+           <p>言語</p>
              <div class="form-group">
                  <div class="col-sm-11">
                   <select type="lang" name="lang" class="form-control">
@@ -100,7 +106,19 @@
                   <option name="lang_and">日本語 and 英語</option>
                   </select>                     
                  </div>
-             </div>           
+             </div> 
+             <p class="description">
+              〇：必ず有り<br>
+              ✕：必ず無し<br>
+              △：どちらでもOK<br><br>
+              日本語のみ... 日本語〇、英語✕ （英語有りになると金額が変わる）<br>
+              英語のみ... 日本語✕、英語〇 （日本語有りになると金額が変わる）<br>
+              日本語含む... 日本語〇、英語△ （英語有りでも金額が変わらない）<br>
+              英語含む... 日本語△、英語〇 （日本語有りでも金額が変わらない）<br>
+              日本語 or 英語... 日本語△、英語△<br>
+              or （日英版有）... or と and の両パターンがあり、金額が変わる<br>
+              日本語 and 英語... 日本語〇、英語〇<br>
+             </p>             
           </div>  
           <div class="lang_both_box">
            チェック項目
@@ -153,7 +171,8 @@
    <td class="unit_prise_box">単価</td>
    <td class="price_box">金額</td>
    <td class="machine_both_box">端末</td>
-   <td class="lang_both_box">言語</td>                       
+   <td class="lang_both_box">言語</td>    
+   <td class="check_item_box">チェック項目</td>                       
   </tr>
  </thead>
  <tbody>
@@ -213,7 +232,15 @@
    @elseif ($estimate->lang == "ja|&eng") {{"or（日英版有）"}}  
    @endif           
   </td>
-  
+   @php
+   /* チェック項目取得 */
+    $checkitem_name = $checkitems->where('id',$estimate->checkitem_id)->first();
+   @endphp
+   @if ($checkitem_name != null)
+   <td>{{ $checkitem_name->checkitem }}</td>
+   @else
+   <td></td>
+   @endif
                                  <td> 			        
                                      <form action="{{ url('estimate/'.$estimate->id) }}" method="POST">
                                              {{ csrf_field() }}

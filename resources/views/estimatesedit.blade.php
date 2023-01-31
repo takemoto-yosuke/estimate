@@ -40,9 +40,26 @@
                 <label for="title">単価</label>
                 <input type="text" name="unit_prise" class="form-control" value="{{$estimate->unit_prise}}">
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none;">
                 <label for="title">金額</label>
-                <input type="text" name="prise" class="form-control" value="{{$estimate->prise}}">
+                <input type="text" name="prise" class="form-control" value=100>
+            </div>
+            <div class="form-group">
+                <label for="title">チェック項目</label>
+               @php
+               /* チェック項目取得 */
+                $checkitem_name = $checkitems->where('id',$estimate->checkitem_id)->first();
+               @endphp                
+               @if ($checkitem_name != null)
+                  <select type="checkitem_id" name="checkitem_id" class="form-control">
+                  <option value={{ $estimate->checkitem_id }}>{{ $checkitem_name->checkitem }}</option>
+                  @foreach ($checkitems as $checkitem) 
+                  <option value={{ $checkitem->id }}>{{ $checkitem->checkitem }}</option>
+                  @endforeach
+                  </select>                  
+               @else
+                <input type="text" name="checkitem_id" class="form-control">
+               @endif
             </div>
             
             

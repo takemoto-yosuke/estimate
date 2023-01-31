@@ -27,9 +27,23 @@
             <!-- item_name -->
             <div class="form-group">
                 <label for="body">端末</label>
-                <input type="text" name="machine" class="form-control" value="{{$checkitem->machine}}">
+                     <select type="machine" name="machine" class="form-control" value="{{$checkitem->machine}}">
+                     <option name="machine" selected>{{$checkitem->machine}}</option>
+                     <option name="machine">web</option>
+                     <option name="machine">app</option>
+                     <option name="machine">common</option>
+                     <option name="machine">both</option>                  
+                     </select>                  
             </div>
             <!--/ item_name -->
+            <div class="form-group">
+                <label for="body">初期見積</label>
+                     <select type="boolean" name="first_estimate" class="form-control" value="{{$checkitem->first_estimate}}">
+                     <option name="first_estimate" selected>{{$checkitem->first_estimate}}</option>
+                     <option name="first_estimate"></option>
+                     <option name="first_estimate">1</option>               
+                     </select>                  
+            </div>
             <!-- Save ボタン/Back ボタン -->
             <div class="well well-sm">
                 <button type="submit" class="btn btn-primary">Save</button>

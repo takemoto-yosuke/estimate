@@ -80,7 +80,8 @@ class EstimatesController extends Controller
          $estimates->quantity = $request->quantity;
          $estimates->unit = $request->unit;
          $estimates->unit_prise = $request->unit_prise;
-         $estimates->prise = $request->prise;
+//         $estimates->prise = $request->prise;
+         $estimates->prise = $request->quantity * $request->unit_prise;
          
          if ($request->machine == "ウェブのみ"){
              $estimates->machine = "web_only";            
@@ -188,12 +189,22 @@ class EstimatesController extends Controller
 
     public function edit(Estimate $estimate)
     {
-         return view('estimatesedit',compact('estimate'));
+      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);        
+//         return view('estimatesedit',compact('estimate'));
+         return view('estimatesedit',[
+             'estimate' => $estimate,
+             'checkitems' => $checkitems
+             ]);
     }
 
     public function update(Request $request, $id)
     {
-        $estimate = Estimate::find($id)->update($request->all());
+
+//        $estimate = Estimate::find($id)->update($request->all());
+        $estimate = Estimate::find($id);
+        $estimate->update($request->all());
+        $estimate->prise = $request->quantity * $request->unit_prise;   //合計金額
+        $estimate->save();  //合計金額上書き
         return redirect('/estimate'); 
     }
 

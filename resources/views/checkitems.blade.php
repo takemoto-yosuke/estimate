@@ -20,7 +20,7 @@
              <div class="machine_both_box">
               端末
                 <div class="form-group">
-                    <div class="col-sm-6">
+                    <div class="col-sm-10">
                      <select type="machine" name="machine" class="form-control">
                      <option name="machine">web</option>
                      <option name="machine">app</option>
@@ -29,7 +29,18 @@
                      </select>                      
                     </div>
                 </div>           
-             </div>     
+             </div>    
+             <div class="machine_both_box">
+              初期見積項目
+                <div class="form-group">
+                    <div class="col-sm-10">
+                     <select type="first_estimate" name="first_estimate" class="form-control">
+                     <option name="first_estimate"></option> 
+                     <option name="first_estimate">1</option>             
+                     </select>                      
+                    </div>
+                </div>           
+             </div>  
             </div> 
              <!-- 本 登録ボタン -->
              <div class="form-group">

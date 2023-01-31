@@ -6,28 +6,31 @@
     width: 10%;
 }
 .item_box {
-    width: 15%;
+    width: 10%;
 }
 .content_box {
-    width: 35%;
+    width: 30%;
 }
 .quantity_box {
-    width: 3%;
+    width: 4%;
 }
 .unit_box {
-    width: 3%;
+    width: 4%;
 }
 .unit_prise_box {
-    width: 7%;
+    width: 6%;
 }
 .price_box {
-    width: 7%;
+    width: 6%;
 }
 .machine_both_box {
     width: 10%;           
 } 
 .lang_both_box {
     width: 10%;
+}    
+.check_item_box {
+    width: 10%;   
 }    
 
 .item_box_lock {
@@ -165,3 +168,29 @@
 	color:			#fff;			/* チェックの色 */
 	background-color:	#06f;			/* チェックした時の色 */
 }
+
+.tooltip1{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+.tooltip1 p{
+    margin:0;
+}
+.description {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 420px;
+}
+.tooltip1:hover .description{
+    display: inline-block;
+    top: 0px;
+    left: -430px;
+}
+    
