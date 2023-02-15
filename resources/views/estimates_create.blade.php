@@ -169,7 +169,7 @@ foreach ($checkitems as $checkitem){
     	$estimate->prise = $estimate->unit_prise * $id4_quantity;
      }
 	/* 為替調整費 */  
-	/* セッションフィルター */
+	/* 左メニューカスタマイズー */
      if ($estimate->id == 145){
       if ($_POST["sessfilter"] > 0){
         $estimate->content = "セッションフィルター".$_POST["sessfilter"]."件 ";
@@ -182,7 +182,7 @@ foreach ($checkitems as $checkitem){
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
       }      
      }
-	/* 為替調整費 */  
+	/* 左メニューカスタマイズー */     
 	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
      echo '<td style="width: 0%;"></td>';
      echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
