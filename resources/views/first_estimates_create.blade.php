@@ -79,7 +79,7 @@ $prise += estimate_item($checkitems, $estimates, $display, 7, "データ更新",
 $prise += estimate_item($checkitems, $estimates, $display, 8, "コンテナOSメンテ", null, null);
 $prise += estimate_item($checkitems, $estimates, $display, 9, null, null, null);
 $sum_prise = $prise + ($prise * 0.1);
-echo "<p style='font-weight: bold;'>御見積金額 ￥".$sum_prise."（税込）　　　　　　　　　　　　　　$date 為替レート：$dollar 米ドル／円（始値）</p>";
+echo "<p style='font-weight: bold; font-size: 20px;'>御見積金額 ￥".$sum_prise."（税込）　　　　　　　　$date 為替レート：$dollar 米ドル／円（始値）</p>";
 function estimate_item($checkitems, $estimates, $display, $category_id, $category_name, $raito, $dollaryen) {
  $reset_flag = 1;
  $web_flag = 0; 
