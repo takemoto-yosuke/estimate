@@ -31,6 +31,13 @@
    　期間：<input type="number" id="period" name="period" value="2" min="2" style="width: 50px";>ヶ月
   </div>
   </td>
+ @elseif ($checkitem->id == 53) <!-- セッションフィルター件数 -->
+  <td>
+  <div>{{ $checkitem->checkitem }}
+   　<br>セッションフィルター 件数：<input type="number" id="sessfilter" name="sessfilter" value="0" min="0" style="width: 50px";>件<br>
+   認証無しリンク指定 　件数：<input type="number" id="link" name="link" value="0" min="0" style="width: 50px";>件
+  </div>
+  </td>  
  @else
   <td class="create_table">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}

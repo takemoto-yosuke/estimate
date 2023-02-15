@@ -168,7 +168,21 @@ foreach ($checkitems as $checkitem){
     	$estimate->unit_prise = $id4_unit_prise * $raito / 100;
     	$estimate->prise = $estimate->unit_prise * $id4_quantity;
      }
-	/* 為替調整費 */    
+	/* 為替調整費 */  
+	/* セッションフィルター */
+     if ($estimate->id == 145){
+      if ($_POST["sessfilter"] > 0){
+        $estimate->content = "セッションフィルター".$_POST["sessfilter"]."件 ";
+        $estimate->quantity = round($_POST["sessfilter"]/2)*0.1;
+    	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
+      }
+      if ($_POST["link"] > 0){
+        $estimate->content = $estimate->content."認証無しリンク指定".$_POST["link"]."件";
+        $estimate->quantity = $estimate->quantity + round($_POST["link"]/2)*0.1;
+    	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
+      }      
+     }
+	/* 為替調整費 */  
 	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
      echo '<td style="width: 0%;"></td>';
      echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";

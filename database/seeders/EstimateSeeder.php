@@ -1794,6 +1794,18 @@ class EstimateSeeder extends Seeder
           'lang' => "ja|eng",             
           'checkitem_id' => 52,        
         ]);  
+        Estimate::create([
+          'category_id' => 5,         
+          'item' => '左メニューカスタマイズ',
+          'content' => null,       
+          'quantity' => null,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => null,           
+          'machine' => "web|app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 53,        
+        ]);  
 /*        
         Estimate::create([
           'category_id' => ,         

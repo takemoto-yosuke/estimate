@@ -253,6 +253,11 @@ class CheckItemSeeder extends Seeder
           'machine' => 'common',    
           'first_estimate' => 1                            
         ]); 
+        CheckItem::create([
+          'checkitem' => '左メニューカスタマイズ',          
+          'machine' => 'common',    
+          'first_estimate' => 1                            
+        ]); 
         
     }
 }
