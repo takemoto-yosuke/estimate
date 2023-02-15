@@ -43,4 +43,10 @@ class LoginController extends Controller
         return '/';
         //例）return 'costs/index';
     }    
+    
+    public function username()
+    {
+        //  emailの代わりに使用したいカラム名を指定する
+        return 'login_id';
+     }    
 }

@@ -18,9 +18,16 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
          \App\Models\User::create([
-            'name' => 'webディレクション',
-            'email' => 'core.webd@gmail.com',
+            'name' => 'コア',
+            'login_id' => 'core',
             'password' => Hash::make('core9321300'),
+            'role' => 0,
+         ]);
+         \App\Models\User::create([
+            'name' => 'マイスワン',
+            'login_id' => 'miceone',
+            'password' => Hash::make('micenavi'),
+            'role' => 1,
          ]);
         $this->call(CategorySeeder::class);
         $this->call(EstimateSeeder::class);

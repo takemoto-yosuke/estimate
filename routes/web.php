@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', function () {
      return view('top');
- });
+ })->middleware('auth');
 
 //Route::get('/category', [CategoriesController::class, 'index']);
 //Route::get('/checkitem', [CheckItemController::class, 'index']);
