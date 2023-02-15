@@ -238,5 +238,21 @@ class CheckItemSeeder extends Seeder
           'machine' => 'app',    
           'first_estimate' => 1                            
         ]); 
+        CheckItem::create([
+          'checkitem' => 'ハイライト',          
+          'machine' => 'both',    
+          'first_estimate' => 1                            
+        ]); 
+        CheckItem::create([
+          'checkitem' => 'ハイライトトップページ',          
+          'machine' => 'both',    
+          'first_estimate' => 1                            
+        ]); 
+        CheckItem::create([
+          'checkitem' => 'サムネイル表示内容選択',          
+          'machine' => 'common',    
+          'first_estimate' => 1                            
+        ]); 
+        
     }
 }

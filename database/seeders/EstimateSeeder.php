@@ -1698,6 +1698,90 @@ class EstimateSeeder extends Seeder
           'lang' => "ja|eng",             
           'checkitem_id' => 49,        
         ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライト機能設置',
+          'content' => 'ウェブ版',       
+          'quantity' => 1,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 35000,           
+          'machine' => "web_only",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 50,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライト機能設置',
+          'content' => 'アプリ版',       
+          'quantity' => 0.25,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 8750,           
+          'machine' => "app_only",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 50,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライト機能設置',
+          'content' => 'ウェブ版＋アプリ版',       
+          'quantity' => 1.25,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 43750,           
+          'machine' => "web&app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 50,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライト機能設置（トップページ）',
+          'content' => 'ウェブ版',       
+          'quantity' => 0.5,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 17500,           
+          'machine' => "web_only",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 51,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライト機能設置（トップページ）',
+          'content' => 'アプリ版',       
+          'quantity' => 0.25,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 8750,           
+          'machine' => "app_only",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 51,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライト機能設置（トップページ）',
+          'content' => 'ウェブ版＋アプリ版',       
+          'quantity' => 0.75,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 26250,           
+          'machine' => "web&app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 51,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'サムネイル表示内容選択機能',
+          'content' => null,       
+          'quantity' => 0.2,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 7000,           
+          'machine' => "web|app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 52,        
+        ]);  
 /*        
         Estimate::create([
           'category_id' => ,         
