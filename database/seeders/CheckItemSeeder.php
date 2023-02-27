@@ -254,7 +254,7 @@ class CheckItemSeeder extends Seeder
           'first_estimate' => 1                            
         ]); 
         CheckItem::create([
-          'checkitem' => '左メニューカスタマイズ',          
+          'checkitem' => 'リンク指定',          
           'machine' => 'common',    
           'first_estimate' => 1                            
         ]); 

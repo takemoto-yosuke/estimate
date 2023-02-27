@@ -163,10 +163,31 @@ foreach ($checkitems as $checkitem){
 	/* 運用期間 */
 	/* 為替調整費 */
      if ($estimate->id == 5){
-        $estimate->content = $date."時点：基本価格の".$raito."％（平均1ドル".$dollaryen."円）";
+      if (($_POST["date1"] == null) && ($_POST["date2"] == null)){
+        $estimate->content = "為替相場調整費 ".$date."時点：基本価格の".$raito."％（1ドル".$dollaryen."円）";
         $estimate->quantity = $id4_quantity;
     	$estimate->unit_prise = $id4_unit_prise * $raito / 100;
     	$estimate->prise = $estimate->unit_prise * $id4_quantity;
+	  }
+      else { //公開期間の指定がある場合
+        $date1 = substr($_POST["date1"], 5);
+        $date1 = ltrim($date1, "0");
+        $date1 = str_replace('-', '月', $date1);
+        $date2 = substr($_POST["date2"], 5);
+        $date2 = ltrim($date2, "0");
+        $date2 = str_replace('-', '月', $date2);
+	    if (substr($date1, -2, 1) == 0){
+	     $date1 = substr_replace($date1, '', -2, 1);
+	    }
+	    if (substr($date2, -2, 1) == 0){
+	     $date1 = substr_replace($date1, '', -2, 1);
+	    }
+        
+        $estimate->content = "為替相場調整費 ".$date1."日（公開日）～".$date2."日の平均：基本価格の●●％（1ドル●●円）";
+        $estimate->quantity = $id4_quantity;
+    	$estimate->unit_prise = null;
+    	$estimate->prise = null;
+	  }	  
      }
 	/* 為替調整費 */  
 	/* 左メニューカスタマイズー */

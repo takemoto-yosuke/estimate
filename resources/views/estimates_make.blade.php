@@ -27,8 +27,9 @@
  <tr>
  @if ($checkitem->id == 1) <!-- 運用期間入力フォーム -->
   <td>
-  <div>{{ $checkitem->checkitem }}
-   　期間：<input type="number" id="period" name="period" value="2" min="2" style="width: 50px";>ヶ月
+  <div>{{ $checkitem->checkitem }}期間
+   　<input type="number" id="period" name="period" value="2" min="2" style="width: 50px";>ヶ月
+   　<input type="date" id="date1" name="date1" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>～<input type="date" id="date2" name="date2" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>
   </div>
   </td>
  @elseif ($checkitem->id == 53) <!-- セッションフィルター件数 -->
@@ -175,5 +176,6 @@ function change_eng() {
     }
 }
 </script>
+
 @endsection
 

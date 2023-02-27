@@ -18,6 +18,10 @@
              <a href="{{ url('/category') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">カテゴリー一覧（調整中）</a>
 <!--             <a tabindex="-1" class="text-sm text-gray-700 dark:text-gray-500 underline">カテゴリー一覧</a> -->
          </div>  
+         <div class="card-title">
+             <a href="{{ url('/manual') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">運用ルール</a>
+<!--             <a tabindex="-1" class="text-sm text-gray-700 dark:text-gray-500 underline">カテゴリー一覧</a> -->
+         </div>  
         @endcan 
          <div class="card-title">
              <a href="{{ url('/first_estimates_make') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">初期見積作成（マイスワン様用で検討）</a>

@@ -45,3 +45,7 @@ Route::post('/first_estimates_create',[EstimatesController::class, 'create_first
 Route::resource('checkitem', CheckItemController::class);
 Route::resource('category', CategoriesController::class);
 Route::resource('estimate', EstimatesController::class);
+
+Route::get('/manual', function () {
+     return view('manual');
+ });
