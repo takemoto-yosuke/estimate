@@ -48,11 +48,13 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '展示マップ　※100社程度想定' ,          
-          'machine' => 'app'                  
+          'machine' => 'app',      
+          'first_estimate' => 1                
         ]); 
         CheckItem::create([
           'checkitem' => '展示「はい/いいえ」画面設置',          
-          'machine' => 'common'            
+          'machine' => 'common',      
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'セッションアンケート・資料ダウンロード',          
@@ -90,7 +92,7 @@ class CheckItemSeeder extends Seeder
           'first_estimate' => 1                   
         ]); 
         CheckItem::create([
-          'checkitem' => '有料セミナー（中間DB連携対応）',          
+          'checkitem' => '有料セミナー',          
           'machine' => 'both',    
           'first_estimate' => 1                   
         ]); 
@@ -111,7 +113,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '各種ご案内',          
-          'machine' => 'web'                            
+          'machine' => 'web',      
+          'first_estimate' => 1                            
         ]); 
         CheckItem::create([
           'checkitem' => '広告　アプリ表紙フッター',          
@@ -155,7 +158,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '日程表アイコンカスタマイズ',          
-          'machine' => 'common'            
+          'machine' => 'common',      
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '表紙カスタマイズ',          
@@ -164,7 +168,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => '文言変更',          
-          'machine' => 'common'            
+          'machine' => 'common',      
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => '日程表コマ名指定（5件以上）',          
@@ -183,12 +188,12 @@ class CheckItemSeeder extends Seeder
           'machine' => 'web'            
         ]); 
         CheckItem::create([
-          'checkitem' => '視聴履歴メニュー設置',          
+          'checkitem' => '視聴履歴',          
           'machine' => 'common',    
           'first_estimate' => 1            
         ]); 
         CheckItem::create([
-          'checkitem' => '共催セミナー一覧',          
+          'checkitem' => '共催セミナー',          
           'machine' => 'common',    
           'first_estimate' => 1            
         ]); 
@@ -226,7 +231,8 @@ class CheckItemSeeder extends Seeder
         ]); 
         CheckItem::create([
           'checkitem' => 'データ更新',          
-          'machine' => 'both'            
+          'machine' => 'both',      
+          'first_estimate' => 1            
         ]); 
         CheckItem::create([
           'checkitem' => 'コンテナOSメンテ',          

@@ -90,9 +90,15 @@
   <td class="checkposition create_table"><input type="checkbox" name="common[{{ $checkitem->id }}]" value=1></td>
   <td class="create_table"></td>
   @elseif ($checkitem->machine == "web")
-  <td class="create_table"></td>
-  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled></td>
-  <td class="create_table"></td>
+   @if ($checkitem->id == 21) <!-- 各種ご案内調整 -->
+   <td class="create_table"></td>
+   <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select2" disabled></td>
+   <td class="create_table"></td>
+   @else
+   <td class="create_table"></td>
+   <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled></td>
+   <td class="create_table"></td>
+   @endif
   @elseif ($checkitem->machine == "app")
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" disabled></td>
@@ -108,7 +114,7 @@
  
  </tr>     
 @endforeach
-             <!-- 本 登録ボタン -->
+             <!-- 作成ボタン -->
              <div class="form-group">
                  <div class="col-sm-offset-3 col-sm-11">
                      <button type="submit" class="btn btn-primary">
@@ -123,34 +129,70 @@
 <script>
 function change_web() {
     var element;
-    if(document.getElementById("web-on-select").checked) {
+    var element2; //各種ご案内（web版のみ場合有効化）の調整
+    if((document.getElementById("web-on-select").checked) && (document.getElementById("app-on-select").checked)){
         element = document.getElementsByClassName("web-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled = false;
+        element.disabled = false;
+        });
+    }else if(document.getElementById("web-on-select").checked) {
+        element = document.getElementsByClassName("web-select");
+        element = Array.from(element);
+        element.forEach(function(element) {
+        element.disabled = false;
+        });
+        element2 = document.getElementsByClassName("web-select2");
+        element2 = Array.from(element2);
+        element2.forEach(function(element2) {
+        element2.disabled = false;
         });
     }else {
         element = document.getElementsByClassName("web-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled =true;
+        element.disabled = true;
+        });
+        element2 = document.getElementsByClassName("web-select2");
+        element2 = Array.from(element2);
+        element2.forEach(function(element2) {
+        element2.disabled = true;
         });
     }
 }
 function change_app() {
     var element;
-    if(document.getElementById("app-on-select").checked) {
+    var element2;
+    if((document.getElementById("web-on-select").checked) && (document.getElementById("app-on-select").checked)){
         element = document.getElementsByClassName("app-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled = false;
+        element.disabled = false;
         });
+        element2 = document.getElementsByClassName("web-select2");
+        element2 = Array.from(element2);
+        element2.forEach(function(element2) {
+        element2.disabled = true;
+        });
+    }else if(document.getElementById("app-on-select").checked) {
+        element = document.getElementsByClassName("app-select");
+        element = Array.from(element);
+        element.forEach(function(element) {
+        element.disabled = false;
+        }); 
     }else {
         element = document.getElementsByClassName("app-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled =true;
+        element.disabled = true;
         });
+        if (document.getElementById("web-on-select").checked) {
+         element2 = document.getElementsByClassName("web-select2");
+         element2 = Array.from(element2);
+         element2.forEach(function(element2) {
+         element2.disabled = false;
+         });
+        }
     }
 }
 function change_ja() {
@@ -159,13 +201,13 @@ function change_ja() {
         element = document.getElementsByClassName("ja-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled = false;
+        element.disabled = false;
         });
     }else {
         element = document.getElementsByClassName("ja-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled =true;
+        element.disabled = true;
         });
     }
 }
@@ -175,13 +217,13 @@ function change_eng() {
         element = document.getElementsByClassName("eng-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled = false;
+        element.disabled = false;
         });
     }else {
         element = document.getElementsByClassName("eng-select");
         element = Array.from(element);
         element.forEach(function(element) {
-         element.disabled =true;
+        element.disabled = true;
         });
     }
 }
