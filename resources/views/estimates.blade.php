@@ -139,7 +139,7 @@
              <div class="form-group">
                  <div class="col-sm-offset-3 col-sm-11">
                      <button type="submit" class="btn btn-primary">
-                         Save
+                         登録
                      </button>
                  </div>
              </div>
