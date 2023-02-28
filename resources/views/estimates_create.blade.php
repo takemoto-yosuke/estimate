@@ -190,6 +190,23 @@ foreach ($checkitems as $checkitem){
 	  }	  
      }
 	/* 為替調整費 */  
+	
+	/* 外字マップメンテナンス */
+     if ($estimate->id == 113){
+        $estimate->content = $_POST["external_characters"]."式";
+        $estimate->quantity = $_POST["external_characters"];
+    	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
+      }
+	/* 外字マップメンテナンス */
+	
+	/* 個別調整 */
+     if ($estimate->id == 115){
+        $estimate->content = $_POST["individual"]."式";
+        $estimate->quantity = $_POST["individual"];
+    	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
+      }
+	/* 個別調整 */
+	
 	/* 左メニューカスタマイズー */
      if ($estimate->id == 145){
       if ($_POST["sessfilter"] > 0){

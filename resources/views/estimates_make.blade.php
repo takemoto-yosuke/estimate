@@ -32,6 +32,16 @@
    　<input type="date" id="date1" name="date1" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>～<input type="date" id="date2" name="date2" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>
   </div>
   </td>
+ @elseif ($checkitem->id == 3) <!-- 外字マップメンテナンス文字数 -->
+  <td>
+  <div>{{ $checkitem->checkitem }}：<input type="number" id="external_characters" name="external_characters" value="1" min="1" style="width: 50px";>式<br>
+  </div>
+  </td> 
+ @elseif ($checkitem->id == 5) <!-- 個別調整件数 -->
+  <td>
+  <div>{{ $checkitem->checkitem }}：<input type="number" id="individual" name="individual" value="1" min="1" style="width: 50px";>式<br>
+  </div>
+  </td> 
  @elseif ($checkitem->id == 53) <!-- セッションフィルター件数 -->
   <td>
   <div>{{ $checkitem->checkitem }}
