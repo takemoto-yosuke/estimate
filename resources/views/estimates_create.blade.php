@@ -192,7 +192,7 @@ foreach ($checkitems as $checkitem){
 	/* 為替調整費 */  
 	
 	/* 外字マップメンテナンス */
-     if ($estimate->id == 113){
+     if ($estimate->id == 114){
         $estimate->content = $_POST["external_characters"]."式";
         $estimate->quantity = $_POST["external_characters"];
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
@@ -200,7 +200,7 @@ foreach ($checkitems as $checkitem){
 	/* 外字マップメンテナンス */
 	
 	/* 個別調整 */
-     if ($estimate->id == 115){
+     if ($estimate->id == 116){
         $estimate->content = $_POST["individual"]."式";
         $estimate->quantity = $_POST["individual"];
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
@@ -208,7 +208,7 @@ foreach ($checkitems as $checkitem){
 	/* 個別調整 */
 	
 	/* 左メニューカスタマイズー */
-     if ($estimate->id == 145){
+     if ($estimate->id == 146){
       if ($_POST["sessfilter"] > 0){
         $estimate->content = "セッションフィルター".$_POST["sessfilter"]."件 ";
         $estimate->quantity = round($_POST["sessfilter"]/2)*0.1;
