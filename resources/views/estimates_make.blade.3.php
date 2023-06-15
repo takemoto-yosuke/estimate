@@ -106,72 +106,62 @@
   @if ($checkitem->machine == "common")
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="common[{{ $checkitem->id }}]" value=1></td>
-                                         <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
   <td class="create_table"></td>
   
   <!-- 英語版チェックボックス -->
   <td class="create_table"></td>
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="common[{{ $checkitem->id }}]" value=1></td>
-                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
   <td class="create_table"></td>
   @elseif ($checkitem->machine == "web")
    @if ($checkitem->id == 21) <!-- 各種ご案内調整 -->
    <td class="create_table"></td>
    <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select2" disabled></td>
-                                          <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
    <td class="create_table"></td>
    
   <!-- 英語版チェックボックス -->
    <td class="create_table"></td>
    <td class="create_table"></td>
    <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select2-eng" disabled></td>
-                                          <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
    <td class="create_table"></td>
    
    @else
    <td class="create_table"></td>
    <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled></td>
-                                          <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
    <td class="create_table"></td>
    
   <!-- 英語版チェックボックス -->
    <td class="create_table"></td>
    <td class="create_table"></td>
    <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select-eng" disabled></td>
-                                          <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
    <td class="create_table"></td>
   
    @endif
   @elseif ($checkitem->machine == "app")
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" disabled></td>
-                                         <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
   <td class="create_table"></td>
   
   <!-- 英語版チェックボックス -->
   <td class="create_table"></td>
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select-eng" disabled></td>
-                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
   <td class="create_table"></td>
   
   @else
   <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled>
-                                         <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" disabled></td>
-                                         <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
+                                         
 
   <!-- 英語版チェックボックス -->
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select-eng" disabled>
-                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select-eng" disabled></td>
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select-eng" disabled></td>
-                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
   @endif
-<!--  <td class="checkposition create_table"><input type="checkbox" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>-->
+  <td class="checkposition create_table"><input type="checkbox" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
+  <td class="checkposition create_table"><input type="checkbox" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
  @endif  
  
  </tr>     

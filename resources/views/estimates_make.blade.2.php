@@ -157,19 +157,18 @@
   <td class="create_table"></td>
   
   @else
-  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" disabled>
-                                         <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
+  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select" id="item-on-select" disabled onchange="change_ja({{ $checkitem->id }})"></td>
+  <td class="checkposition create_table"><input type="checkbox" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select{{ $checkitem->id }}" disabled></td>
   <td class="create_table"></td>
-  <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" disabled></td>
-                                         <input type="hidden" name="ja[{{ $checkitem->id }}]" value=1 checked class="ja-select" disabled></td>
+  <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select" id="item-on-select" disabled onchange="change_ja({{ $checkitem->id }})"></td>
 
   <!-- 英語版チェックボックス -->
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 class="web-select-eng" disabled>
-                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select-eng" disabled></td>
+                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 class="web-select-eng" disabled></td>
   <td class="create_table"></td>
   <td class="checkposition create_table"><input type="checkbox" name="app[{{ $checkitem->id }}]" value=1 class="app-select-eng" disabled></td>
-                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>
+                                         <input type="hidden" name="eng[{{ $checkitem->id }}]" value=1 class="app-select-eng" disabled></td>
   @endif
 <!--  <td class="checkposition create_table"><input type="checkbox" name="eng[{{ $checkitem->id }}]" value=1 checked class="eng-select" disabled></td>-->
  @endif  
@@ -257,16 +256,16 @@ function change_app() {
         }
     }
 }
-function change_ja() {
+function change_ja(id) {
     var element;
-    if(document.getElementById("ja-on-select").checked) {
-        element = document.getElementsByClassName("ja-select");
+    if(document.getElementById("item-on-select").checked) {
+        element = document.getElementsByClassName("ja-select"+id);
         element = Array.from(element);
         element.forEach(function(element) {
         element.disabled = false;
         });
     }else {
-        element = document.getElementsByClassName("ja-select");
+        element = document.getElementsByClassName("ja-select"+id);
         element = Array.from(element);
         element.forEach(function(element) {
         element.disabled = true;
