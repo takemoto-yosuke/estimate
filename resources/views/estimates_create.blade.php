@@ -150,6 +150,7 @@ foreach ($checkitems as $checkitem){
      echo '</td>';
      echo "<td style='padding-left: 20px;'> $estimate->item </td>";
      echo '<td style="width: 0%;"></td>';
+     echo '<td style="width: 0%;"></td>';
 
 	/* 運用期間 */
      if ($estimate->id == 4){
@@ -235,6 +236,12 @@ foreach ($checkitems as $checkitem){
      }
 	/* 左メニューカスタマイズー */     
 	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
+     echo '<td style="width: 0%;"></td>';
+     echo '<td style="width: 0%;"></td>';
+     echo '<td style="width: 0%;"></td>';
+     echo '<td style="width: 0%;"></td>';
+     echo '<td style="width: 0%;"></td>';
+     echo '<td style="width: 0%;"></td>';
      echo '<td style="width: 0%;"></td>';
      echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
      echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
