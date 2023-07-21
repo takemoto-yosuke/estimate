@@ -6,7 +6,7 @@
 <div class="card-body"> 
 <form action="{{ url('estimates_create') }}" method="POST" target="_blank" class="form-horizontal">
          {{ csrf_field() }}
-<table class="table table-striped task-table" style="width: 800px;">
+<table class="table table-striped task-table" style="width: 850px;">
  <thead>
   <tr>
    <td class="item_box_lock">項目</td>
@@ -45,7 +45,7 @@
  @elseif ($checkitem->id == 53) <!-- ハイライトリンク件数 -->
   <td>
   <div>{{ $checkitem->checkitem }}
-    件数：<input type="number" id="highlight" name="highlight" value="0" min="0" style="width: 50px";>件
+    件数：<input type="number" id="highlight" name="highlight" value="0" min="0" style="width: 50px";>件　※デフォルトの1件はカウントしない
   </div>
   </td> 
  @elseif ($checkitem->id == 55) <!-- セッションフィルター件数 -->
