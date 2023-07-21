@@ -224,7 +224,7 @@ foreach ($checkitems as $checkitem){
 	/* ハイライトリンク件数 */
      if ($estimate->id == 145){
       if ($_POST["highlight"] > 0){
-        $estimate->content = $_POST["highlight"]."件 ";
+        $estimate->content = $_POST["highlight"]."件";
         $estimate->quantity = round($_POST["highlight"]/2)*0.1;
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
       }   

@@ -260,7 +260,7 @@ class CheckItemSeeder extends Seeder
           'first_estimate' => 1                            
         ]); 
         CheckItem::create([
-          'checkitem' => 'ハイライトリンク',          
+          'checkitem' => 'ハイライトリンク追加',          
           'machine' => 'common',    
           'first_estimate' => 1                            
         ]); 

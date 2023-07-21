@@ -45,7 +45,7 @@
  @elseif ($checkitem->id == 53) <!-- ハイライトリンク件数 -->
   <td>
   <div>{{ $checkitem->checkitem }}
-    件数：<input type="number" id="highlight" name="highlight" value="2" min="2" style="width: 50px";>件　※2件以上ある場合
+    件数：<input type="number" id="highlight" name="highlight" value="0" min="0" style="width: 50px";>件
   </div>
   </td> 
  @elseif ($checkitem->id == 55) <!-- セッションフィルター件数 -->

@@ -1797,7 +1797,7 @@ class EstimateSeeder extends Seeder
         ]);  
         Estimate::create([
           'category_id' => 4,         
-          'item' => 'ハイライトリンク',
+          'item' => 'ハイライトリンク追加件数',
           'content' => null,       
           'quantity' => null,          
           'unit' => '人日',          
