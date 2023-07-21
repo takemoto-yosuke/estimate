@@ -255,6 +255,16 @@ class CheckItemSeeder extends Seeder
           'first_estimate' => 1                            
         ]); 
         CheckItem::create([
+          'checkitem' => 'ハイライトアイコン表示（共催セミナーページ）',          
+          'machine' => 'common',    
+          'first_estimate' => 1                            
+        ]); 
+        CheckItem::create([
+          'checkitem' => 'ハイライトリンク',          
+          'machine' => 'common',    
+          'first_estimate' => 1                            
+        ]); 
+        CheckItem::create([
           'checkitem' => 'サムネイル表示内容選択',          
           'machine' => 'common',    
           'first_estimate' => 1                            
@@ -264,6 +274,7 @@ class CheckItemSeeder extends Seeder
           'machine' => 'common',    
           'first_estimate' => 1                            
         ]); 
+        
         
     }
 }

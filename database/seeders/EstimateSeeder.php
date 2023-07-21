@@ -1678,7 +1678,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 8,         
           'item' => 'コンテナ側管理画面の作業',
-          'content' => '前回大会以降にコンテナ側管理画面へ追加した新機能の横展開',       
+          'content' => '前回大会以降にコンテナ側管理画面へ追加��た新機能の横展開',       
           'quantity' => 2,          
           'unit' => '人日',          
           'unit_prise' => 35000,        
@@ -1785,6 +1785,30 @@ class EstimateSeeder extends Seeder
         ]);  
         Estimate::create([
           'category_id' => 4,         
+          'item' => 'ハイライトアイコン表示',
+          'content' => '共催セミナーページ',       
+          'quantity' => 0.3,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 10500,           
+          'machine' => "web|app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 52,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
+          'item' => 'ハイライトリンク',
+          'content' => null,       
+          'quantity' => null,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => null,           
+          'machine' => "web|app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 53,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
           'item' => 'サムネイル表示内容選択機能',
           'content' => 'タイトル、再生ボタン、開催ステータス、ライブ開催日時表示',       
           'quantity' => 0.2,          
@@ -1793,7 +1817,7 @@ class EstimateSeeder extends Seeder
           'prise' => 7000,           
           'machine' => "web|app",                
           'lang' => "ja|eng",             
-          'checkitem_id' => 52,        
+          'checkitem_id' => 54,        
         ]);  
         Estimate::create([
           'category_id' => 4,         
@@ -1805,7 +1829,7 @@ class EstimateSeeder extends Seeder
           'prise' => null,           
           'machine' => "web|app",                
           'lang' => "ja|eng",             
-          'checkitem_id' => 52,        
+          'checkitem_id' => 54,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1817,7 +1841,7 @@ class EstimateSeeder extends Seeder
           'prise' => null,           
           'machine' => "web|app",                
           'lang' => "ja|eng",             
-          'checkitem_id' => 53,        
+          'checkitem_id' => 55,        
         ]);  
 /*        
         Estimate::create([

@@ -42,7 +42,13 @@
   <div>{{ $checkitem->checkitem }}：<input type="number" id="individual" name="individual" value="1" min="1" style="width: 50px";>式<br>
   </div>
   </td> 
- @elseif ($checkitem->id == 53) <!-- セッションフィルター件数 -->
+ @elseif ($checkitem->id == 53) <!-- ハイライトリンク件数 -->
+  <td>
+  <div>{{ $checkitem->checkitem }}
+    件数：<input type="number" id="highlight" name="highlight" value="2" min="2" style="width: 50px";>件　※2件以上ある場合
+  </div>
+  </td> 
+ @elseif ($checkitem->id == 55) <!-- セッションフィルター件数 -->
   <td>
   <div>{{ $checkitem->checkitem }}
    　<br>セッションフィルター 件数：<input type="number" id="sessfilter" name="sessfilter" value="0" min="0" style="width: 50px";>件<br>

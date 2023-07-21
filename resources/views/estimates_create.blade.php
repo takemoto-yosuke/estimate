@@ -220,9 +220,19 @@ foreach ($checkitems as $checkitem){
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
       }
 	/* 個別調整 */
+
+	/* ハイライトリンク件数 */
+     if ($estimate->id == 145){
+      if ($_POST["highlight"] > 0){
+        $estimate->content = $_POST["highlight"]."件 ";
+        $estimate->quantity = round($_POST["highlight"]/2)*0.1;
+    	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
+      }   
+     }
+	/* ハイライトリンク件数 */
 	
 	/* 左メニューカスタマイズー */
-     if ($estimate->id == 146){
+     if ($estimate->id == 148){
       if ($_POST["sessfilter"] > 0){
         $estimate->content = "セッションフィルター".$_POST["sessfilter"]."件 ";
         $estimate->quantity = round($_POST["sessfilter"]/2)*0.1;
