@@ -265,6 +265,11 @@ class CheckItemSeeder extends Seeder
           'first_estimate' => 1                            
         ]); 
         CheckItem::create([
+          'checkitem' => 'ハイライト表示方式追加',          
+          'machine' => 'common',    
+          'first_estimate' => 1                            
+        ]); 
+        CheckItem::create([
           'checkitem' => 'サムネイル表示内容選択',          
           'machine' => 'common',    
           'first_estimate' => 1                            

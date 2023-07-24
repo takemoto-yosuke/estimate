@@ -48,7 +48,7 @@
     件数：<input type="number" id="highlight" name="highlight" value="0" min="0" style="width: 50px";>件　※デフォルトの1件はカウントしない
   </div>
   </td> 
- @elseif ($checkitem->id == 55) <!-- セッションフィルター件数 -->
+ @elseif ($checkitem->id == 56) <!-- セッションフィルター件数 -->
   <td>
   <div>{{ $checkitem->checkitem }}
    　<br>セッションフィルター 件数：<input type="number" id="sessfilter" name="sessfilter" value="0" min="0" style="width: 50px";>件<br>

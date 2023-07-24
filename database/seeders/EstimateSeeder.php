@@ -80,7 +80,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 2,         
           'item' => null,
-          'content' => '※為替相場に応じて変動する場合があります。',       
+          'content' => '※ご請求時為替レートが大きく変動している場合、別途御見積とさせていただきます。',       
           'quantity' => null,          
           'unit' => null,          
           'unit_prise' => null,        
@@ -1305,7 +1305,7 @@ class EstimateSeeder extends Seeder
         ]);  
         Estimate::create([
           'category_id' => 5,         
-          'item' => 'アプリ版表紙カスタマイズ',
+          'item' => 'アプリ版表紙カ��タマイズ',
           'content' => 'タイル張りタイプ（通常スマホ、iPhoneX、iPad縦、iPad横サイズ）　※日英版',       
           'quantity' => 1,          
           'unit' => '式',          
@@ -1809,6 +1809,18 @@ class EstimateSeeder extends Seeder
         ]);  
         Estimate::create([
           'category_id' => 4,         
+          'item' => 'ハイライト表示方式追加',
+          'content' => '「学会」「分野」を追加',       
+          'quantity' => 0.2,          
+          'unit' => '人日',          
+          'unit_prise' => 35000,        
+          'prise' => 7000,           
+          'machine' => "web|app",                
+          'lang' => "ja|eng",             
+          'checkitem_id' => 54,        
+        ]);  
+        Estimate::create([
+          'category_id' => 4,         
           'item' => 'サムネイル表示内容選択機能',
           'content' => 'タイトル、再生ボタン、開催ステータス、ライブ開催日時表示',       
           'quantity' => 0.2,          
@@ -1817,7 +1829,7 @@ class EstimateSeeder extends Seeder
           'prise' => 7000,           
           'machine' => "web|app",                
           'lang' => "ja|eng",             
-          'checkitem_id' => 54,        
+          'checkitem_id' => 55,        
         ]);  
         Estimate::create([
           'category_id' => 4,         
@@ -1829,7 +1841,7 @@ class EstimateSeeder extends Seeder
           'prise' => null,           
           'machine' => "web|app",                
           'lang' => "ja|eng",             
-          'checkitem_id' => 54,        
+          'checkitem_id' => 55,        
         ]);  
         Estimate::create([
           'category_id' => 5,         
@@ -1841,7 +1853,7 @@ class EstimateSeeder extends Seeder
           'prise' => null,           
           'machine' => "web|app",                
           'lang' => "ja|eng",             
-          'checkitem_id' => 55,        
+          'checkitem_id' => 56,        
         ]);  
 /*        
         Estimate::create([
