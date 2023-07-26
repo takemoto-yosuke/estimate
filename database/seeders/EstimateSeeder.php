@@ -1183,7 +1183,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 4,         
           'item' => '大会フィルタ',
-          'content' => '日程表/プログラム画面上での学会フィルタ設置　※日英版',       
+          'content' => '日程表/プログラム画面上での学��フィルタ設置　※日英版',       
           'quantity' => 1,          
           'unit' => '式',          
           'unit_prise' => 30000,        
@@ -1678,7 +1678,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 8,         
           'item' => 'コンテナ側管理画面の作業',
-          'content' => '前回大会以降にコンテナ側管理画面へ追加��た新機能の横展開',       
+          'content' => '前回大会以降にコンテナ側管理画面へ追加した新機能の横展開',       
           'quantity' => 2,          
           'unit' => '人日',          
           'unit_prise' => 35000,        

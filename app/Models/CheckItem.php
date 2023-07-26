@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CheckItem extends Model
 {
     use HasFactory;
-    protected $fillable = ['checkitem','machine','first_estimate'];
+    protected $fillable = ['checkitem','machine','first_estimate','order'];
 }

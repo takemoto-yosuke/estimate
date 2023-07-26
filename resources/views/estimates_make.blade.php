@@ -4,7 +4,7 @@
      <!-- Bootstrapの定形コード… -->
 <body>
 <div class="card-body"> 
-<form action="{{ url('estimates_create') }}" method="POST" target="_blank" class="form-horizontal">
+<form action="{{ url('estimates_create') }}" method="POST" target="_blank" class="form-horizontal" onsubmit="return validateForm();">
          {{ csrf_field() }}
 <table class="table table-striped task-table" style="width: 850px;">
  <thead>
@@ -27,9 +27,10 @@
  <tr>
  @if ($checkitem->id == 1) <!-- 運用期間入力フォーム -->
   <td>
-  <div>{{ $checkitem->checkitem }}期間
-   　<input type="number" id="period" name="period" value="2" min="2" style="width: 50px";>ヶ月
-   　<input type="date" id="date1" name="date1" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>～<input type="date" id="date2" name="date2" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>
+  <div>{{ $checkitem->checkitem }}期間：
+   <input type="number" id="period" name="period" value="2" min="2" style="width: 50px";>ヶ月
+   　1ドル：<input type="number" id="dollar" name="dollar" value="" style="width: 70px";>円
+   　<!-- <input type="date" id="date1" name="date1" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";>～<input type="date" id="date2" name="date2" max="<?php echo date('Y-m-d'); ?>" style="width: 120px";> -->
   </div>
   </td>
  @elseif ($checkitem->id == 3) <!-- 外字マップメンテナンス文字数 -->
@@ -133,6 +134,15 @@
 </body>
 <!-- チェックボックス有効化・無効化判定 -->
 <script>
+function validateForm() {
+    var dollarInput = document.getElementById("dollar");
+    if (dollarInput.value.trim() === "") {
+        var confirmed = confirm("1ドルの金額が入力されていません。本日の為替レートを参照して良いですか？");
+        return confirmed; // 「OK」が選択された場合はフォームの送信を許可します
+    }
+    return true; // フォームの送信を許可します
+}
+
 function change_web() {
     var element;
     var element2; //各種ご案内（web版のみ場合有効化）の調整

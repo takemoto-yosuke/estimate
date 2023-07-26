@@ -49,3 +49,5 @@ Route::resource('estimate', EstimatesController::class);
 Route::get('/manual', function () {
      return view('manual');
  });
+ 
+Route::put('/save-order', [CheckItemController::class, 'saveOrder'])->name('save-order');

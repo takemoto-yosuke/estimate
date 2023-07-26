@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CheckItem;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class CheckItemController extends Controller
 {
@@ -19,10 +20,8 @@ class CheckItemController extends Controller
     public function index()
     {
 //      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
-      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);
-      return view('checkitems', [
-          'checkitems' => $checkitems
-      ]);
+    $checkitems = CheckItem::orderBy('order', 'asc')->get(); // 順番によるソート（order列を使用する）
+    return view('checkitems', compact('checkitems'));
     }
 
     /**
@@ -109,5 +108,24 @@ class CheckItemController extends Controller
     {
         $checkItem = CheckItem::find($id)->delete();
         return redirect('/checkitem');
+    }
+    
+    public function saveOrder(Request $request)
+    {
+        $order = json_decode($request->input('order'), true);
+
+        DB::beginTransaction();
+
+        try {
+            foreach ($order as $index => $itemId) {
+                CheckItem::where('id', $itemId)->update(['order' => $index + 1]);
+            }
+
+            DB::commit();
+            return redirect()->back()->with('success', '並び順を保存しました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', '並び順の保存中にエラーが発生しました。');
+        }
     }
 }

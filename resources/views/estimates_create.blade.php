@@ -17,8 +17,12 @@ else {
  foreach($data as $row) {
   foreach($row as $r) {
    if ($r["currencyPairCode"] == "USDJPY"){
-    $dollar = floor($r["open"]); //始値floor ( float $value )
-	}	
+    if (isset($_POST["dollar"]) && $_POST["dollar"] !== "") {
+    	$dollar = $_POST["dollar"];
+	} else {
+    	$dollar = floor($r["open"]); //始値floor ( float $value )
+	}
+   }
   }
  }
 }
@@ -164,8 +168,15 @@ foreach ($checkitems as $checkitem){
 	/* 運用期間 */
 	/* 為替調整費 */
      if ($estimate->id == 5){
+       $estimate->content = "為替相場調整費：基本価格の".$raito."％（※1ドル".$dollar."円での価格です。）";
+       $estimate->quantity = $id4_quantity;
+       $estimate->unit_prise = $id4_unit_prise * $raito / 100;
+       $estimate->prise = $estimate->unit_prise * $id4_quantity;
+	  } 	
+/*
+     if ($estimate->id == 5){
       if (($_POST["date1"] == null) && ($_POST["date2"] == null)){
-        $estimate->content = "為替相場調整費 ".$date."時点：基本価格の".$raito."％（1ドル".$dollaryen."円）";
+        $estimate->content = "為替相場調整費：基本価格の".$raito."％（※1ドル".$dollar."円での価格です。）";
         $estimate->quantity = $id4_quantity;
     	$estimate->unit_prise = $id4_unit_prise * $raito / 100;
     	$estimate->prise = $estimate->unit_prise * $id4_quantity;
@@ -184,6 +195,7 @@ foreach ($checkitems as $checkitem){
     	$estimate->prise = null;
 	  }
      }
+*/     
 	/* 為替調整費 */  
 	
 	/* 外字マップメンテナンス */
