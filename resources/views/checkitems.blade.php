@@ -17,7 +17,7 @@
                      <input type="checkitem" name="checkitem" class="form-control">
                  </div>
              </div>
-             <div class="machine_both_box">
+             <div class="machine_both_box tooltip1">
               端末
                 <div class="form-group">
                     <div class="col-sm-10">
@@ -29,7 +29,13 @@
                      </select>                      
                     </div>
                 </div>           
-             </div>    
+             <p class="description_checkitem">
+              web... ウェブのみのチェックとする場合選択<br>
+              app... アプリのみのチェックとする場合選択<br>
+              common... ウェブとアプリ共通のチェックとする場合選択<br>
+              both... ウェブとアプリ両方のチェックとする場合選択<br>
+             </p> 
+             </div> 
              <div class="machine_both_box">
               初期見積項目
                 <div class="form-group">

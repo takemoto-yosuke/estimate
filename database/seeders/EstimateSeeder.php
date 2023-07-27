@@ -89,9 +89,6 @@ class EstimateSeeder extends Seeder
           'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);     
-        
-        
-        
         Estimate::create([
           'category_id' => 2,         
           'item' => '学会ごとCSS等変更・調整設定',
@@ -1183,7 +1180,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 4,         
           'item' => '大会フィルタ',
-          'content' => '日程表/プログラム画面上での学��フィルタ設置　※日英版',       
+          'content' => '日程表/プログラム画面上での学会フィルタ設置　※日英版',       
           'quantity' => 1,          
           'unit' => '式',          
           'unit_prise' => 30000,        
@@ -1305,7 +1302,7 @@ class EstimateSeeder extends Seeder
         ]);  
         Estimate::create([
           'category_id' => 5,         
-          'item' => 'アプリ版表紙カ��タマイズ',
+          'item' => 'アプリ版表紙カスタマイズ',
           'content' => 'タイル張りタイプ（通常スマホ、iPhoneX、iPad縦、iPad横サイズ）　※日英版',       
           'quantity' => 1,          
           'unit' => '式',          

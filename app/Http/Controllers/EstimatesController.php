@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\CheckItem;
 use Validator;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class EstimatesController extends Controller
 {
@@ -18,10 +19,10 @@ class EstimatesController extends Controller
     
     public function index()
     {
-      $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(1000);
+      $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
       $categories = Category::orderBy('created_at', 'asc')->paginate(100);
 //      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
-      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);
+      $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);
       return view('estimates', [
           'estimates' => $estimates,
           'categories' => $categories,
@@ -31,7 +32,7 @@ class EstimatesController extends Controller
 
     public function create(Request $request)
     {
-      $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(1000);
+      $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
 //      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);  
       $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);  
       $display = $request;
@@ -95,6 +96,35 @@ class EstimatesController extends Controller
          else if ($request->machine == "アプリ含む"){
              $estimates->machine = "app_include"; 
          }         
+         else if ($request->machine == "端末指定無し"){
+             $estimates->machine = "web|app"; 
+         }            
+         else if ($request->machine == "ウェブ+アプリ"){
+             $estimates->machine = "web&app"; 
+         }   
+         
+         if ($request->lang == "言語指定無し"){
+             $estimates->lang = "ja|eng";
+         }    
+         else if ($request->lang == "両言語"){
+             $estimates->lang = "ja&eng";
+         } 
+         else if ($request->lang == "単言語"){
+             $estimates->lang = "ja|&eng";
+         }      
+/*         
+         if ($request->machine == "ウェブのみ"){
+             $estimates->machine = "web_only";            
+         }
+         else if ($request->machine == "アプリのみ"){
+             $estimates->machine = "app_only"; 
+         }
+         else if ($request->machine == "ウェブ含む"){
+             $estimates->machine = "web_include"; 
+         }         
+         else if ($request->machine == "アプリ含む"){
+             $estimates->machine = "app_include"; 
+         }         
          else if ($request->machine == "ウェブ or アプリ"){
              $estimates->machine = "web|app"; 
          }            
@@ -103,7 +133,7 @@ class EstimatesController extends Controller
          }
          else if ($request->machine == "or（両端末有）"){
              $estimates->machine = "web|&app"; 
-         }      
+         } 
          
          if ($request->lang == "日本語のみ"){
              $estimates->lang = "ja_only";
@@ -125,7 +155,8 @@ class EstimatesController extends Controller
          } 
          else if ($request->lang == "or（日英版有）"){
              $estimates->lang = "ja|&eng";
-         }             
+         }      
+*/         
          $estimates->checkitem_id = $request->checkitem_id;
          $estimates->save(); 
          return redirect('estimate');
@@ -189,7 +220,7 @@ class EstimatesController extends Controller
 
     public function edit(Estimate $estimate)
     {
-      $checkitems = CheckItem::orderBy('id', 'asc')->paginate(100);        
+      $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);        
 //         return view('estimatesedit',compact('estimate'));
          return view('estimatesedit',[
              'estimate' => $estimate,
@@ -213,4 +244,23 @@ class EstimatesController extends Controller
         $estimate = Estimate::find($id)->delete();
         return redirect('/estimate');   
     }
+    
+    public function saveOrder(Request $request)
+    {
+        $order = json_decode($request->input('order'), true);
+
+        DB::beginTransaction();
+
+        try {
+            foreach ($order as $index => $itemId) {
+                Estimate::where('id', $itemId)->update(['order' => $index + 1]);
+            }
+
+            DB::commit();
+            return redirect()->back()->with('success', '並び順を保存しました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', '並び順の保存中にエラーが発生しました。');
+        }
+    }    
 }

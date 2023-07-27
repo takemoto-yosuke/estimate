@@ -177,7 +177,7 @@
 .tooltip1 p{
     margin:0;
 }
-.description {
+.description, .description_checkitem {
     display: none;
     position: absolute;
     padding: 10px;
@@ -193,4 +193,49 @@
     top: 0px;
     left: -430px;
 }
+
+.tooltip1:hover .description_checkitem{
+    display: inline-block;
+    top: 0px;
+    left: 160px;
+}
     
+/* category-1 */
+.category-1 {
+  background-color: #FFCCCC !important; /* 赤色の薄いバリエーション */
+}
+
+/* category-2 */
+.category-2 {
+  background-color: #CCFFCC !important; /* 緑色の薄いバリエーション */
+}
+
+/* category-3 */
+.category-3 {
+  background-color: #CCCCFF !important; /* 青色の薄いバリエーション */
+}
+
+/* category-4 */
+.category-4 {
+  background-color: #FFFFCC !important; /* 黄色の薄いバリエーション */
+}
+
+/* category-5 */
+.category-5 {
+  background-color: #FFCCFF !important; /* ピンク色の薄いバリエーション */
+}
+
+/* category-6 */
+.category-6 {
+  background-color: #CCFFFF !important; /* シアン色の薄いバリエーション */
+}
+
+/* category-7 */
+.category-7 {
+  background-color: #E6E6FA !important; /* 紫色の薄いバリエーション */
+}
+
+/* category-8 */
+.category-8 {
+  background-color: #FFE4B5 !important; /* オレンジ色の薄いバリエーション */
+}

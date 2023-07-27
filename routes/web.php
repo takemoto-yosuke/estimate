@@ -51,3 +51,4 @@ Route::get('/manual', function () {
  });
  
 Route::put('/save-order', [CheckItemController::class, 'saveOrder'])->name('save-order');
+Route::put('/save-order-estimate', [EstimatesController::class, 'saveOrder'])->name('save-order');

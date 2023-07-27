@@ -24,7 +24,8 @@ return new class extends Migration
             $table->integer('prise')->nullable();
             $table->string('machine')->nullable();     
             $table->string('lang')->nullable();
-            $table->integer('checkitem_id');         
+            $table->integer('checkitem_id');      
+            $table->integer('order')->default(0);   
             $table->timestamps();
         });
     }
