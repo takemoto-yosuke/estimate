@@ -89,12 +89,12 @@
                  </div>
              </div> 
              <p class="description">
-              ウェブのみ... ウェブのみによる金額の場合選択<br>
-              ウェブ含む... ウェブを含み、アプリの有無で金額が変わらない場合選択<br>
-              アプリのみ... アプリのみによる金額の場合選択<br>
-              アプリ含む... アプリを含み、ウェブの有無で金額が変わらない場合選択<br>
-              ウェブ+アプリ... ウェブ+アプリによる金額の場合選択<br>
-              端末指定無し... ウェブとアプリどちらかが有りで、ウェブ+アプリとしても料金が変わらない場合選択<br>
+              ウェブのみ... ウェブの項目で、アプリの有無で金額が変わる場合選択<br>
+              ウェブ含む... ウェブの項目で、アプリの有無で金額が変わらない場合選択<br>
+              アプリのみ... アプリの項目で、ウェブの有無で金額が変わる場合選択<br>
+              アプリ含む... アプリの項目で、ウェブの有無で金額が変わらない場合選択<br>
+              ウェブ+アプリ... ウェブ+アプリの項目の場合選択<br>
+              端末指定無し... ウェブとアプリどちらかの項目で、ウェブ+アプリとしても金額が変わらない場合選択<br>
              </p>
              
           </div>            
@@ -281,7 +281,7 @@
    <td></td>
    @endif
                                  <td> 			        
-                                     <form action="{{ url('estimate/'.$estimate->id) }}" method="POST">
+                                     <form action="{{ url('estimate/'.$estimate->id) }}" method="POST" onsubmit="return confirmDelete()">
                                              {{ csrf_field() }}
                                              {{ method_field('DELETE') }}
                                              <button type="submit" class="btn btn-danger">
@@ -330,5 +330,10 @@
             saveOrderForm.submit();
         });
     });
+</script>
+<script>
+    function confirmDelete() {
+        return confirm("本当に削除してもよろしいですか？");
+    }
 </script>
 @endsection

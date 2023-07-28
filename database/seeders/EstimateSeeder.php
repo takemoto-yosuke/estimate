@@ -1555,7 +1555,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 5,         
           'item' => 'スポンサー一覧（HTML）',
-          'content' => '※ウェブ版＋アプリ版　※100社程度想定　※アプリ版はWebView表示　※日英版',       
+          'content' => 'ウェブ版＋アプリ版　※100社程度想定　※アプリ版はWebView表示　※日英版',       
           'quantity' => 6,          
           'unit' => '人日',          
           'unit_prise' => 35000,        

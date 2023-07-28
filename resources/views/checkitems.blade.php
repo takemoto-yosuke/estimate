@@ -36,6 +36,7 @@
               both... ウェブとアプリ両方のチェックとする場合選択<br>
              </p> 
              </div> 
+<!--             
              <div class="machine_both_box">
               初期見積項目
                 <div class="form-group">
@@ -46,7 +47,8 @@
                      </select>                      
                     </div>
                 </div>           
-             </div>  
+             </div>
+-->             
             </div> 
              <!-- 本 登録ボタン -->
              <div class="form-group">
@@ -79,7 +81,7 @@
         </td>
         <!-- 本: 削除ボタン -->
         <td>
-            <form action="{{ url('checkitem/'.$checkitem->id) }}" method="POST">
+            <form action="{{ url('checkitem/'.$checkitem->id) }}" method="POST" onsubmit="return confirmDelete()">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger">削除</button>
@@ -133,5 +135,10 @@
             saveOrderForm.submit();
         });
     });
+</script>
+<script>
+    function confirmDelete() {
+        return confirm("本当に削除してもよろしいですか？");
+    }
 </script>
 @endsection

@@ -83,6 +83,7 @@ class EstimatesController extends Controller
          $estimates->unit_prise = $request->unit_prise;
 //         $estimates->prise = $request->prise;
          $estimates->prise = $request->quantity * $request->unit_prise;
+         if($estimates->prise == 0){$estimates->prise = null; }
          
          if ($request->machine == "ウェブのみ"){
              $estimates->machine = "web_only";            
@@ -235,6 +236,7 @@ class EstimatesController extends Controller
         $estimate = Estimate::find($id);
         $estimate->update($request->all());
         $estimate->prise = $request->quantity * $request->unit_prise;   //合計金額
+        if($estimate->prise == 0){$estimate->prise = null; }
         $estimate->save();  //合計金額上書き
         return redirect('/estimate'); 
     }
