@@ -10,6 +10,7 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EstimatesController;
 use App\Http\Controllers\CheckItemController;
+use App\Http\Controllers\DownloadController;
 
 Auth::routes();
 
@@ -49,6 +50,11 @@ Route::resource('estimate', EstimatesController::class);
 Route::get('/manual', function () {
      return view('manual');
  });
+Route::get('/data', function () {
+     return view('data');
+ });
  
 Route::put('/save-order', [CheckItemController::class, 'saveOrder'])->name('save-order');
 Route::put('/save-order-estimate', [EstimatesController::class, 'saveOrder'])->name('save-order');
+
+Route::get('/download-data', [DownloadController::class, 'downloadData'])->name('downloadData');

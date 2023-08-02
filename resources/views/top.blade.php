@@ -8,11 +8,9 @@
          </div><br>       
          <div class="card-title">
             <a href="{{ url('/checkitem') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">チェック項目一覧</a>
-<!--            <a tabindex="-1" class="text-sm text-gray-700 dark:text-gray-500 underline">チェック項目一覧</a> -->
          </div>         
          <div class="card-title">
             <a href="{{ url('/estimate') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">見積項目一覧</a>
-<!--            <a tabindex="-1" class="text-sm text-gray-700 dark:text-gray-500 underline">見積項目一覧</a> -->
          </div>
 <!--
          <div class="card-title">
@@ -21,7 +19,9 @@
 -->         
          <div class="card-title">
              <a href="{{ url('/manual') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">運用ルール</a>
-<!--             <a tabindex="-1" class="text-sm text-gray-700 dark:text-gray-500 underline">カテゴリー一覧</a> -->
+         </div>  
+         <div class="card-title">
+             <a href="{{ url('/data') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">データダウンロード・アップロード</a>
          </div>  
         @endcan 
 <!--        
