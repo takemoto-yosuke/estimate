@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('item')->nullable();
             $table->string('content')->nullable();
-            $table->float('quantity')->nullable();
+            $table->string('quantity')->nullable()->default(NULL);
             $table->string('unit')->nullable();
-            $table->integer('unit_prise')->nullable();
-            $table->integer('prise')->nullable();
+            $table->string('unit_prise')->nullable()->default(NULL);
+            $table->string('prise')->nullable();
             $table->string('machine')->nullable();     
             $table->string('lang')->nullable();
             $table->integer('checkitem_id');      

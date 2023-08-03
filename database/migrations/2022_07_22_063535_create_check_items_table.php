@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('check_items', function (Blueprint $table) {
             $table->id();
-            $table->string('checkitem'); 
-            $table->string('machine'); 
-            $table->boolean('first_estimate')->nullable(); 
+            $table->string('checkitem')->default('');
+            $table->string('machine')->default('');
+            $table->boolean('first_estimate')->nullable()->default(0); 
             $table->integer('order')->default(0);
             $table->timestamps();
         });  

@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Estimate extends Model
 {
     use HasFactory;
-    protected $fillable = ['category_id','item','content','quantity','unit','unit_prise','prise','web_flag','app_flag','machine_both','ja_flag','eng_flag','lang_both','checkitem_id','order'];
+    protected $fillable = ['category_id','item','content','quantity','unit','unit_prise','prise','machine','lang','checkitem_id','order','created_at','updated_at'];
+    //protected $fillable = ['category_id','item','content','quantity','unit','unit_prise','prise','web_flag','app_flag','machine_both','ja_flag','eng_flag','lang_both','checkitem_id','order'];
 }

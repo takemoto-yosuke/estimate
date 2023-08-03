@@ -11,6 +11,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EstimatesController;
 use App\Http\Controllers\CheckItemController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\UploadController;
 
 Auth::routes();
 
@@ -58,3 +59,4 @@ Route::put('/save-order', [CheckItemController::class, 'saveOrder'])->name('save
 Route::put('/save-order-estimate', [EstimatesController::class, 'saveOrder'])->name('save-order');
 
 Route::get('/download-data', [DownloadController::class, 'downloadData'])->name('downloadData');
+Route::post('/upload-data', [UploadController::class, 'uploadData'])->name('uploadData');
