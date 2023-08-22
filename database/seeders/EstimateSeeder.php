@@ -168,10 +168,10 @@ class EstimateSeeder extends Seeder
           'category_id' => 3,         
           'item' => '同期用システム',
           'content' => '同期用システム＆DB設置・設定、演題データ流し込み、同期チェック',       
-          'quantity' => 1,          
-          'unit' => '式',          
-          'unit_prise' => 77000,        
-          'prise' => 77000,           
+          'quantity' => 2,          
+          'unit' => 'ヶ月',          
+          'unit_prise' => 35000,        
+          'prise' => 70000,           
           'machine' => "app_only",        
           'lang' => "ja|eng",                    
           'checkitem_id' => 1,        
@@ -191,7 +191,7 @@ class EstimateSeeder extends Seeder
         Estimate::create([
           'category_id' => 3,         
           'item' => null,
-          'content' => '※システム運用保守・サーバー費用を含みます（2ヶ月間程度）',
+          'content' => '※システム運用保守・サーバー費用を含みます。',
           'quantity' => null,          
           'unit' => null,          
           'unit_prise' => null,        
@@ -200,6 +200,32 @@ class EstimateSeeder extends Seeder
           'lang' => "ja|eng",        
           'checkitem_id' => 1,        
         ]);   
+
+        Estimate::create([
+          'category_id' => 3,         
+          'item' => null,
+          'content' => '●月●日時点：基本価格の●％（平均1ドル●～●円）',       
+          'quantity' => 2,          
+          'unit' => 'ヶ月',          
+          'unit_prise' => 0,        
+          'prise' => 0,           
+          'machine' => "app_only",        
+          'lang' => "ja|eng",        
+          'checkitem_id' => 1,        
+        ]);     
+        Estimate::create([
+          'category_id' => 3,         
+          'item' => null,
+          'content' => '※ご請求時為替レートが大きく変動している場合、別途御見積とさせていただきます。',       
+          'quantity' => null,          
+          'unit' => null,          
+          'unit_prise' => null,        
+          'prise' => null,           
+          'machine' => "app_only",        
+          'lang' => "ja|eng",        
+          'checkitem_id' => 1,        
+        ]);          
+        
         Estimate::create([
           'category_id' => 3,         
           'item' => 'iOS版（ユニバーサル対応）',
@@ -1852,6 +1878,7 @@ class EstimateSeeder extends Seeder
           'lang' => "ja|eng",             
           'checkitem_id' => 56,        
         ]);  
+                 
 /*        
         Estimate::create([
           'category_id' => ,         
