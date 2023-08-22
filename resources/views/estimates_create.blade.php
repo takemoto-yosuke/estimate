@@ -63,7 +63,7 @@ switch($dollar){
 
 estimate_item($checkitems, $estimates, $display, 1, "システム基本設定", null, null, $dollar);
 estimate_item($checkitems, $estimates, $display, 2, "ウェブ", $raito, $dollaryen, $dollar);
-estimate_item($checkitems, $estimates, $display, 3, "アプリ", null, null, null);
+estimate_item($checkitems, $estimates, $display, 3, "アプリ", $raito, $dollaryen, $dollar);
 estimate_item($checkitems, $estimates, $display, 4, "オプション", null, null, null);
 estimate_item($checkitems, $estimates, $display, 5, "カスタマイズ", null, null, null);
 estimate_item($checkitems, $estimates, $display, 6, "その他", null, null, null);
@@ -156,50 +156,48 @@ foreach ($checkitems as $checkitem){
      echo '<td style="width: 0%;"></td>';
      echo '<td style="width: 0%;"></td>';
 
-	/* 運用期間 */
+	/* 運用期間 web*/
      if ($estimate->id == 4){
       if ($_POST["period"] == null){$_POST["period"] = 2;} //空白の場合は2とする
         $estimate->content = $_POST["period"]."ヶ月間";
         $estimate->quantity = $_POST["period"];
     	$estimate->prise = $estimate->unit_prise * $_POST["period"];
     	$id4_unit_prise = $estimate->unit_prise;
-    	$id4_quantity = $_POST["period"];
      }     
-	/* 運用期間 */
+	/* 運用期間 web*/
+	
 	/* 為替調整費 */
      if ($estimate->id == 5){
        $estimate->content = "為替相場調整費：基本価格の".$raito."％（※1ドル".$dollar."円での価格です。）";
-       $estimate->quantity = $id4_quantity;
+       $estimate->quantity = $_POST["period"];
        $estimate->unit_prise = $id4_unit_prise * $raito / 100;
-       $estimate->prise = $estimate->unit_prise * $id4_quantity;
+       $estimate->prise = $estimate->unit_prise * $_POST["period"];
 	  } 	
-/*
-     if ($estimate->id == 5){
-      if (($_POST["date1"] == null) && ($_POST["date2"] == null)){
-        $estimate->content = "為替相場調整費：基本価格の".$raito."％（※1ドル".$dollar."円での価格です。）";
-        $estimate->quantity = $id4_quantity;
-    	$estimate->unit_prise = $id4_unit_prise * $raito / 100;
-    	$estimate->prise = $estimate->unit_prise * $id4_quantity;
-	  } 
-      else { //公開期間の指定がある場合
-        $date1 = substr($_POST["date1"], 5);
-        $date1 = ltrim($date1, "0");
-        $date1 = str_replace('-', '月', $date1);
-        $date2 = substr($_POST["date2"], 5);
-        $date2 = ltrim($date2, "0");
-        $date2 = str_replace('-', '月', $date2);
-        
-        $estimate->content = "為替相場調整費 ".$date1."日（公開日）～".$date2."日の平均：基本価格の●●％（1ドル●●円）";
-        $estimate->quantity = $id4_quantity;
-    	$estimate->unit_prise = null;
-    	$estimate->prise = null;
-	  }
-     }
-*/     
 	/* 為替調整費 */  
 	
+	/* 運用期間 アプリのみ*/
+     if ($estimate->id == 13){
+      if ($_POST["period"] == null){$_POST["period"] = 2;} //空白の場合は2とする
+        $estimate->quantity = $_POST["period"];
+    	$estimate->prise = $estimate->unit_prise * $_POST["period"];
+    	$id13_unit_prise = $estimate->unit_prise;
+     }     
+     
+     if ($estimate->id == 15){
+      if ($_POST["period"] == null){$_POST["period"] = 2;} //空白の場合は2とする
+        $estimate->content = $estimate->content."（".$_POST["period"]."ヶ月間）";
+     }      
+     
+     if ($estimate->id == 16){
+       $estimate->content = "為替相場調整費：基本価格の".$raito."％（※1ドル".$dollar."円での価格です。）";
+       $estimate->quantity = $_POST["period"];
+       $estimate->unit_prise = $id13_unit_prise * $raito / 100;
+       $estimate->prise = $estimate->unit_prise * $_POST["period"];
+	  } 	     
+	/* 運用期間 アプリのみ*/	
+	
 	/* 外字マップメンテナンス */
-     if ($estimate->id == 114){
+     if ($estimate->id == 116){
         $estimate->content = $_POST["external_characters"]."式";
         $estimate->quantity = $_POST["external_characters"];
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
@@ -207,7 +205,7 @@ foreach ($checkitems as $checkitem){
 	/* 外字マップメンテナンス */
 	
 	/* 個別調整 */
-     if ($estimate->id == 116){
+     if ($estimate->id == 118){
         $estimate->content = $_POST["individual"]."式";
         $estimate->quantity = $_POST["individual"];
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
@@ -215,7 +213,7 @@ foreach ($checkitems as $checkitem){
 	/* 個別調整 */
 
 	/* ハイライトリンク件数 */
-     if ($estimate->id == 145){
+     if ($estimate->id == 147){
       if ($_POST["highlight"] > 0){
         $estimate->content = $_POST["highlight"]."件";
         $estimate->quantity = round($_POST["highlight"]/2)*0.1;
@@ -225,7 +223,7 @@ foreach ($checkitems as $checkitem){
 	/* ハイライトリンク件数 */
 	
 	/* 左メニューカスタマイズー */
-     if ($estimate->id == 149){
+     if ($estimate->id == 151){
       if ($_POST["sessfilter"] > 0){
         $estimate->content = "セッションフィルター".$_POST["sessfilter"]."件";
         $estimate->quantity = round($_POST["sessfilter"]/2)*0.1;
