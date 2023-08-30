@@ -18,20 +18,29 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
          \App\Models\User::create([
-            'name' => 'コア',
+            'name' => 'webD課',
             'login_id' => 'core',
             'password' => Hash::make('core9321300'),
             'role' => 0,
          ]);
          \App\Models\User::create([
+            'name' => '開発1課',
+            'login_id' => 'yamane',
+            'password' => Hash::make('core9321300'),
+            'role' => 1,
+         ]);
+         \App\Models\User::create([
             'name' => 'マイスワン',
             'login_id' => 'miceone',
             'password' => Hash::make('micenavi'),
-            'role' => 1,
+            'role' => 2,
          ]);
         $this->call(CategorySeeder::class);
         $this->call(EstimateSeeder::class);
         $this->call(CheckItemSeeder::class);
+        $this->call(RegiCategorySeeder::class);
+        $this->call(RegiEstimateSeeder::class);
+        $this->call(RegiCheckitemSeeder::class);
         //$this->call(UsersSeeder::class);
     }
 }

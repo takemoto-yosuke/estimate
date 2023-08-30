@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\CheckItem;
 use App\Models\Estimate;
+use App\Models\RegiCheckitem;
+use App\Models\RegiEstimate;
 
 class UploadController extends Controller
 {
@@ -105,4 +107,97 @@ class UploadController extends Controller
         fclose($file);
         return $data;
     }
+    
+    
+    public function RegiuploadData(Request $request)
+    {
+        $file = $request->file('csv_file');
+
+        // バリデーションなど必要に応じて追加
+
+        if ($file->isValid()) {
+            $filePath = $file->getRealPath();
+            $data = $this->readCsvFile($filePath);
+
+            // データベースへの書き込み処理
+            DB::table('regi_checkitems')->truncate();
+            DB::table('regi_estimates')->truncate(); // 追加: estimatesテーブルを一旦空にする
+
+            // ヘッダー行を除外し、実際のデータのみを取得
+            $checkItemsData = [];
+            $estimatesData = [];
+            $isEstimatesData = false;
+
+            foreach ($data as $row) {
+                // 空行が見つかったら、以降の行はestimatesテーブルのデータとする
+                if (empty(array_filter($row))) {
+                    $isEstimatesData = true;
+                    continue;
+                }
+
+                // estimatesテーブルのデータの場合、$estimatesDataに追加
+                if ($isEstimatesData) {
+                    $estimatesData[] = $row;
+                } else {
+                    $checkItemsData[] = $row;
+                }
+            }
+
+            // "check_items"テーブルのデータを挿入
+            foreach ($checkItemsData as $row) {
+                RegiCheckItem::create([
+                    'id' => $row[0],
+                    'checkitem' => $row[1],
+                    'order' => $row[2],
+                    'created_at' => $row[3],
+                    'updated_at' => $row[4],
+                ]);
+            }
+
+            // "estimates"テーブルのデータを挿入
+            foreach ($estimatesData as $row) {
+                RegiEstimate::create([
+                    'id' => $row[0],
+                    'category_id' => $row[1],
+                    'content' => $row[2],
+                    'quantity' => $row[3],
+                    'unit' => $row[4],
+                    'unit_prise' => $row[5],
+                    'prise' => $row[6],
+                    'checkitem_id' => $row[7],
+                    'order' => $row[8],
+                    'created_at' => $row[9],
+                    'updated_at' => $row[10],
+                ]);
+            }
+
+            return redirect()->back()->with('success', 'データをアップロードしました。');
+        } else {
+            return redirect()->back()->with('error', 'ファイルアップロードが失敗しました。');
+        }
+    }
+
+    private function RegireadCsvFile($filePath)
+    {
+        $data = [];
+        $file = fopen($filePath, 'r');
+
+        // BOMを除去する
+        if (substr(PHP_OS, 0, 3) == 'WIN') {
+            // Windowsの場合、BOMはUTF-8ファイルにのみ存在
+            $bom = pack('H*', 'EFBBBF');
+            $firstLine = fgets($file);
+            if (strpos($firstLine, $bom) !== false) {
+                $firstLine = substr($firstLine, 3);
+            }
+            $data[] = str_getcsv($firstLine);
+        }
+
+        while (($line = fgetcsv($file)) !== false) {
+            $data[] = $line;
+        }
+
+        fclose($file);
+        return $data;
+    }    
 }

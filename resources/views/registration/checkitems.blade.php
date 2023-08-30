@@ -1,4 +1,4 @@
-<link href="css/estimate.css" rel="stylesheet" type="text/css">
+<link href="/css/estimate.css" rel="stylesheet" type="text/css">
 @extends('layouts.app')
 @section('content')
     <!-- Bootstrapの定形コード… -->
@@ -7,48 +7,16 @@
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
         <!-- 本登録フォーム -->
-        <form action="{{ url('checkitem') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('registration/checkitem') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
             <div class="l_box"> 
              <!-- 本のタイトル -->
              <div class="form-group">
               チェック項目
-                 <div class="col-sm-11">
+                 <div class="col-sm-12">
                      <input type="checkitem" name="checkitem" class="form-control">
                  </div>
              </div>
-             <div class="machine_both_box tooltip1">
-              端末
-                <div class="form-group">
-                    <div class="col-sm-10">
-                     <select type="machine" name="machine" class="form-control">
-                     <option name="machine">web</option>
-                     <option name="machine">app</option>
-                     <option name="machine">common</option>
-                     <option name="machine">both</option>                  
-                     </select>                      
-                    </div>
-                </div>           
-             <p class="description_checkitem">
-              web... ウェブのみのチェックとする場合選択<br>
-              app... アプリのみのチェックとする場合選択<br>
-              common... ウェブとアプリ共通のチェックとする場合選択<br>
-              both... ウェブとアプリ両方のチェックとする場合選択<br>
-             </p> 
-             </div> 
-<!--             
-             <div class="machine_both_box">
-              初期見積項目
-                <div class="form-group">
-                    <div class="col-sm-10">
-                     <select type="first_estimate" name="first_estimate" class="form-control">
-                     <option name="first_estimate"></option> 
-                     <option name="first_estimate">1</option>             
-                     </select>                      
-                    </div>
-                </div>           
-             </div>
--->             
             </div> 
              <!-- 本 登録ボタン -->
              <div class="form-group">
@@ -81,7 +49,7 @@
         </td>
         <!-- 本: 削除ボタン -->
         <td>
-            <form action="{{ url('checkitem/'.$checkitem->id) }}" method="POST" onsubmit="return confirmDelete()">
+            <form action="{{ url('registration/checkitem/'.$checkitem->id) }}" method="POST" onsubmit="return confirmDelete()">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger">削除</button>
@@ -89,7 +57,7 @@
         </td>
         <!-- 本: 更新ボタン -->
         <td>
-            <form action="{{ url('checkitem/'.$checkitem->id.'/edit') }}" method="GET"> 
+            <form action="{{ url('registration/checkitem/'.$checkitem->id.'/edit') }}" method="GET"> 
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-primary">更新</button>
             </form>
@@ -103,7 +71,7 @@
 
     <!-- 並び順を保存するボタン -->
     <div class="card-body">
-        <form action="{{ url('save-order') }}" method="POST" id="save-order-form">
+        <form action="{{ url('registration/save-order') }}" method="POST" id="save-order-form">
             {{ csrf_field() }}
             @method('PUT')
             <input type="hidden" name="order" id="order-input">

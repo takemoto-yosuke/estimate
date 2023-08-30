@@ -30,37 +30,91 @@ class DownloadController extends Controller
         }, 200, $headers);
     }
 
-    //private function convertToCsv($checkItemsData)
-private function convertToCsv($checkItemsData, $estimatesData)
-{
-    $stream = fopen('php://temp', 'w+');
-
-    // BOMを付ける
-    fwrite($stream, "\xEF\xBB\xBF");
-
-    // check_itemsのデータをCSVに追加
-    foreach ($checkItemsData as $item) {
-        $itemArray = (array) $item;
-        $itemArray['created_at'] = Carbon::parse($item->created_at)->format('Y-m-d H:i:s');
-        $itemArray['updated_at'] = Carbon::parse($item->updated_at)->format('Y-m-d H:i:s');
-        fputcsv($stream, $itemArray);
+        //private function convertToCsv($checkItemsData)
+    private function convertToCsv($checkItemsData, $estimatesData)
+    {
+        $stream = fopen('php://temp', 'w+');
+    
+        // BOMを付ける
+        fwrite($stream, "\xEF\xBB\xBF");
+    
+        // check_itemsのデータをCSVに追加
+        foreach ($checkItemsData as $item) {
+            $itemArray = (array) $item;
+            $itemArray['created_at'] = Carbon::parse($item->created_at)->format('Y-m-d H:i:s');
+            $itemArray['updated_at'] = Carbon::parse($item->updated_at)->format('Y-m-d H:i:s');
+            fputcsv($stream, $itemArray);
+        }
+    
+        // 空行を追加
+        fputcsv($stream, []);
+    
+        // estimatesのデータをCSVに追加
+        foreach ($estimatesData as $estimate) {
+            $estimateArray = (array) $estimate;
+            $estimateArray['created_at'] = Carbon::parse($estimate->created_at)->format('Y-m-d H:i:s');
+            $estimateArray['updated_at'] = Carbon::parse($estimate->updated_at)->format('Y-m-d H:i:s');
+            fputcsv($stream, $estimateArray);
+        }
+    
+        rewind($stream);
+        $csvData = stream_get_contents($stream);
+        fclose($stream);
+    
+        return $csvData;
     }
 
-    // 空行を追加
-    fputcsv($stream, []);
+    public function RegidownloadData()
+    {
+        $checkItemsData = DB::table('regi_checkitems')->get();
+        $estimatesData = DB::table('regi_estimates')->get();
 
-    // estimatesのデータをCSVに追加
-    foreach ($estimatesData as $estimate) {
-        $estimateArray = (array) $estimate;
-        $estimateArray['created_at'] = Carbon::parse($estimate->created_at)->format('Y-m-d H:i:s');
-        $estimateArray['updated_at'] = Carbon::parse($estimate->updated_at)->format('Y-m-d H:i:s');
-        fputcsv($stream, $estimateArray);
+        //$csvData = $this->convertToCsv($checkItemsData);
+        $csvData = $this->RegiconvertToCsv($checkItemsData, $estimatesData);
+
+        $filename = 'regi_estimate_' . Carbon::now()->format('YmdHis') . '.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+        ];
+
+        return new StreamedResponse(function () use ($csvData) {
+            echo $csvData;
+        }, 200, $headers);
     }
 
-    rewind($stream);
-    $csvData = stream_get_contents($stream);
-    fclose($stream);
-
-    return $csvData;
-}
+        //private function convertToCsv($checkItemsData)
+    private function RegiconvertToCsv($checkItemsData, $estimatesData)
+    {
+        $stream = fopen('php://temp', 'w+');
+    
+        // BOMを付ける
+        fwrite($stream, "\xEF\xBB\xBF");
+    
+        // check_itemsのデータをCSVに追加
+        foreach ($checkItemsData as $item) {
+            $itemArray = (array) $item;
+            $itemArray['created_at'] = Carbon::parse($item->created_at)->format('Y-m-d H:i:s');
+            $itemArray['updated_at'] = Carbon::parse($item->updated_at)->format('Y-m-d H:i:s');
+            fputcsv($stream, $itemArray);
+        }
+    
+        // 空行を追加
+        fputcsv($stream, []);
+    
+        // estimatesのデータをCSVに追加
+        foreach ($estimatesData as $estimate) {
+            $estimateArray = (array) $estimate;
+            $estimateArray['created_at'] = Carbon::parse($estimate->created_at)->format('Y-m-d H:i:s');
+            $estimateArray['updated_at'] = Carbon::parse($estimate->updated_at)->format('Y-m-d H:i:s');
+            fputcsv($stream, $estimateArray);
+        }
+    
+        rewind($stream);
+        $csvData = stream_get_contents($stream);
+        fclose($stream);
+    
+        return $csvData;
+    }    
 }

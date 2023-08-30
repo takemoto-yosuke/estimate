@@ -13,6 +13,11 @@ use App\Http\Controllers\CheckItemController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\UploadController;
 
+use App\Models\RegiEstimate;
+use App\Models\RegiCategory;
+use App\Models\RegiCheckitem;
+use App\Http\Controllers\RegiEstimateController;
+use App\Http\Controllers\RegiCheckitemController;
 Auth::routes();
 
 Route::get('/', function () {
@@ -60,3 +65,23 @@ Route::put('/save-order-estimate', [EstimatesController::class, 'saveOrder'])->n
 
 Route::get('/download-data', [DownloadController::class, 'downloadData'])->name('downloadData');
 Route::post('/upload-data', [UploadController::class, 'uploadData'])->name('uploadData');
+
+
+//参加登録
+Route::get('registration/estimates_make',[RegiEstimateController::class, 'show']);
+Route::post('registration/estimates_create',[RegiEstimateController::class, 'create']);
+Route::resource('registration/checkitem', RegiCheckitemController::class);
+Route::resource('registration/category', RegiCategoriesController::class);
+Route::resource('registration/estimate', RegiEstimateController::class);
+Route::get('registration/manual', function () {
+     return view('registration/manual');
+ });
+Route::get('registration/data', function () {
+     return view('registration/data');
+ }); 
+ 
+Route::put('/registration/save-order', [RegiCheckitemController::class, 'saveOrder'])->name('registration/save-order');
+Route::put('/registration/save-order-estimate', [RegiEstimateController::class, 'saveOrder'])->name('registration/save-order');
+
+Route::get('/registration/download-data', [DownloadController::class, 'RegidownloadData'])->name('registration/downloadData');
+Route::post('/registration/upload-data', [UploadController::class, 'RegiuploadData'])->name('registration/uploadData');

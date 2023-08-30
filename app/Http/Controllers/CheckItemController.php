@@ -23,6 +23,12 @@ class CheckItemController extends Controller
     $checkitems = CheckItem::orderBy('order', 'asc')->get(); // 順番によるソート（order列を使用する）
     return view('checkitems', compact('checkitems'));
     }
+    public function indexRegistration()
+    {
+//      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
+    $checkitems = CheckItem::orderBy('order', 'asc')->get(); // 順番によるソート（order列を使用する）
+    return view('registration/checkitems', compact('checkitems'));
+    }    
 
     /**
      * Show the form for creating a new resource.

@@ -32,6 +32,12 @@
 .check_item_box {
     width: 10%;   
 }    
+.content_box_regi {
+    width: 40%;
+}
+.check_item_box_regi {
+    width: 30%;   
+}  
 
 .item_box_lock {
 	width: 300px;
@@ -47,6 +53,7 @@
 	vertical-align: middle;
 	width: 10px;	
 }
+
 
 
 /*
