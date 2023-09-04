@@ -44,6 +44,17 @@ class EstimatesController extends Controller
           
       ]); 
     }
+
+    public function create_dpos()
+    {
+      $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
+      $categories = Category::orderBy('created_at', 'asc')->paginate(100);
+
+      return view('estimates_create_dpos', [
+          'estimates' => $estimates,
+          'categories' => $categories,
+      ]); 
+    }
     
     public function create_first(Request $request)
     {

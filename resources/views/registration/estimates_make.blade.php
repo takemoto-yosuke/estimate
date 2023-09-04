@@ -22,7 +22,7 @@
   </div></label>
   </td>  
   
-  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 id="web[{{ $checkitem->id }}]"></td>
+  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 id="web[{{ $checkitem->id }}]" checked="checked"></td>
  
  </tr>     
 @endforeach

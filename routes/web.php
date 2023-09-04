@@ -37,6 +37,7 @@ Route::get('/first_estimates_make',[EstimatesController::class, 'show_first']);
 //Route::post('/checkitems',[CheckItemController::class, 'store']);
 //Route::post('/estimates',[EstimatesController::class, 'store']);
 Route::post('/estimates_create',[EstimatesController::class, 'create']);
+Route::post('/estimates_create_dpos',[EstimatesController::class, 'create_dpos']);
 Route::post('/first_estimates_create',[EstimatesController::class, 'create_first']);
 //作成ページ
 

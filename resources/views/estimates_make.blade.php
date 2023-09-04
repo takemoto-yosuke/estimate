@@ -128,8 +128,17 @@
                          作成
                      </button>
                  </div>
-             </div>
-         </form>    
+             </div>                 
+
+</form>    
+                <!-- 機能封印
+                 <div>
+                    <form action="{{ url('estimates_create_dpos') }}" method="POST" target="_blank" class="form-horizontal" onsubmit="return validateForm();">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger">デジポス</button>
+                    </form>
+                 </div>    
+                --> 
 </div>
 </body>
 <!-- チェックボックス有効化・無効化判定 -->

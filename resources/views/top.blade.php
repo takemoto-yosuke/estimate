@@ -38,7 +38,7 @@
          </div>
          <div class="card-title">
              <a href="{{ url('/registration/data') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">データダウンロード・アップロード（参加登録）</a>
-         </div>  
+         </div> 
 -->         
         @endcan 
 
