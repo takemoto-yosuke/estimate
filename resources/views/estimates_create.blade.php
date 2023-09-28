@@ -247,7 +247,6 @@ foreach ($checkitems as $checkitem){
      echo "<td style='padding-left: 20px;'> $estimate->quantity </td>";
      echo "<td style='padding-left: 20px;'> $estimate->unit </td>";
      echo "<td style='padding-left: 20px;'> $estimate->unit_prise </td>";
-     echo "<td style='padding-left: 20px;'> $estimate->prise </td>";  
     echo "</tr>";
     }
     echo '</div>';			

@@ -18,6 +18,7 @@ use App\Models\RegiCategory;
 use App\Models\RegiCheckitem;
 use App\Http\Controllers\RegiEstimateController;
 use App\Http\Controllers\RegiCheckitemController;
+use Illuminate\Support\Facades\Artisan;
 Auth::routes();
 
 Route::get('/', function () {
@@ -86,3 +87,6 @@ Route::put('/registration/save-order-estimate', [RegiEstimateController::class, 
 
 Route::get('/registration/download-data', [DownloadController::class, 'RegidownloadData'])->name('registration/downloadData');
 Route::post('/registration/upload-data', [UploadController::class, 'RegiuploadData'])->name('registration/uploadData');
+
+
+Route::get('/generate-and-download', [DownloadController::class, 'generateAndDownload'])->name('generate-and-download');

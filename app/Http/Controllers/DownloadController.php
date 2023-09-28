@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Illuminate\Support\Carbon;
+use App\Jobs\GenerateSqlDump;
+use Illuminate\Support\Facades\Session;
 
 class DownloadController extends Controller
 {
@@ -117,4 +119,25 @@ class DownloadController extends Controller
     
         return $csvData;
     }    
+    
+ 
+    public function generateAndDownload()
+    {
+        // ジョブをディスパッチして非同期でファイル生成を開始
+        GenerateSqlDump::dispatch();
+
+        // メッセージをセッションに設定して、ダウンロード完了後に表示
+        Session::flash('success_message', 'データを生成しています。数分お待ちください。');
+
+        // ユーザーをリダイレクトまたはビューを返す
+        //return redirect()->back();
+
+        $sqlFilePath = storage_path('dumps.zip'); // ダウンロードしたいZIPファイルのパスを指定
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($sqlFilePath, 'dumps.zip', $headers);
+    }    
+    
 }

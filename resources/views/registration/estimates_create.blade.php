@@ -22,7 +22,7 @@ function estimate_item($checkitems, $estimates, $display, $category_id, $categor
  	  continue;
   	} 	 
 	  if ($checkitem->id == $estimate->checkitem_id){	 //チェック項目と一致する見積項目を照合
-	   if(isset($display->web[$checkitem->id])){
+	   if(isset($display->check[$checkitem->id])){
 	    if ($reset_flag == 1){
       echo '<tr style="border-bottom: 1px dotted black;">';
       echo '<td></td>';

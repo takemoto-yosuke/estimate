@@ -17,12 +17,12 @@
 @foreach ($checkitems as $checkitem)     
  <tr>
 
-  <td class="create_table"><label for="web[{{ $checkitem->id }}]">
+  <td class="create_table"><label for="check[{{ $checkitem->id }}]">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}
   </div></label>
   </td>  
   
-  <td class="checkposition create_table"><input type="checkbox" name="web[{{ $checkitem->id }}]" value=1 id="web[{{ $checkitem->id }}]" checked="checked"></td>
+  <td class="checkposition create_table"><input type="checkbox" name="check[{{ $checkitem->id }}]" value=1 id="check[{{ $checkitem->id }}]" checked="checked"></td>
  
  </tr>     
 @endforeach
