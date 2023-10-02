@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 use Illuminate\Support\Facades\Log;
 
@@ -15,45 +16,42 @@ class GenerateSqlDump implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct()
+    protected $table;
+
+    public function __construct($table)
     {
-        //
+        $this->table = $table;
     }
 
     public function handle()
     {
-        // テーブル情報をSQLファイルに書き込むロジックをここに追加
-        $tables = DB::select('SHOW TABLES');
-        foreach ($tables as $table) {
-            $tableName = reset($table);
-            $filename = storage_path('app/' . $tableName . '.sql');
-            
-            // メッセージをログに記録
-            Log::info("Dumping table $tableName to $filename");
-            
-            $dumpCommand = "mysqldump --user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . " $tableName > $filename";
-            shell_exec($dumpCommand);
-        }
+        // 特定のテーブルのデータを取得してSQLファイルを生成
+        $data = DB::table($this->table)->get();
+        $sql = DB::raw("INSERT INTO " . $this->table . " VALUES (");
 
-        // ZIPファイルの保存先を指定
-        $zipFilename = storage_path('dumps.zip');
-        
-        // メッセージをログに記録
-        Log::info("Creating ZIP file for download: $zipFilename");
-
-        $zip = new ZipArchive;
-        if ($zip->open($zipFilename, ZipArchive::CREATE) === true) {
-            $files = glob(storage_path('app/*.sql'));
-            foreach ($files as $file) {
-                $zip->addFile($file, basename($file));
+        foreach ($data as $row) {
+            $values = [];
+            foreach ($row as $value) {
+                $values[] = DB::raw("'" . addslashes($value) . "'");
             }
-            $zip->close();
-            
-            // メッセージをログに記録
-            Log::info('ZIP file created successfully.');
-        } else {
-            // エラーメッセージをログに記録
-            Log::error('Failed to create ZIP file.');
+            $sql .= implode(', ', $values) . ");\n";
         }
+
+        // SQLファイルを一時的に保存
+        $tempSqlFile = storage_path($this->table . '.sql');
+        Storage::put($tempSqlFile, $sql);
+
+        // 一時的に生成したSQLファイルをZIPに追加
+        $zip = new \ZipArchive();
+        $zipFilePath = storage_path('tables_dump.zip');
+
+        if ($zip->open($zipFilePath, \ZipArchive::CREATE) === true) {
+            $zip->addFile($tempSqlFile, $this->table . '.sql');
+            $zip->close();
+        }
+
+        // 一時的なSQLファイルを削除
+        unlink($tempSqlFile);
+        unlink($zipFilePath);
     }
 }

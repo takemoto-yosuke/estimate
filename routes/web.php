@@ -19,6 +19,7 @@ use App\Models\RegiCheckitem;
 use App\Http\Controllers\RegiEstimateController;
 use App\Http\Controllers\RegiCheckitemController;
 use Illuminate\Support\Facades\Artisan;
+use App\Jobs\GenerateSqlDump;
 Auth::routes();
 
 Route::get('/', function () {
@@ -65,8 +66,8 @@ Route::get('/data', function () {
 Route::put('/save-order', [CheckItemController::class, 'saveOrder'])->name('save-order');
 Route::put('/save-order-estimate', [EstimatesController::class, 'saveOrder'])->name('save-order');
 
-Route::get('/download-data', [DownloadController::class, 'downloadData'])->name('downloadData');
-Route::post('/upload-data', [UploadController::class, 'uploadData'])->name('uploadData');
+//Route::get('/download-data', [DownloadController::class, 'downloadData'])->name('downloadData');
+//Route::post('/upload-data', [UploadController::class, 'uploadData'])->name('uploadData');
 
 
 //参加登録
@@ -90,3 +91,4 @@ Route::post('/registration/upload-data', [UploadController::class, 'RegiuploadDa
 
 
 Route::get('/generate-and-download', [DownloadController::class, 'generateAndDownload'])->name('generate-and-download');
+Route::post('/import-database', [DownloadController::class, 'importDatabase'])->name('import-database');
