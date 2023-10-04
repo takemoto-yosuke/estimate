@@ -193,12 +193,12 @@
     color: #fff;
     border-radius: 5px;
     background: #000;
-    width: 420px;
+    width: 520px;
 }
 .tooltip1:hover .description{
     display: inline-block;
     top: 0px;
-    left: -430px;
+    left: -530px;
 }
 
 .tooltip1:hover .description_checkitem{

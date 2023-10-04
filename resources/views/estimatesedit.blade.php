@@ -44,6 +44,28 @@
                 <label for="title">金額</label>
                 <input type="text" name="prise" class="form-control" value=100>
             </div>
+
+            <div class="form-group">
+                <label for="title">端末</label>
+                  <select type="lang" name="machine" class="form-control"> 
+                      <option value={{ $estimate->machine }}>{{ $estimate->machine }}</option>
+                      <option name="machine">web_only</option>
+                      <option name="machine">web_include</option>               
+                      <option name="machine">app_only</option>  
+                      <option name="machine">app_include</option>
+                      <option name="machine">web&app</option>               
+                      <option name="machine">web|app</option>  
+                  </select>                
+            </div>
+            <div class="form-group">
+                <label for="title">言語</label>
+                  <select type="lang" name="lang" class="form-control"> 
+                      <option value={{ $estimate->lang }}>{{ $estimate->lang }}</option>
+                      <option name="lang">ja|eng</option>
+                      <option name="lang">ja&eng</option>               
+                      <option name="lang">ja|&eng</option>  
+                  </select>   
+            </div>              
             <div class="form-group">
                 <label for="title">チェック項目</label>
                @php

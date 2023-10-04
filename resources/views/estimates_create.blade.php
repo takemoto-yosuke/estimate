@@ -52,9 +52,21 @@ switch($dollar){
 		$raito = 30;
 		$dollaryen = "145～150";
 		break;
-	case($dollar >= 151):
+	case(($dollar >= 151) && ($dollar < 157)):
+		$raito = 35;
+		$dollaryen = "151～156";
+		break;
+	case(($dollar >= 157) && ($dollar < 163)):
+		$raito = 40;
+		$dollaryen = "157～162";
+		break;
+	case(($dollar >= 163) && ($dollar < 169)):
+		$raito = 45;
+		$dollaryen = "163～168";
+		break;
+	case($dollar >= 169):
 		$raito = "（要問合せ）";
-		$dollaryen = "151～";
+		$dollaryen = "169～";
 		break;		
 	default:
 		$raito = 1;
