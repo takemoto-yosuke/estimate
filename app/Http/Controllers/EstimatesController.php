@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Estimate;
+use App\Models\EstimatePartLang;
 use App\Models\Category;
 use App\Models\CheckItem;
 use Validator;
@@ -45,6 +46,20 @@ class EstimatesController extends Controller
       ]); 
     }
 
+    public function create_PartLang(Request $request)
+    {
+//      $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
+      $estimates = EstimatePartLang::orderByRaw('category_id asc, `order` asc')->paginate(1000);
+      $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);  
+      $display = $request;
+      
+      return view('estimates_create_PartLang', [
+          'estimates' => $estimates,
+          'checkitems' => $checkitems,
+          'display' => $display
+          
+      ]); 
+    }
     public function create_dpos()
     {
       $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
@@ -211,6 +226,19 @@ class EstimatesController extends Controller
 //      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
       $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);
       return view('estimates_make', [
+          'estimates' => $estimates,
+          'categories' => $categories,
+          'checkitems' => $checkitems
+      ]);        
+    }
+    
+    public function show_PartLang()
+    {
+      $estimates = Estimate::orderByRaw('category_id asc, created_at asc')->paginate(100);
+      $categories = Category::orderBy('created_at', 'asc')->paginate(100);
+//      $checkitems = CheckItem::orderBy('created_at', 'asc')->paginate(100);
+      $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);
+      return view('estimates_make_PartLang', [
           'estimates' => $estimates,
           'categories' => $categories,
           'checkitems' => $checkitems

@@ -5,7 +5,10 @@
         @can('core')         
          <div class="card-title">
              <a href="{{ url('/estimates_make') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">見積作成</a>
-         </div><br>       
+         </div>      
+         <div class="card-title">
+             <a href="{{ url('/estimates_make_PartLang') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">見積作成（言語別）</a>
+         </div><br>  
          <div class="card-title">
             <a href="{{ url('/checkitem') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">チェック項目一覧</a>
          </div>         

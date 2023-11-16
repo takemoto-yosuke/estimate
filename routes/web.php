@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Estimate;
+use App\Models\EstimatePartLang;
 use App\Models\CheckItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ItemsController;
@@ -31,6 +32,7 @@ Route::get('/', function () {
 //Route::get('/estimate', [EstimatesController::class, 'index']);
 
 Route::get('/estimates_make',[EstimatesController::class, 'show']);
+Route::get('/estimates_make_PartLang',[EstimatesController::class, 'show_PartLang']);
 Route::get('/first_estimates_make',[EstimatesController::class, 'show_first']);
 
 
@@ -39,6 +41,7 @@ Route::get('/first_estimates_make',[EstimatesController::class, 'show_first']);
 //Route::post('/checkitems',[CheckItemController::class, 'store']);
 //Route::post('/estimates',[EstimatesController::class, 'store']);
 Route::post('/estimates_create',[EstimatesController::class, 'create']);
+Route::post('/estimates_create_PartLang',[EstimatesController::class, 'create_PartLang']);
 Route::post('/estimates_create_dpos',[EstimatesController::class, 'create_dpos']);
 Route::post('/first_estimates_create',[EstimatesController::class, 'create_first']);
 //作成ページ
