@@ -9,7 +9,7 @@
 <table class="table table-striped task-table" style="width: 850px;">
  <thead>
   <tr>
-   <td class="item_box_lock">項目</td>
+   <td class="item_box_lock">項目2</td>
    <td class="machine_box_lock"></td>  
    <td class="machine_box_lock"></td>  
    <td class="machine_box_lock"></td>
