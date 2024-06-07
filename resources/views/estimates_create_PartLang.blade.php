@@ -110,7 +110,7 @@ foreach ($checkitems as $checkitem){
      }
 	/* デジポス */
 	/* LIVE/オンデマンド */
-	 if(in_array($estimate->id,[170,171,172,173,174,175,176,179])){	
+	 if(in_array($estimate->id,[170,171,172,173,174,175,179])){	
       if ($_POST["live"] == "live-auth"){
 		continue;
       }
