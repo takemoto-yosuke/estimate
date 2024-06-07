@@ -115,7 +115,12 @@
 -->
                   <select type="lang" name="lang" class="form-control"> 
                   <option name="lang_or2">単言語</option>
-                  <option name="lang_and">両言語</option>               
+                  <option name="lang_and">両言語</option>       
+                  <option name="lang_or2_web">単言語（web）</option>
+                  <option name="lang_and_web">両言語（web）</option>       
+                  <option name="lang_or2_app">単言語（アプリ）</option>
+                  <option name="lang_and_app">両言語（アプリ）</option>       
+                          
                   <option name="lang_or">言語指定無し</option>  
                   </select>   
                  </div>
@@ -256,6 +261,10 @@
   <td>
    @if ($estimate->lang == "ja|&eng") {{"単言語"}}  
    @elseif ($estimate->lang == "ja&eng") {{"両言語"}}
+   @elseif ($estimate->lang == "ja|&eng_web") {{"単言語（web）"}}
+   @elseif ($estimate->lang == "ja|&eng_app") {{"単言語（アプリ）"}}  
+   @elseif ($estimate->lang == "ja&eng_web") {{"両言語（web）"}}
+   @elseif ($estimate->lang == "ja&eng_app") {{"両言語（アプリ）"}}  
    @elseif ($estimate->lang == "ja|eng") {{"言語指定無し"}}
    @endif           
   </td>

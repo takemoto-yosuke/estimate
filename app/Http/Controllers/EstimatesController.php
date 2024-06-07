@@ -48,8 +48,8 @@ class EstimatesController extends Controller
 
     public function create_PartLang(Request $request)
     {
-//      $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
-      $estimates = EstimatePartLang::orderByRaw('category_id asc, `order` asc')->paginate(1000);
+      $estimates = Estimate::orderByRaw('category_id asc, `order` asc')->paginate(1000);
+//      $estimates = EstimatePartLang::orderByRaw('category_id asc, `order` asc')->paginate(1000);
       $checkitems = CheckItem::orderBy('order', 'asc')->paginate(100);  
       $display = $request;
       
@@ -138,6 +138,18 @@ class EstimatesController extends Controller
          } 
          else if ($request->lang == "単言語"){
              $estimates->lang = "ja|&eng";
+         }      
+         else if ($request->lang == "両言語（web）"){
+             $estimates->lang = "ja&eng_web";
+         } 
+         else if ($request->lang == "単言語（web）"){
+             $estimates->lang = "ja|&eng_web";
+         }      
+         else if ($request->lang == "両言語（アプリ）"){
+             $estimates->lang = "ja&eng_app";
+         } 
+         else if ($request->lang == "単言語（アプリ）"){
+             $estimates->lang = "ja|&eng_app";
          }      
 /*         
          if ($request->machine == "ウェブのみ"){

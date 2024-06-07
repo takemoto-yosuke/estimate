@@ -96,32 +96,7 @@ foreach ($checkitems as $checkitem){
 	foreach ($estimates as $estimate){
 	if ($estimate->category_id != $category_id){
 	 continue;
-	}
-	/* デジポス */
-     if($estimate->id >= 164 && $estimate->id <= 169){
-      if ($_POST["dpos"] == "dpos-auth"){
-		continue;
-      }
-	 }    
-     else if($estimate->id >= 60 && $estimate->id <= 65){
-      if ($_POST["dpos"] == "dpos-no-auth"){
-		continue;
-      }   	  
-     }
-	/* デジポス */
-	/* LIVE/オンデマンド */
-     if($estimate->id >= 170 && $estimate->id <= 175){
-      if ($_POST["live"] == "live-auth"){
-		continue;
-      }
-	 }    
-     else if($estimate->id >= 66 && $estimate->id <= 71){
-      if ($_POST["live"] == "live-no-auth"){
-		continue;
-      }   	  
-     }
-	/* LIVE/オンデマンド */	
-
+	} 
 	if ($checkitem->id == $estimate->checkitem_id){	 //チェック項目と一致する見積項目を照合
 			    $machine_flag = 0;			
 			    $lang_flag = 0;			
@@ -137,12 +112,17 @@ foreach ($checkitems as $checkitem){
 						$machine_flag = 1;
 					}	
 					break;					
-				case(isset($display->web[$checkitem->id]) && isset($display->app[$checkitem->id])):	 //チェックボックス web有・app有
-					if(in_array($estimate->id,[176,177,178,179,180,181,182,183,184])){break;}/* 日英版（片端末）：デジポス,LIVE,ハイライトを除外 */	
+				case(isset($display->web[$checkitem->id]) && isset($display->app[$checkitem->id])):	 //チェックボックス web有・app有	
+//					if($estimate->machine == "app_only" && $estimate->lang == "ja&eng_app"){ //ウェブ日のみ、アプリ日英の時、アプリマイアブ費用
+//						$machine_flag = 1;
+//					}
+//					else if($estimate->machine == "web&app" || $estimate->machine == "web|app" || $estimate->machine == "web|&app" || $estimate->machine == "web_include" || $estimate->machine == "app_include"){
+//						$machine_flag = 1;
+//					}
 					if($estimate->machine == "web&app" || $estimate->machine == "web|app" || $estimate->machine == "web|&app" || $estimate->machine == "web_include" || $estimate->machine == "app_include"){
 						$machine_flag = 1;
 					}	
-					break;	
+					break;			
 				case(isset($display->common[$checkitem->id])):	 //チェックボックス 共通有
 					if($estimate->machine == "web|app"){	
 						$machine_flag = 1;
@@ -150,24 +130,56 @@ foreach ($checkitems as $checkitem){
 					break;	
 				default:
 			}			
-			switch($display){			
-				case(isset($display->ja[$checkitem->id]) && !isset($display->eng[$checkitem->id])):	 //チェックボックス 日有・英無			
-					if($estimate->lang == "ja_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_web" || $estimate->lang == "ja|&eng_app"){		
-						$lang_flag = 1;
-					}	
-					break;	
-				case(!isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id])):	 //チェックボックス 日無・英有
-					if($estimate->lang == "eng_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_web" || $estimate->lang == "ja|&eng_app"){			
-						$lang_flag = 1;
-					}	
-					break;	
+			switch($display){	
 				case(isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id])):	 //チェックボックス 日有・英有
-					if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_web" || $estimate->lang == "ja&eng_app"){		
+					if(isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id]) && $estimate->lang == "ja&eng_app"){	//アプリ日英、ja&eng_appのとき	
 						$lang_flag = 1;
 					}	
-					break;					
+					else if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id]) && $estimate->lang == "ja&eng_web"){	//web日英、ja&eng_webのとき	
+						$lang_flag = 1;
+					}	
+					else if(!(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])) && $estimate->lang == "ja|&eng_web"){	//web日英not、ja|&eng_webのとき	
+						$lang_flag = 1;
+					}	
+					else if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include"){		
+						$lang_flag = 1;
+					}	
+					break;				
+				case((isset($display->web[$checkitem->id]) || isset($display->app[$checkitem->id]) || isset($display->common[$checkitem->id])) && (!isset($display->web_eng[$checkitem->id]) && !isset($display->app_eng[$checkitem->id]) && !isset($display->common_eng[$checkitem->id]))):	 //チェックボックス 日有・英無			
+					if($estimate->lang == "ja_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_app" || $estimate->lang == "ja|&eng_web"){		
+						$lang_flag = 1;
+					}	
+					break;	
+				case((!isset($display->web[$checkitem->id]) && !isset($display->app[$checkitem->id]) && !isset($display->common[$checkitem->id])) && (isset($display->web_eng[$checkitem->id]) || isset($display->app_eng[$checkitem->id]) || isset($display->common_eng[$checkitem->id]))):	 //チェックボックス 日無・英有
+					if($estimate->lang == "eng_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_app" || $estimate->lang == "ja|&eng_web"){			
+						$lang_flag = 1;
+					}	
+					break;	
+				case((isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])) || (isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id])) || (isset($display->common[$checkitem->id]) && isset($display->common_eng[$checkitem->id]))):
+					if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id]) && isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id])){ //チェックボックス web日有・web英有・app日有・app英有
+						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_web" || $estimate->lang == "ja&eng_app"){		
+							$lang_flag = 1;
+						}					
+					}
+					else if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])){ //チェックボックス web日有・web英有
+						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_web" || $estimate->lang == "ja|&eng_app"){		
+							$lang_flag = 1;
+						}					
+					}
+					else if(isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id])){ //チェックボックス app日有・app英有
+						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_app" || $estimate->lang == "ja|&eng_web"){		
+							$lang_flag = 1;
+						}					
+					}
+					else if(isset($display->common[$checkitem->id]) && isset($display->common_eng[$checkitem->id])){ //チェックボックス app日有・app英有
+						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include"){		
+							$lang_flag = 1;
+						}					
+					}	
+					break;				
 				default:		
 			}			
+			
 			if($machine_flag == 1 && $lang_flag == 1){			
     if (($reset_flag == 1)){
      echo '<tr style="border-bottom: 1px dotted black;">';
@@ -273,8 +285,7 @@ foreach ($checkitems as $checkitem){
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
       }      
      }
-	/* 左メニューカスタマイズー */   
-
+	/* 左メニューカスタマイズー */     
 	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
      echo '<td style="width: 0%;"></td>';
      echo '<td style="width: 0%;"></td>';

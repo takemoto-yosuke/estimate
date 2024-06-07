@@ -97,6 +97,30 @@ foreach ($checkitems as $checkitem){
 	if ($estimate->category_id != $category_id){
 	 continue;
 	} 
+	/* デジポス */
+	 if(in_array($estimate->id,[164,165,166,167,168,169,177])){	
+      if ($_POST["dpos"] == "dpos-auth"){
+		continue;
+      }
+	 }    
+	 else if(in_array($estimate->id,[60,61,62,63,64,65,176])){	
+      if ($_POST["dpos"] == "dpos-no-auth"){
+		continue;
+      }   	  
+     }
+	/* デジポス */
+	/* LIVE/オンデマンド */
+	 if(in_array($estimate->id,[170,171,172,173,174,175,176,179])){	
+      if ($_POST["live"] == "live-auth"){
+		continue;
+      }
+	 }    
+	 else if(in_array($estimate->id,[66,67,68,69,70,71,178])){	
+      if ($_POST["live"] == "live-no-auth"){
+		continue;
+      }   	  
+     }
+	/* LIVE/オンデマンド */		
 	if ($checkitem->id == $estimate->checkitem_id){	 //チェック項目と一致する見積項目を照合
 			    $machine_flag = 0;			
 			    $lang_flag = 0;			
@@ -131,25 +155,30 @@ foreach ($checkitems as $checkitem){
 				default:
 			}			
 			switch($display){	
-				case(isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id])):	 //チェックボックス 日有・英有
-					if(isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id]) && $estimate->lang == "ja&eng_app"){	//アプリ日英、ja&eng_appのとき	
-						$lang_flag = 1;
-					}	
-					else if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id]) && $estimate->lang == "ja&eng_web"){	//web日英、ja&eng_webのとき	
-						$lang_flag = 1;
-					}	
-					else if(!(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])) && $estimate->lang == "ja|&eng_web"){	//web日英not、ja|&eng_webのとき	
-						$lang_flag = 1;
-					}	
-					else if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include"){		
-						$lang_flag = 1;
-					}	
-					break;				
+				// case(isset($display->ja[$checkitem->id]) && isset($display->eng[$checkitem->id])):	 //チェックボックス 日有・英有
+				// 	if(isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id]) && $estimate->lang == "ja&eng_app"){	//アプリ日英、ja&eng_appのとき	
+				// 		$lang_flag = 1;
+				// 	}	
+				// 	else if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id]) && $estimate->lang == "ja&eng_web"){	//web日英、ja&eng_webのとき	
+				// 		$lang_flag = 1;
+				// 	}	
+				// 	else if(!(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])) && $estimate->lang == "ja|&eng_web"){	//web日英not、ja|&eng_webのとき	
+				// 		$lang_flag = 1;
+				// 	}	
+				// 	else if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include"){		
+				// 		$lang_flag = 1;
+				// 	}	
+				// 	break;				
 				case((isset($display->web[$checkitem->id]) || isset($display->app[$checkitem->id]) || isset($display->common[$checkitem->id])) && (!isset($display->web_eng[$checkitem->id]) && !isset($display->app_eng[$checkitem->id]) && !isset($display->common_eng[$checkitem->id]))):	 //チェックボックス 日有・英無			
 					if($estimate->lang == "ja_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_app" || $estimate->lang == "ja|&eng_web"){		
 						$lang_flag = 1;
 					}	
 					break;	
+				case((isset($display->web[$checkitem->id]) xor isset($display->web_eng[$checkitem->id])) && (isset($display->app[$checkitem->id]) xor isset($display->app_eng[$checkitem->id]))):	 //チェックボックス 日有・英無（20240521追加。日無・英有=無しの場合の対策）		
+					if($estimate->lang == "ja_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_app" || $estimate->lang == "ja|&eng_web"){		
+						$lang_flag = 1;
+					}	
+					break;						
 				case((!isset($display->web[$checkitem->id]) && !isset($display->app[$checkitem->id]) && !isset($display->common[$checkitem->id])) && (isset($display->web_eng[$checkitem->id]) || isset($display->app_eng[$checkitem->id]) || isset($display->common_eng[$checkitem->id]))):	 //チェックボックス 日無・英有
 					if($estimate->lang == "eng_include" || $estimate->lang == "ja|eng" || $estimate->lang == "ja|&eng" || $estimate->lang == "ja|&eng_app" || $estimate->lang == "ja|&eng_web"){			
 						$lang_flag = 1;
@@ -157,16 +186,20 @@ foreach ($checkitems as $checkitem){
 					break;	
 				case((isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])) || (isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id])) || (isset($display->common[$checkitem->id]) && isset($display->common_eng[$checkitem->id]))):
 					if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id]) && isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id])){ //チェックボックス web日有・web英有・app日有・app英有
+
+						if(in_array($estimate->id,[176,177,178,179,180,181,182,183,184])){break;}/* 日英版（片端末）：デジポス,LIVE,ハイライトを除外 */						
 						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_web" || $estimate->lang == "ja&eng_app"){		
 							$lang_flag = 1;
 						}					
 					}
 					else if(isset($display->web[$checkitem->id]) && isset($display->web_eng[$checkitem->id])){ //チェックボックス web日有・web英有
+						if(in_array($estimate->id,[61,169,67,175,155,158,182,73,79])){break;}/* 日英版：デジポス,LIVE,ハイライトを除外 */
 						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_web" || $estimate->lang == "ja|&eng_app"){		
 							$lang_flag = 1;
 						}					
 					}
 					else if(isset($display->app[$checkitem->id]) && isset($display->app_eng[$checkitem->id])){ //チェックボックス app日有・app英有
+						if(in_array($estimate->id,[61,169,67,175,155,158,181,73,79])){break;}/* 日英版：デジポス,LIVE,ハイライトを除外 */
 						if($estimate->lang == "ja|eng" || $estimate->lang == "ja&eng" || $estimate->lang == "ja_include" || $estimate->lang == "eng_include" || $estimate->lang == "ja&eng_app" || $estimate->lang == "ja|&eng_web"){		
 							$lang_flag = 1;
 						}					

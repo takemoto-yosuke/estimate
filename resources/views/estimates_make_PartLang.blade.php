@@ -71,6 +71,24 @@
    認証無しリンク指定 　件数：<input type="number" id="link" name="link" value="0" min="0" style="width: 50px";>件
   </div>
   </td>  
+ @elseif ($checkitem->id == 15) <!-- デジポス -->
+  <td>
+  <div>{{ $checkitem->checkitem }}
+    <select id="dpos" name="dpos">
+        <option value="dpos-auth" selected>認証画面あり</option>
+        <option value="dpos-no-auth">認証画面なし</option>
+    </select>
+  </div>
+  </td>    
+ @elseif ($checkitem->id == 16) <!-- LIVE/オンデマンド -->
+  <td>
+  <div>{{ $checkitem->checkitem }}
+    <select id="live" name="live">
+        <option value="live-auth" selected>認証画面あり</option>
+        <option value="live-no-auth">認証画面なし</option>
+    </select>
+  </div>
+  </td>   
  @else
   <td class="create_table">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}

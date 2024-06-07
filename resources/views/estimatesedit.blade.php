@@ -63,7 +63,11 @@
                       <option value={{ $estimate->lang }}>{{ $estimate->lang }}</option>
                       <option name="lang">ja|eng</option>
                       <option name="lang">ja&eng</option>               
-                      <option name="lang">ja|&eng</option>  
+                      <option name="lang">ja|&eng</option>
+                      <option name="lang">ja&eng_web</option>
+                      <option name="lang">ja&eng_app</option>
+                      <option name="lang">ja|&eng_web</option>
+                      <option name="lang">ja|&eng_app</option>
                   </select>   
             </div>              
             <div class="form-group">
