@@ -318,9 +318,10 @@ foreach ($checkitems as $checkitem){
     	$estimate->prise = $estimate->unit_prise * $estimate->quantity;
       }      
      }
-	/* 左メニューカスタマイズー */     
-	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
+	/* 左メニューカスタマイズー */  
+
      echo '<td style="width: 0%;"></td>';
+	 echo "<td style='padding-left: 20px;'> $estimate->content </td>";
      echo '<td style="width: 0%;"></td>';
      echo '<td style="width: 0%;"></td>';
      echo '<td style="width: 0%;"></td>';
