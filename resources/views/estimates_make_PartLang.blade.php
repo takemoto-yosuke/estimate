@@ -88,7 +88,16 @@
         <option value="live-no-auth">認証画面なし</option>
     </select>
   </div>
-  </td>   
+  </td> 
+ @elseif ($checkitem->id == 18) <!-- 認証付き外部リンク -->
+  <td>
+  <div>{{ $checkitem->checkitem }}
+    <br>日ウェブ：<input type="number" id="external1" name="external1" value="0" min="0" style="width: 50px";>件
+    <br>日アプリ：<input type="number" id="external2" name="external2" value="0" min="0" style="width: 50px";>件
+    <br>英ウェブ：<input type="number" id="external3" name="external3" value="0" min="0" style="width: 50px";>件
+    <br>英アプリ：<input type="number" id="external4" name="external4" value="0" min="0" style="width: 50px";>件
+  </div>
+  </td>    
  @else
   <td class="create_table">
   <div class="chkbox_lang">{{ $checkitem->checkitem }}
